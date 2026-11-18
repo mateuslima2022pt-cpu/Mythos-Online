@@ -1,0 +1,86 @@
+MYTHOS ONLINE — O PRIMEIRO JURAMENTO
+Bosque da Aurora · Protótipo offline v0.1
+
+COMO ABRIR
+1. Extraia o ZIP para uma pasta do seu computador.
+2. Abra Mythos_Online_Offline_v0.1.html com dois cliques.
+3. Use Chrome, Edge, Firefox ou Safari atualizado no Windows ou macOS.
+Não precisa instalar Java, Node.js ou qualquer programa. Não precisa de internet.
+Se o arquivo abrir em um editor, clique com o botão direito e escolha “Abrir com” > navegador.
+O HTML é autossuficiente: imagens, estilos, regras e código estão dentro dele.
+
+COMECE AQUI
+Informe o nome do Guardião e entre na floresta. Aelric está ao norte da posição inicial,
+junto à bandeira azul. Aproxime-se e use F. A jornada apresenta exploração, esquiva,
+monstros, cristais, treinamento no nível 5 e um chefe nas ruínas a nordeste.
+Distribua os 5 pontos iniciais em C. Cada novo nível concede 5 pontos de atributos
+e 1 ponto de talentos. Você nasce sem técnica aprendida e sem pontos de talentos.
+Aelric ensina Golpe Frontal no nível 5. A mochila mostra os requisitos dos itens.
+As recompensas alteram o visual da espada, do escudo e da armadura.
+
+CONTROLES
+WASD          Mover
+Mouse         Direção do ataque
+Clique esquerdo / segurar   Ataque básico
+1             Golpe Frontal, após o treinamento
+2             Postura de Bastião, após o treinamento
+3 a 9         Espaços de técnicas vazios nesta versão
+Q             Esquiva: recarga de 10 segundos
+F1            Poção de vida
+F2            Poção de mana
+F             Interagir próximo de um personagem, cristal, pedra ou santuário
+Clique direito / esquerdo no objeto próximo   Interação contextual
+Shift + clique esquerdo   Forçar ataque próximo de um objeto interativo
+C             Personagem e distribuição de atributos
+I             Mochila e equipamentos
+T             Recorte da árvore de talentos (clique duas vezes no mesmo nó para investir)
+M             Mapa
+Esc           Opções / fechar painel
+
+PAUSA E TESTES
+Abrir um painel pausa a simulação; a perda de foco também pausa o jogo.
+Em Esc > Ferramentas de análise você pode preparar um Guardião de nível 5,
+ir às ruínas, voltar à clareira e restaurar recursos. Esses atalhos alteram o save.
+Exporte sua jornada antes se quiser preservar o progresso normal.
+O santuário da clareira restaura vida, mana e a reserva inicial de poções fora de combate.
+Ao ser derrotado você volta ao acampamento sem perder itens, EXP ou ouro nesta versão.
+
+SALVAMENTO
+O progresso fica neste navegador por localStorage, quando permitido pelo navegador.
+O jogo salva a cada 10 segundos, ao fechar painéis, coletar recompensas e ao sair.
+Para levar o progresso a outro computador, use Esc > Exportar jornada e guarde o JSON.
+Use Importar jornada para recuperar esse arquivo. Se o armazenamento for bloqueado,
+o indicador na tela informa que você deve exportar manualmente.
+Mover o HTML, trocar de navegador, limpar os dados ou usar navegação privada pode
+alterar a disponibilidade do salvamento. Guarde uma exportação para preservar a jornada.
+Personagem, equipamentos, missões e atributos persistem; criaturas e objetos de saque
+temporários são reinicializados ao carregar. A árvore de talentos também é salva.
+Este save local é de teste e não será importado como personagem do futuro servidor online.
+
+ESCOPO
+Uma região offline, um personagem jogável (Guardião), 3 famílias de criaturas comuns,
+1 chefe, 6 etapas de introdução, combate com indicação de golpes, equipamentos modulares,
+atributos, pequeno recorte da árvore compartilhada, poções, mapa e salvamento.
+Não inclui ainda multiplayer, contas, guildas, guerras, montarias, voo, refino ou pedras.
+Os valores de monstros, EXP e recompensas são calibrações desta área, sujeitas a revisão.
+Postura de Bastião: proposta de teste de 14 mana, 12 s de recarga, 2 s de duração,
+bloqueio frontal de 70% em 120 graus; não bloqueia ataques de área no chão.
+Durante a postura o deslocamento é reduzido a 70% da velocidade normal.
+Golpe Frontal: 140% do poder, 10 mana, recarga 5 s, preparo 0,25 s, recuperação 0,35 s,
+cone de 90 graus e alcance de 2 metros. 1 metro = 32 unidades do mundo.
+Poção de vida: 80 instantâneo; mana: 60 em 5 segundos; recargas separadas de 20 s.
+Talentos usam apenas parte do projeto da árvore, com 1 ponto por nó.
+
+PARA DESENVOLVEDORES
+src/core.js      Regras puras, progressão, dano, equipamentos e validação do save.
+src/world.js     Mapa determinístico, colisões, criaturas e pontos de interesse.
+src/render.js    Renderização Canvas 2D, efeitos e equipamentos em camadas.
+src/game.js      Entrada, simulação local, IA, interface, missões, áudio e salvamento.
+src/style.css / src/index.template.html   Interface.
+assets/         Arte original embutida na versão final.
+build.py        Execute “python build.py” para gerar o HTML e o ZIP.
+tests/core.test.js   Execute “node --test tests/core.test.js”.
+tests/simulation.test.js   Execute “node tests/simulation.test.js”.
+VALIDACAO.md registra as verificações e seus limites.
+O navegador não precisa de Python nem Node: eles servem apenas para desenvolver.
+ARQUITETURA.md explica o caminho para o MMORPG e o banco de dados.

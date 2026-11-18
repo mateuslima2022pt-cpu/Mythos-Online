@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark"><title>Mythos Online · Bosque da Aurora</title><style>/* INLINE_STYLE */</style></head>
+<body>
+<canvas id="world" aria-label="Bosque da Aurora, jogo controlado por teclado e mouse"></canvas>
+<div id="vignette"></div>
+<main id="hud" hidden>
+  <section id="profile" class="glass"><div class="crest" aria-hidden="true">♜</div><div class="profile-body"><div class="identity"><strong id="heroName">Guardião</strong><span id="level">NV 1</span></div><div class="classline">GUARDIÃO <span>•</span> CONTRATO DO AÇO</div><div class="bar health"><i id="hpFill"></i><span id="hpText"></span></div><div class="bar mana"><i id="mpFill"></i><span id="mpText"></span></div><div class="bar xp"><i id="xpFill"></i></div></div></section>
+  <section id="location"><span class="eyebrow">TERRAS DE ELDORIA</span><h1>Bosque da Aurora</h1><div><span class="status-dot"></span> <span id="areaName">Clareira do Primeiro Juramento</span></div></section>
+  <section id="mapBox" class="glass"><button id="mapButton" title="Abrir mapa [M]" aria-label="Abrir mapa"><canvas id="minimap" width="184" height="142"></canvas></button><div class="map-footer"><span>EXPLORAÇÃO</span><kbd>M</kbd></div></section>
+  <section id="questBox" class="glass"><div class="eyebrow">✧ JORNADA DO GUARDIÃO</div><h2 id="questTitle"></h2><div id="questGoals"></div><p id="questHint"></p></section>
+  <nav id="menuButtons" aria-label="Painéis"><button data-panel="character"><kbd>C</kbd> Personagem <b id="pointBadge"></b></button><button data-panel="inventory"><kbd>I</kbd> Mochila</button><button data-panel="tree"><kbd>T</kbd> Árvore</button><button data-panel="settings"><kbd>Esc</kbd> Opções</button></nav>
+  <div id="toastList" aria-live="polite"></div>
+  <div id="zoneBanner" hidden><small>VOCÊ DESCOBRIU</small><strong></strong></div>
+  <div id="interaction" hidden><kbd>F</kbd><span></span></div>
+  <div id="enemyTarget" class="glass" hidden><strong></strong><div class="bar health"><i></i><span></span></div></div>
+  <section id="consumables" class="glass"><button id="hpPotion" title="Poção de vida [F1]"><kbd>F1</kbd><span class="potion red">♟</span><b></b><em></em></button><button id="mpPotion" title="Poção de mana [F2]"><kbd>F2</kbd><span class="potion blue">♟</span><b></b><em></em></button><div class="wallet"><span>◈</span> <b id="goldText">0</b><small>OURO</small></div></section>
+  <section id="actionBar"><div id="skillHint">Clique para atacar · WASD para explorar</div><div class="hotbar glass"><button id="dashSlot" title="Passo Evasivo [Q] · 10 s de recarga"><kbd>Q</kbd><span>➶</span><em></em><small>ESQUIVA</small></button><div class="divider"></div><div id="skillSlots"></div><div class="mouse-slot"><span>⚔</span><small>MOUSE</small></div></div></section>
+  <div id="saveIndicator">● SALVO NESTE NAVEGADOR</div>
+  <div id="buildLabel">MYTHOS ONLINE <span>PROTÓTIPO OFFLINE · 0.1</span></div>
+</main>
+<section id="startScreen"><div class="cover-art"></div><div class="title-shade"></div><div class="title-content"><div class="edition">UMA NOVA HISTÓRIA COMEÇA AQUI</div><div class="ornament">────── ✧ ──────</div><h1>MYTHOS<span>ONLINE</span></h1><p class="title-subtitle">O PRIMEIRO JURAMENTO</p><div class="title-rule"></div><p class="intro">O bosque está mudando.<br>Escolha sua força. Proteja o que ainda vive.</p><label for="nameInput">COMO A FLORESTA VAI LEMBRAR DE VOCÊ?</label><input id="nameInput" maxlength="18" value="Guardião" autocomplete="off" spellcheck="false"><button id="startButton" class="primary">Entrar na floresta</button><button id="continueButton" hidden>Continuar jornada</button><div class="title-controls"><span><kbd>W A S D</kbd> mover</span><span><kbd>Mouse</kbd> atacar</span><span><kbd>F</kbd> interagir</span></div><p class="offline-label"><span class="status-dot"></span> OFFLINE · SEM INSTALAÇÃO · SALVAMENTO LOCAL</p></div><div class="title-version">BOSQUE DA AURORA<br><span>Guardião · Versão de análise 0.1</span></div></section>
+<div id="modalBackdrop" hidden><section id="modal" class="glass" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><header><div><div id="modalEyebrow" class="eyebrow">MYTHOS ONLINE</div><h2 id="modalTitle"></h2></div><button id="closeModal" aria-label="Fechar painel">✕ <kbd>Esc</kbd></button></header><div id="modalBody"></div></section></div>
+<div id="tooltip" hidden></div>
+<input type="file" id="saveFile" accept=".json,application/json" hidden>
+<script>/* INLINE_CORE */</script><script>/* INLINE_GAME */</script>
+</body></html>
