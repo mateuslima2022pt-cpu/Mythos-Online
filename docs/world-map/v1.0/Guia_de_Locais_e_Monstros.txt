@@ -1,0 +1,174 @@
+MYTHOS ONLINE — ATLAS DE ELYNDRA / TERRAS DE ELDORIA
+Proposta cartográfica v1.0 • Progressão PvE 1–99
+
+A01–A10: áreas abertas. D01–D11: entradas de instâncias.
+Faixas de nível são dos inimigos; cidades e vilas são zonas seguras.
+Códigos seguem o bestiário v1.0. D11 fica nos Charcos da Promessa.
+
+A01 — Bosque da Aurora | Vale da Aurora | Nv. 1–9
+Área aberta
+  Broto de Esporos — Nv. 1 — Comum
+  Gosma de Éter — Nv. 2 — Comum
+  Lobo das Raízes — Nv. 3 — Comum
+  Javali de Casca Férrea — Nv. 6 — Elite
+  Cerne Corrompido — Nv. 5 — Chefe regional
+
+D01 — Gruta da Raiz Antiga | Vale da Aurora | Nv. 7–9
+Dungeon instanciada
+  Aranha de Seiva — Nv. 7 — Comum de dungeon
+  Guardião da Raiz Oca — Nv. 8 — Miniboss
+  Matriarca das Esporas — Nv. 9 — Chefe de dungeon
+
+A02 — Santuários das Cinzas | Bosque das Cinzas | Nv. 10–19
+Área aberta
+  Vespa de Âmbar — Nv. 10 — Comum
+  Corvo Cinzento — Nv. 12 — Comum
+  Dríade Carbonizada — Nv. 14 — Comum
+  Sentinela da Seiva Negra — Nv. 16 — Elite
+  Cervo das Cinzas — Nv. 18 — Chefe regional
+
+D02 — Santuário das Brasas Silenciosas | Bosque das Cinzas | Nv. 16–19
+Dungeon instanciada
+  Acólito da Brasa — Nv. 16 — Comum de dungeon
+  Sacerdotisa do Carvão — Nv. 17 — Miniboss
+  Avelith, a Árvore em Luto — Nv. 19 — Chefe de dungeon
+
+A03 — Minas de Ferrabruma | Cordilheira de Ferro | Nv. 20–29
+Área aberta
+  Kobold Escavador — Nv. 20 — Comum
+  Morcego de Cristal — Nv. 22 — Comum
+  Besouro Ferruginoso — Nv. 24 — Comum
+  Capataz da Picareta Rubra — Nv. 26 — Elite
+  Colosso de Ferrabruma — Nv. 28 — Chefe regional
+
+D03 — Galerias do Rei de Ferro | Cordilheira de Ferro | Nv. 25–29
+Dungeon instanciada
+  Autômato de Escória — Nv. 25 — Comum de dungeon
+  Golem da Forja Cega — Nv. 27 — Miniboss
+  Durgan, o Rei Acorrentado — Nv. 29 — Chefe de dungeon
+
+A04 — Charcos da Promessa | Pântano dos Juramentos | Nv. 30–39
+Área aberta
+  Sapo de Lodo Negro — Nv. 30 — Comum
+  Sanguessuga do Brejo — Nv. 32 — Comum
+  Juramentado Afogado — Nv. 34 — Comum
+  Cavaleiro da Lama — Nv. 36 — Elite
+  Hidra dos Juramentos — Nv. 38 — Chefe regional
+
+D04 — Mausoléu do Juramento | Pântano dos Juramentos | Nv. 35–39
+Dungeon instanciada
+  Escudeiro Sepulcral — Nv. 35 — Comum de dungeon
+  Arauto da Coroa — Nv. 37 — Miniboss
+  Rei da Coroa Partida — Nv. 39 — Chefe de dungeon
+
+A05 — Dunas de Vidro | Ermos de Aster | Nv. 40–49
+Área aberta
+  Escorpião de Vidro — Nv. 40 — Comum
+  Salteador das Dunas — Nv. 42 — Comum
+  Serpente de Areia — Nv. 44 — Comum
+  Guardião do Obelisco — Nv. 46 — Elite
+  Verme das Dunas Eternas — Nv. 48 — Chefe regional
+
+D05 — Observatório Soterrado | Ermos de Aster | Nv. 45–49
+Dungeon instanciada
+  Astrônomo Esvaziado — Nv. 45 — Comum de dungeon
+  Esfinge do Crepúsculo — Nv. 47 — Miniboss
+  Oráculo do Sol Partido — Nv. 49 — Chefe de dungeon
+
+A06 — Cumes do Inverno Longo | Cordilheira de Ferro | Nv. 50–59
+Área aberta
+  Lobo da Geada — Nv. 50 — Comum
+  Revenante Glacial — Nv. 52 — Comum
+  Harpia da Nevasca — Nv. 54 — Comum
+  Berserker de Gelo — Nv. 56 — Elite
+  Mamulque, o Passo Branco — Nv. 58 — Chefe regional
+
+D06 — Fortaleza do Inverno Longo | Cordilheira de Ferro | Nv. 55–59
+Dungeon instanciada
+  Custódio da Geleira — Nv. 55 — Comum de dungeon
+  Carcereiro da Nevasca — Nv. 57 — Miniboss
+  Ysvora, Rainha do Inverno — Nv. 59 — Chefe de dungeon
+
+A07 — Caldeira de Aster | Ermos de Aster | Nv. 60–69
+Área aberta
+  Salamandra de Brasa — Nv. 60 — Comum
+  Diabrete de Escória — Nv. 62 — Comum
+  Basilisco Basáltico — Nv. 64 — Comum
+  Forjador Incandescente — Nv. 66 — Elite
+  Tartaruga da Caldeira — Nv. 68 — Chefe regional
+
+D07 — Coração da Caldeira | Ermos de Aster | Nv. 65–69
+Dungeon instanciada
+  Cão da Forja — Nv. 65 — Comum de dungeon
+  Carrasco da Escória — Nv. 67 — Miniboss
+  Varkhûn, o Coração Ígneo — Nv. 69 — Chefe de dungeon
+
+A08 — Arquipélago dos Ventos | Ilhas do Véu | Nv. 70–79
+Área aberta
+  Raia Celeste — Nv. 70 — Comum
+  Gárgula do Zéfiro — Nv. 72 — Comum
+  Elemental da Tempestade — Nv. 74 — Comum
+  Sentinela de Auralita — Nv. 76 — Elite
+  Grifo do Trovão — Nv. 78 — Chefe regional
+
+D08 — Torre dos Ventos Partidos | Ilhas do Véu | Nv. 75–79
+Dungeon instanciada
+  Monge do Vento Oco — Nv. 75 — Comum de dungeon
+  Guardião das Quatro Correntes — Nv. 77 — Miniboss
+  Serapha, a Asa da Tempestade — Nv. 79 — Chefe de dungeon
+
+A09 — Ruínas da Lua Fraturada | Ermos de Aster | Nv. 80–89
+Área aberta
+  Fragmento Errante — Nv. 80 — Comum
+  Espectro do Arquivo — Nv. 82 — Comum
+  Devorador de Runas — Nv. 84 — Comum
+  Inquisidor da Lua Vazia — Nv. 86 — Elite
+  Colosso do Astrolábio — Nv. 88 — Chefe regional
+
+D09 — Arquivo da Lua Fraturada | Ermos de Aster | Nv. 85–89
+Dungeon instanciada
+  Bibliotecário Sem Nome — Nv. 85 — Comum de dungeon
+  Arquivista dos Ecos — Nv. 87 — Miniboss
+  Nocthar, o Olho da Ruptura — Nv. 89 — Chefe de dungeon
+
+A10 — Fronteira da Ruptura | Ilhas do Véu | Nv. 90–99
+Área aberta
+  Vigia do Vazio — Nv. 90 — Comum
+  Devorador de Memórias — Nv. 92 — Comum
+  Arauto da Fenda — Nv. 94 — Comum
+  Executor da Ruptura — Nv. 96 — Elite
+  Dragão do Eclipse — Nv. 98 — Chefe regional
+
+D10 — Cidadela do Primeiro Vazio | Ilhas do Véu | Nv. 95–99
+Raid
+  Custódio Sem Tempo — Nv. 95 — Comum de dungeon
+  As Gêmeas do Paradoxo — Nv. 97 — Miniboss
+  Azheryon, o Primeiro Vazio — Nv. 99 — Chefe de raid
+
+D11 — Cripta da Coroa Partida | Pântano dos Juramentos | Nv. 35–39
+Dungeon instanciada
+  Porteiro Sem Nome — Nv. 35 — Miniboss
+  Irmãs do Sino — Nv. 37 — Miniboss
+  Rei Oco — Nv. 39 — Chefe de dungeon
+
+CAPITAIS — propostas de localização
+Porto da Aurora — Vale da Aurora
+Braseira — Bosque das Cinzas
+Ferrabruma — Cordilheira de Ferro
+Vigília do Juramento — Pântano dos Juramentos
+Asterion — Ermos de Aster
+Altavéu — Ilhas do Véu
+
+VILAS — propostas de localização
+Vila do Primeiro Juramento — Vale da Aurora
+Vila das Brasas — Bosque das Cinzas
+Posto da Picareta — Cordilheira de Ferro
+Vila do Sino — Pântano dos Juramentos
+Oásis de Vidro — Ermos de Aster
+Porto das Nuvens — Ilhas do Véu
+
+Geografia, novas cidades, rotas e nomes são propostas para análise.
+Porto da Aurora e as seis macrorregiões vêm do GDD; áreas e instâncias seguem o bestiário.
+Elyndra é o mundo do GDD; Eldoria preserva a denominação das terras no protótipo.
+Nenhuma mudança foi aplicada ao jogo. Não há escala real, coordenadas de gameplay ou bloqueios por nível definidos.
+Os 33 encontros de instâncias permanecem dentro de D01–D11; a prancha de habitats lista os 50 de campo.

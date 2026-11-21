@@ -1,0 +1,968 @@
+{
+  "version": "1.0",
+  "status": "Proposta cartográfica para análise",
+  "world": "Elyndra",
+  "territory": "Terras de Eldoria",
+  "capitals": [
+    {
+      "name": "Porto da Aurora",
+      "region": "Vale da Aurora",
+      "safe": true
+    },
+    {
+      "name": "Braseira",
+      "region": "Bosque das Cinzas",
+      "safe": true
+    },
+    {
+      "name": "Ferrabruma",
+      "region": "Cordilheira de Ferro",
+      "safe": true
+    },
+    {
+      "name": "Vigília do Juramento",
+      "region": "Pântano dos Juramentos",
+      "safe": true
+    },
+    {
+      "name": "Asterion",
+      "region": "Ermos de Aster",
+      "safe": true
+    },
+    {
+      "name": "Altavéu",
+      "region": "Ilhas do Véu",
+      "safe": true
+    }
+  ],
+  "villages": [
+    {
+      "name": "Vila do Primeiro Juramento",
+      "region": "Vale da Aurora",
+      "safe": true
+    },
+    {
+      "name": "Vila das Brasas",
+      "region": "Bosque das Cinzas",
+      "safe": true
+    },
+    {
+      "name": "Posto da Picareta",
+      "region": "Cordilheira de Ferro",
+      "safe": true
+    },
+    {
+      "name": "Vila do Sino",
+      "region": "Pântano dos Juramentos",
+      "safe": true
+    },
+    {
+      "name": "Oásis de Vidro",
+      "region": "Ermos de Aster",
+      "safe": true
+    },
+    {
+      "name": "Porto das Nuvens",
+      "region": "Ilhas do Véu",
+      "safe": true
+    }
+  ],
+  "places": [
+    {
+      "id": "A01",
+      "name": "Bosque da Aurora",
+      "region": "Vale da Aurora",
+      "levels": "1–9",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Floresta temperada encantada",
+      "monsters": [
+        "M0101",
+        "M0102",
+        "M0103",
+        "M0104",
+        "M0105"
+      ],
+      "duration": "Livre",
+      "implemented": "Parcial: área do protótipo",
+      "encounters": [
+        {
+          "id": "M0101",
+          "name": "Broto de Esporos",
+          "level": 1,
+          "category": "Comum"
+        },
+        {
+          "id": "M0102",
+          "name": "Gosma de Éter",
+          "level": 2,
+          "category": "Comum"
+        },
+        {
+          "id": "M0103",
+          "name": "Lobo das Raízes",
+          "level": 3,
+          "category": "Comum"
+        },
+        {
+          "id": "M0104",
+          "name": "Javali de Casca Férrea",
+          "level": 6,
+          "category": "Elite"
+        },
+        {
+          "id": "M0105",
+          "name": "Cerne Corrompido",
+          "level": 5,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D01",
+      "name": "Gruta da Raiz Antiga",
+      "region": "Vale da Aurora",
+      "levels": "7–9",
+      "kind": "Dungeon instanciada",
+      "party": 3,
+      "climate": "Floresta temperada encantada",
+      "monsters": [
+        "M0106",
+        "M0107",
+        "M0108"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0106",
+          "name": "Aranha de Seiva",
+          "level": 7,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0107",
+          "name": "Guardião da Raiz Oca",
+          "level": 8,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0108",
+          "name": "Matriarca das Esporas",
+          "level": 9,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "name": "Santuários das Cinzas",
+      "region": "Bosque das Cinzas",
+      "levels": "10–19",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Floresta enevoada e madeira carbonizada",
+      "monsters": [
+        "M0201",
+        "M0202",
+        "M0203",
+        "M0204",
+        "M0205"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0201",
+          "name": "Vespa de Âmbar",
+          "level": 10,
+          "category": "Comum"
+        },
+        {
+          "id": "M0202",
+          "name": "Corvo Cinzento",
+          "level": 12,
+          "category": "Comum"
+        },
+        {
+          "id": "M0203",
+          "name": "Dríade Carbonizada",
+          "level": 14,
+          "category": "Comum"
+        },
+        {
+          "id": "M0204",
+          "name": "Sentinela da Seiva Negra",
+          "level": 16,
+          "category": "Elite"
+        },
+        {
+          "id": "M0205",
+          "name": "Cervo das Cinzas",
+          "level": 18,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D02",
+      "name": "Santuário das Brasas Silenciosas",
+      "region": "Bosque das Cinzas",
+      "levels": "16–19",
+      "kind": "Dungeon instanciada",
+      "party": 4,
+      "climate": "Floresta enevoada e madeira carbonizada",
+      "monsters": [
+        "M0206",
+        "M0207",
+        "M0208"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0206",
+          "name": "Acólito da Brasa",
+          "level": 16,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0207",
+          "name": "Sacerdotisa do Carvão",
+          "level": 17,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0208",
+          "name": "Avelith, a Árvore em Luto",
+          "level": 19,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "name": "Minas de Ferrabruma",
+      "region": "Cordilheira de Ferro",
+      "levels": "20–29",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Encostas frias, minas e fortalezas",
+      "monsters": [
+        "M0301",
+        "M0302",
+        "M0303",
+        "M0304",
+        "M0305"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0301",
+          "name": "Kobold Escavador",
+          "level": 20,
+          "category": "Comum"
+        },
+        {
+          "id": "M0302",
+          "name": "Morcego de Cristal",
+          "level": 22,
+          "category": "Comum"
+        },
+        {
+          "id": "M0303",
+          "name": "Besouro Ferruginoso",
+          "level": 24,
+          "category": "Comum"
+        },
+        {
+          "id": "M0304",
+          "name": "Capataz da Picareta Rubra",
+          "level": 26,
+          "category": "Elite"
+        },
+        {
+          "id": "M0305",
+          "name": "Colosso de Ferrabruma",
+          "level": 28,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D03",
+      "name": "Galerias do Rei de Ferro",
+      "region": "Cordilheira de Ferro",
+      "levels": "25–29",
+      "kind": "Dungeon instanciada",
+      "party": 4,
+      "climate": "Encostas frias, minas e fortalezas",
+      "monsters": [
+        "M0306",
+        "M0307",
+        "M0308"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0306",
+          "name": "Autômato de Escória",
+          "level": 25,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0307",
+          "name": "Golem da Forja Cega",
+          "level": 27,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0308",
+          "name": "Durgan, o Rei Acorrentado",
+          "level": 29,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "name": "Charcos da Promessa",
+      "region": "Pântano dos Juramentos",
+      "levels": "30–39",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Brejo tóxico, neblina e criptas",
+      "monsters": [
+        "M0401",
+        "M0402",
+        "M0403",
+        "M0404",
+        "M0405"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0401",
+          "name": "Sapo de Lodo Negro",
+          "level": 30,
+          "category": "Comum"
+        },
+        {
+          "id": "M0402",
+          "name": "Sanguessuga do Brejo",
+          "level": 32,
+          "category": "Comum"
+        },
+        {
+          "id": "M0403",
+          "name": "Juramentado Afogado",
+          "level": 34,
+          "category": "Comum"
+        },
+        {
+          "id": "M0404",
+          "name": "Cavaleiro da Lama",
+          "level": 36,
+          "category": "Elite"
+        },
+        {
+          "id": "M0405",
+          "name": "Hidra dos Juramentos",
+          "level": 38,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D04",
+      "name": "Mausoléu do Juramento",
+      "region": "Pântano dos Juramentos",
+      "levels": "35–39",
+      "kind": "Dungeon instanciada",
+      "party": 4,
+      "climate": "Brejo tóxico, neblina e criptas",
+      "monsters": [
+        "M0406",
+        "M0407",
+        "M0408"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0406",
+          "name": "Escudeiro Sepulcral",
+          "level": 35,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0407",
+          "name": "Arauto da Coroa",
+          "level": 37,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0408",
+          "name": "Rei da Coroa Partida",
+          "level": 39,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "name": "Dunas de Vidro",
+      "region": "Ermos de Aster",
+      "levels": "40–49",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Deserto de cristal e tempestades de areia",
+      "monsters": [
+        "M0501",
+        "M0502",
+        "M0503",
+        "M0504",
+        "M0505"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0501",
+          "name": "Escorpião de Vidro",
+          "level": 40,
+          "category": "Comum"
+        },
+        {
+          "id": "M0502",
+          "name": "Salteador das Dunas",
+          "level": 42,
+          "category": "Comum"
+        },
+        {
+          "id": "M0503",
+          "name": "Serpente de Areia",
+          "level": 44,
+          "category": "Comum"
+        },
+        {
+          "id": "M0504",
+          "name": "Guardião do Obelisco",
+          "level": 46,
+          "category": "Elite"
+        },
+        {
+          "id": "M0505",
+          "name": "Verme das Dunas Eternas",
+          "level": 48,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D05",
+      "name": "Observatório Soterrado",
+      "region": "Ermos de Aster",
+      "levels": "45–49",
+      "kind": "Dungeon instanciada",
+      "party": 5,
+      "climate": "Deserto de cristal e tempestades de areia",
+      "monsters": [
+        "M0506",
+        "M0507",
+        "M0508"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0506",
+          "name": "Astrônomo Esvaziado",
+          "level": 45,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0507",
+          "name": "Esfinge do Crepúsculo",
+          "level": 47,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0508",
+          "name": "Oráculo do Sol Partido",
+          "level": 49,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "name": "Cumes do Inverno Longo",
+      "region": "Cordilheira de Ferro",
+      "levels": "50–59",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Geleiras, neve e ruínas glaciares",
+      "monsters": [
+        "M0601",
+        "M0602",
+        "M0603",
+        "M0604",
+        "M0605"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0601",
+          "name": "Lobo da Geada",
+          "level": 50,
+          "category": "Comum"
+        },
+        {
+          "id": "M0602",
+          "name": "Revenante Glacial",
+          "level": 52,
+          "category": "Comum"
+        },
+        {
+          "id": "M0603",
+          "name": "Harpia da Nevasca",
+          "level": 54,
+          "category": "Comum"
+        },
+        {
+          "id": "M0604",
+          "name": "Berserker de Gelo",
+          "level": 56,
+          "category": "Elite"
+        },
+        {
+          "id": "M0605",
+          "name": "Mamulque, o Passo Branco",
+          "level": 58,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D06",
+      "name": "Fortaleza do Inverno Longo",
+      "region": "Cordilheira de Ferro",
+      "levels": "55–59",
+      "kind": "Dungeon instanciada",
+      "party": 5,
+      "climate": "Geleiras, neve e ruínas glaciares",
+      "monsters": [
+        "M0606",
+        "M0607",
+        "M0608"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0606",
+          "name": "Custódio da Geleira",
+          "level": 55,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0607",
+          "name": "Carcereiro da Nevasca",
+          "level": 57,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0608",
+          "name": "Ysvora, Rainha do Inverno",
+          "level": 59,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A07",
+      "name": "Caldeira de Aster",
+      "region": "Ermos de Aster",
+      "levels": "60–69",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Vulcão, cinzas e rios de lava",
+      "monsters": [
+        "M0701",
+        "M0702",
+        "M0703",
+        "M0704",
+        "M0705"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0701",
+          "name": "Salamandra de Brasa",
+          "level": 60,
+          "category": "Comum"
+        },
+        {
+          "id": "M0702",
+          "name": "Diabrete de Escória",
+          "level": 62,
+          "category": "Comum"
+        },
+        {
+          "id": "M0703",
+          "name": "Basilisco Basáltico",
+          "level": 64,
+          "category": "Comum"
+        },
+        {
+          "id": "M0704",
+          "name": "Forjador Incandescente",
+          "level": 66,
+          "category": "Elite"
+        },
+        {
+          "id": "M0705",
+          "name": "Tartaruga da Caldeira",
+          "level": 68,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D07",
+      "name": "Coração da Caldeira",
+      "region": "Ermos de Aster",
+      "levels": "65–69",
+      "kind": "Dungeon instanciada",
+      "party": 5,
+      "climate": "Vulcão, cinzas e rios de lava",
+      "monsters": [
+        "M0706",
+        "M0707",
+        "M0708"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0706",
+          "name": "Cão da Forja",
+          "level": 65,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0707",
+          "name": "Carrasco da Escória",
+          "level": 67,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0708",
+          "name": "Varkhûn, o Coração Ígneo",
+          "level": 69,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A08",
+      "name": "Arquipélago dos Ventos",
+      "region": "Ilhas do Véu",
+      "levels": "70–79",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Ilhas flutuantes, tempestades e ruínas aéreas",
+      "monsters": [
+        "M0801",
+        "M0802",
+        "M0803",
+        "M0804",
+        "M0805"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0801",
+          "name": "Raia Celeste",
+          "level": 70,
+          "category": "Comum"
+        },
+        {
+          "id": "M0802",
+          "name": "Gárgula do Zéfiro",
+          "level": 72,
+          "category": "Comum"
+        },
+        {
+          "id": "M0803",
+          "name": "Elemental da Tempestade",
+          "level": 74,
+          "category": "Comum"
+        },
+        {
+          "id": "M0804",
+          "name": "Sentinela de Auralita",
+          "level": 76,
+          "category": "Elite"
+        },
+        {
+          "id": "M0805",
+          "name": "Grifo do Trovão",
+          "level": 78,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D08",
+      "name": "Torre dos Ventos Partidos",
+      "region": "Ilhas do Véu",
+      "levels": "75–79",
+      "kind": "Dungeon instanciada",
+      "party": 5,
+      "climate": "Ilhas flutuantes, tempestades e ruínas aéreas",
+      "monsters": [
+        "M0806",
+        "M0807",
+        "M0808"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0806",
+          "name": "Monge do Vento Oco",
+          "level": 75,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0807",
+          "name": "Guardião das Quatro Correntes",
+          "level": 77,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0808",
+          "name": "Serapha, a Asa da Tempestade",
+          "level": 79,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A09",
+      "name": "Ruínas da Lua Fraturada",
+      "region": "Ermos de Aster",
+      "levels": "80–89",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Ruínas arcanas sob céu crepuscular",
+      "monsters": [
+        "M0901",
+        "M0902",
+        "M0903",
+        "M0904",
+        "M0905"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0901",
+          "name": "Fragmento Errante",
+          "level": 80,
+          "category": "Comum"
+        },
+        {
+          "id": "M0902",
+          "name": "Espectro do Arquivo",
+          "level": 82,
+          "category": "Comum"
+        },
+        {
+          "id": "M0903",
+          "name": "Devorador de Runas",
+          "level": 84,
+          "category": "Comum"
+        },
+        {
+          "id": "M0904",
+          "name": "Inquisidor da Lua Vazia",
+          "level": 86,
+          "category": "Elite"
+        },
+        {
+          "id": "M0905",
+          "name": "Colosso do Astrolábio",
+          "level": 88,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D09",
+      "name": "Arquivo da Lua Fraturada",
+      "region": "Ermos de Aster",
+      "levels": "85–89",
+      "kind": "Dungeon instanciada",
+      "party": 5,
+      "climate": "Ruínas arcanas sob céu crepuscular",
+      "monsters": [
+        "M0906",
+        "M0907",
+        "M0908"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M0906",
+          "name": "Bibliotecário Sem Nome",
+          "level": 85,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M0907",
+          "name": "Arquivista dos Ecos",
+          "level": 87,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M0908",
+          "name": "Nocthar, o Olho da Ruptura",
+          "level": 89,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    },
+    {
+      "id": "A10",
+      "name": "Fronteira da Ruptura",
+      "region": "Ilhas do Véu",
+      "levels": "90–99",
+      "kind": "Área aberta",
+      "party": "Solo / eventos públicos",
+      "climate": "Fragmentos de realidade e fortalezas no vazio",
+      "monsters": [
+        "M1001",
+        "M1002",
+        "M1003",
+        "M1004",
+        "M1005"
+      ],
+      "duration": "Livre",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M1001",
+          "name": "Vigia do Vazio",
+          "level": 90,
+          "category": "Comum"
+        },
+        {
+          "id": "M1002",
+          "name": "Devorador de Memórias",
+          "level": 92,
+          "category": "Comum"
+        },
+        {
+          "id": "M1003",
+          "name": "Arauto da Fenda",
+          "level": 94,
+          "category": "Comum"
+        },
+        {
+          "id": "M1004",
+          "name": "Executor da Ruptura",
+          "level": 96,
+          "category": "Elite"
+        },
+        {
+          "id": "M1005",
+          "name": "Dragão do Eclipse",
+          "level": 98,
+          "category": "Chefe regional"
+        }
+      ]
+    },
+    {
+      "id": "D10",
+      "name": "Cidadela do Primeiro Vazio",
+      "region": "Ilhas do Véu",
+      "levels": "95–99",
+      "kind": "Raid",
+      "party": 8,
+      "climate": "Fragmentos de realidade e fortalezas no vazio",
+      "monsters": [
+        "M1006",
+        "M1007",
+        "M1008"
+      ],
+      "duration": "45–60 min",
+      "implemented": "Proposta",
+      "encounters": [
+        {
+          "id": "M1006",
+          "name": "Custódio Sem Tempo",
+          "level": 95,
+          "category": "Comum de dungeon"
+        },
+        {
+          "id": "M1007",
+          "name": "As Gêmeas do Paradoxo",
+          "level": 97,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M1008",
+          "name": "Azheryon, o Primeiro Vazio",
+          "level": 99,
+          "category": "Chefe de raid"
+        }
+      ]
+    },
+    {
+      "id": "D11",
+      "name": "Cripta da Coroa Partida",
+      "region": "Pântano dos Juramentos",
+      "levels": "35–39",
+      "kind": "Dungeon instanciada",
+      "party": 4,
+      "climate": "Cripta sob uma fortaleza abandonada",
+      "monsters": [
+        "M1101",
+        "M1102",
+        "M1103"
+      ],
+      "duration": "25–40 min",
+      "implemented": "Proposta de piloto do GDD",
+      "encounters": [
+        {
+          "id": "M1101",
+          "name": "Porteiro Sem Nome",
+          "level": 35,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M1102",
+          "name": "Irmãs do Sino",
+          "level": 37,
+          "category": "Miniboss"
+        },
+        {
+          "id": "M1103",
+          "name": "Rei Oco",
+          "level": 39,
+          "category": "Chefe de dungeon"
+        }
+      ]
+    }
+  ]
+}

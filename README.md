@@ -2,6 +2,16 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
+## Atlas de Elyndra — Mapa e habitats v1.0
+
+- [Mapa PNG: regiões, capitais, vilas e entradas de dungeons](docs/world-map/v1.0/Mythos_Online_Mapa_Elyndra_v1.0.png)
+- [Habitats PNG: 50 encontros de campo e seus níveis](docs/world-map/v1.0/Mythos_Online_Habitats_v1.0.png)
+- [Baixar os dois PNGs e guia completo (ZIP)](docs/world-map/v1.0/Mythos_Online_Mapa_e_Habitats_v1.0.zip)
+- [Distribuição dos 83 encontros por local](docs/world-map/v1.0/Guia_de_Locais_e_Monstros.txt)
+
+Proposta cartográfica para análise: seis macrorregiões, dez áreas Nv. 1–99,
+seis capitais, seis vilas e onze entradas de instâncias. Não altera o jogo.
+
 ## Bestiário ilustrado v1.0 — Progressão 1–99
 
 - **[Pacote de 11 PNGs e catálogo](docs/bestiary/v1.0/Mythos_Online_Bestiario_PNG_v1.0.zip)**
