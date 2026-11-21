@@ -2,29 +2,33 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
-## Protótipo offline v0.4 — Inventário em slots
+## Protótipo offline v0.5 — Armas primária e secundária
 
 Bosque da Aurora jogável com Guardião, monstros, missões, chefe, interface clássica,
 cursores contextuais animados e o inventário aprovado.
 
-- **[Novo HTML autossuficiente](prototypes/offline/v0.4/Mythos_Online_Offline_v0.4.html)**
-- **[Baixar pacote completo ZIP](prototypes/offline/v0.4/Mythos_Online_Offline_v0.4.zip)**
-- [Instruções e código-fonte](prototypes/offline/v0.4/README.md)
-- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.4/ARQUITETURA.md)
+- **[Novo HTML autossuficiente](prototypes/offline/v0.5/Mythos_Online_Offline_v0.5.html)**
+- **[Baixar pacote completo ZIP](prototypes/offline/v0.5/Mythos_Online_Offline_v0.5.zip)**
+- [Instruções e código-fonte](prototypes/offline/v0.5/README.md)
+- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.5/ARQUITETURA.md)
 
 No GitHub, use **Download raw file**. Para jogar, abra o HTML no navegador do desktop,
 ou extraia o ZIP e abra o HTML. Funciona offline e sem instalação.
 
-A v0.4 aplica o inventário vertical com 14 encaixes e 48 espaços de mochila,
-ícones vazios foscos e itens ocupados em destaque. A moeda fica no rodapé.
-**Soltar moedas abre somente ao clicar na moeda**: escolha o valor, confirme em OK,
-feche a mochila e clique na pilha no chão para recolher. Cancelar mantém o saldo.
+A v0.5 adiciona os encaixes de arma primária e secundária ao lado da bota:
+**primária à esquerda, secundária à direita**, totalizando 16 encaixes e mantendo
+48 espaços de mochila. Arma de uma mão equipa à esquerda por padrão; escudos
+somente à direita. Arma de duas mãos ocupa os dois encaixes com o mesmo item,
+sem duplicar posse ou atributos. Retirar por qualquer mão libera ambas.
+Para testar, use **Esc > Ferramentas de análise > Adicionar arma de duas mãos**.
 
+A moeda continua no rodapé e **Soltar moedas abre somente ao clicar na moeda**.
 Para preservar o progresso, exporte a jornada na versão anterior e importe o JSON
 no novo HTML. Moedas que o jogador solta também são incluídas no save.
 
-Versões anteriores: [0.3](prototypes/offline/v0.3/README.md),
-[0.2](prototypes/offline/v0.2/README.md) e [0.1](prototypes/offline/v0.1/README.md).
+Versões anteriores: [0.4](prototypes/offline/v0.4/README.md),
+[0.3](prototypes/offline/v0.3/README.md), [0.2](prototypes/offline/v0.2/README.md)
+e [0.1](prototypes/offline/v0.1/README.md).
 
 ## Documentação de design — GDD v1.0
 
