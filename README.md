@@ -2,6 +2,20 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
+## Bestiário ilustrado v1.0 — Progressão 1–99
+
+- **[Pacote de 11 PNGs e catálogo](docs/bestiary/v1.0/Mythos_Online_Bestiario_PNG_v1.0.zip)**
+- **[PDF ilustrado de 23 páginas](docs/bestiary/v1.0/Mythos_Online_Bestiario_v1.0.pdf)**
+- [Catálogo HTML offline em arquivo único](docs/bestiary/v1.0/Mythos_Online_Bestiario_v1.0.html)
+- [Planilha CSV](docs/bestiary/v1.0/CATALOGO_MONSTROS.csv)
+- [Critérios de balanceamento](docs/bestiary/v1.0/BALANCEAMENTO.md)
+
+83 fichas, dez áreas e onze instâncias PvE, incluindo a Cripta da Coroa Partida
+com os três encontros previstos no GDD. Artes conceituais com nome, nível e categoria;
+HP, ataque, defesas, dano, dificuldade, grupo, mecânicas e recompensas nas fichas.
+Quatro encontros preservam os dados do protótipo. Os demais são propostas e não
+foram aplicados ao jogo. No ZIP, extraia e abra index.html; o HTML avulso é autossuficiente.
+
 ## Estudo independente da árvore de passivas v1.0
 
 - **[HTML offline somente da árvore](prototypes/passive-tree/v1.0/Mythos_Online_Arvore_Passivas_v1.0.html)**
