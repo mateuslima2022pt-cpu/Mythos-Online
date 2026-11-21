@@ -2,33 +2,33 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
-## Protótipo offline v0.6 — Aba Roupas aprovada
+## Protótipo offline v0.7 — Slots visuais centralizados
 
 Bosque da Aurora jogável com Guardião, monstros, missões, chefe, interface clássica,
 cursores contextuais animados e o inventário aprovado.
 
-- **[Novo HTML autossuficiente](prototypes/offline/v0.6/Mythos_Online_Offline_v0.6.html)**
-- **[Baixar pacote completo ZIP](prototypes/offline/v0.6/Mythos_Online_Offline_v0.6.zip)**
-- [Instruções e código-fonte](prototypes/offline/v0.6/README.md)
-- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.6/ARQUITETURA.md)
+- **[Novo HTML autossuficiente](prototypes/offline/v0.7/Mythos_Online_Offline_v0.7.html)**
+- **[Baixar pacote completo ZIP](prototypes/offline/v0.7/Mythos_Online_Offline_v0.7.zip)**
+- [Instruções e código-fonte](prototypes/offline/v0.7/README.md)
+- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.7/ARQUITETURA.md)
 
 No GitHub, use **Download raw file**. Para jogar, abra o HTML no navegador do desktop,
 ou extraia o ZIP e abra o HTML. Funciona offline e sem instalação.
 
-A v0.6 remove a aba Provador e aplica o modelo de **Roupas** com silhueta central,
-seis encaixes cosméticos foscos e uma coleção de 48 espaços, inicialmente vazia.
-Visual de arma, roupa superior e calça ficam à esquerda; cabeça, luvas e botas
-à direita. Conjuntos e skins serão adicionados ao desenvolvermos esses itens.
+A v0.7 remove a silhueta da aba **Roupas** e agrupa os seis encaixes visuais no
+centro, em duas colunas de três, mantendo a paleta e os ícones foscos. A coleção
+permanece com 48 espaços. As abas são Normal e Roupas; Provador foi removido.
 A aba Normal mantém os 16 encaixes e as regras de armas primária, secundária e
 duas mãos. Ouro no rodapé em ambas as abas; **Soltar moedas abre somente ao clicar
-na moeda**. Trocar de aba não altera o equipamento nem o saldo.
+na moeda**. Conjuntos e skins serão adicionados ao desenvolvermos esses itens.
 
 Para preservar o progresso, exporte a jornada na versão anterior e importe o JSON
 no novo HTML. Moedas que o jogador solta também são incluídas no save.
 
-Versões anteriores: [0.5](prototypes/offline/v0.5/README.md),
-[0.4](prototypes/offline/v0.4/README.md), [0.3](prototypes/offline/v0.3/README.md),
-[0.2](prototypes/offline/v0.2/README.md) e [0.1](prototypes/offline/v0.1/README.md).
+Versões anteriores: [0.6](prototypes/offline/v0.6/README.md),
+[0.5](prototypes/offline/v0.5/README.md), [0.4](prototypes/offline/v0.4/README.md),
+[0.3](prototypes/offline/v0.3/README.md), [0.2](prototypes/offline/v0.2/README.md)
+e [0.1](prototypes/offline/v0.1/README.md).
 
 ## Documentação de design — GDD v1.0
 
