@@ -1,0 +1,7 @@
+{
+  "passed": true,
+  "checks": 21,
+  "frames": 112,
+  "browserQA": false,
+  "method": "Native Canvas and VM integration, not browser/layout QA"
+}

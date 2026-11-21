@@ -1,0 +1,98 @@
+{
+  "version": "1.0-morte",
+  "directions": [
+    "south",
+    "west",
+    "east",
+    "north"
+  ],
+  "sheets": {
+    "idle": {
+      "file": "guardian-idle-registrado.png",
+      "columns": 4,
+      "rows": 4,
+      "cellWidth": 192,
+      "cellHeight": 192,
+      "anchorX": 96,
+      "anchorY": 168.96,
+      "frames": 16,
+      "fps": 3
+    },
+    "walk": {
+      "file": "guardian-walk-registrado.png",
+      "columns": 6,
+      "rows": 4,
+      "cellWidth": 192,
+      "cellHeight": 192,
+      "anchorX": 96,
+      "anchorY": 168.96,
+      "frames": 24,
+      "fps": 8
+    },
+    "run": {
+      "file": "guardian-run-registrado.png",
+      "columns": 6,
+      "rows": 4,
+      "cellWidth": 192,
+      "cellHeight": 192,
+      "anchorX": 96,
+      "anchorY": 168.96,
+      "frames": 24,
+      "fps": 12
+    },
+    "attack": {
+      "file": "guardian-attack-registrado.png",
+      "columns": 6,
+      "rows": 4,
+      "cellWidth": 192,
+      "cellHeight": 192,
+      "anchorX": 96,
+      "anchorY": 168.96,
+      "frames": 24,
+      "fps": 10
+    },
+    "death": {
+      "file": "guardian-death-registrado.png",
+      "columns": 6,
+      "rows": 4,
+      "cellWidth": 256,
+      "cellHeight": 256,
+      "anchorX": 128,
+      "anchorY": 225.28,
+      "frames": 24,
+      "fps": 8
+    }
+  },
+  "idle": {
+    "blinkPeriod": 3.8,
+    "blinkSequence": [
+      0,
+      1,
+      2,
+      1,
+      3,
+      0
+    ],
+    "closedDuration": 0.1
+  },
+  "death": {
+    "fps": 8,
+    "frames": 6,
+    "loop": false,
+    "holdLast": true,
+    "blocksMovement": true,
+    "blocksAttack": true
+  },
+  "hair": {
+    "type": "Deslocamento suave de faixas da coroa no renderizador",
+    "amplitude": 0.95,
+    "period": 2.03
+  },
+  "notes": [
+    "Quatro orientações e 112 quadros base (88 originais e 24 de morte).",
+    "Repouso não usa quadros uniformes: piscada breve após 3,48 segundos.",
+    "As folhas registradas já têm o espelhamento oeste aplicado; não repetir flip.",
+    "Vento no cabelo e respiração são efeitos do renderizador, não quadros adicionais.",
+    "Arte de teste com lateralidade da espada a revisar antes da integração."
+  ]
+}

@@ -2,6 +2,22 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
+## Guardião escolhido — Base v1.0 + Morte
+
+**Escolha atual do autor:** personagem do arquivo enviado `Mythos_Online_Guardiao_Laboratorio_v1.0.html`.
+As quatro imagens de animação dessa base foram preservadas byte a byte.
+
+- **[Baixar HTML offline com morte e reviver](prototypes/guardian-lab/v1.0-morte/Mythos_Online_Guardiao_Laboratorio_v1.0_Morte.html)**
+- [Folha PNG da morte](prototypes/guardian-lab/v1.0-morte/assets/sprites/guardian-death.png)
+- [Pacote completo com fontes (ZIP)](prototypes/guardian-lab/v1.0-morte/Mythos_Online_Guardiao_Laboratorio_v1.0_Morte.zip)
+- [Instruções e verificação da base](prototypes/guardian-lab/v1.0-morte/README.md)
+
+24 novos quadros de morte: seis etapas em quatro direções. A queda executa uma vez,
+mantém o corpo no chão e bloqueia movimento/ataque até reviver. **K** testa a morte;
+**V** revive no mesmo local. Corpo morto sem respiração ou vento no cabelo.
+112 quadros no total. 21 verificações de lógica/renderização passaram; revisão em
+navegador real pendente. Laboratório isolado; jogo, saves e versões anteriores preservados.
+
 ## Guardião modelo 01 — Fantasia Pintada · Laboratório v1.3
 
 - **[Baixar HTML offline para testar o modelo 01](prototypes/guardian-lab/v1.3/Mythos_Online_Guardiao_Laboratorio_v1.3.html)**

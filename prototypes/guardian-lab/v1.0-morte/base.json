@@ -1,0 +1,10 @@
+{
+  "file": "Mythos_Online_Guardiao_Laboratorio_v1.0.html",
+  "sha256": "70c93350089d47354e0952f11011107ece42234cf97bd7a955a323ffbbed17cd",
+  "images": {
+    "idle": "e7aae36ee8374519e829339b3ce4ddede5f072053eeaa1a56c008d43f3d50ea2",
+    "walk": "7f57aab395bb6e957e417f91f48e0e7fbd0ecf158b14da02fc6cf8d13299efec",
+    "run": "988f77765400364dbac97685107ab24d859d8e3a1c04c7b957eddf4d3732ec18",
+    "attack": "bfe23a81ab75001c82f00fc6feb5166890f6094c3c0c747edb3c7b5fe38d7d65"
+  }
+}
