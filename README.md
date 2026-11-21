@@ -2,33 +2,33 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
-## Protótipo offline v0.7 — Slots visuais centralizados
+## Protótipo offline v0.8 — Personagem e atributos
 
 Bosque da Aurora jogável com Guardião, monstros, missões, chefe, interface clássica,
 cursores contextuais animados e o inventário aprovado.
 
-- **[Novo HTML autossuficiente](prototypes/offline/v0.7/Mythos_Online_Offline_v0.7.html)**
-- **[Baixar pacote completo ZIP](prototypes/offline/v0.7/Mythos_Online_Offline_v0.7.zip)**
-- [Instruções e código-fonte](prototypes/offline/v0.7/README.md)
-- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.7/ARQUITETURA.md)
+- **[Novo HTML autossuficiente](prototypes/offline/v0.8/Mythos_Online_Offline_v0.8.html)**
+- **[Baixar pacote completo ZIP](prototypes/offline/v0.8/Mythos_Online_Offline_v0.8.zip)**
+- [Instruções e código-fonte](prototypes/offline/v0.8/README.md)
+- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.8/ARQUITETURA.md)
 
 No GitHub, use **Download raw file**. Para jogar, abra o HTML no navegador do desktop,
 ou extraia o ZIP e abra o HTML. Funciona offline e sem instalação.
 
-A v0.7 remove a silhueta da aba **Roupas** e agrupa os seis encaixes visuais no
-centro, em duas colunas de três, mantendo a paleta e os ícones foscos. A coleção
-permanece com 48 espaços. As abas são Normal e Roupas; Provador foi removido.
-A aba Normal mantém os 16 encaixes e as regras de armas primária, secundária e
-duas mãos. Ouro no rodapé em ambas as abas; **Soltar moedas abre somente ao clicar
-na moeda**. Conjuntos e skins serão adicionados ao desenvolvermos esses itens.
+A v0.8 aplica a janela **Personagem** aprovada. Abra com **C**: os botões + e −
+ajustam a prévia, Cancelar descarta e Aplicar confirma todos os pontos de uma vez
+e salva. Menos desfaz apenas adições pendentes. Vida, mana e estatísticas mostram
+a prévia; o personagem e os saves só mudam na confirmação. Fechar com X/Esc/C ou
+mudar de painel descarta ajustes pendentes. Botões respeitam os pontos disponíveis.
 
-Para preservar o progresso, exporte a jornada na versão anterior e importe o JSON
-no novo HTML. Moedas que o jogador solta também são incluídas no save.
+Inventário Normal/Roupas, equipamentos das mãos, moeda no rodapé e saque por clique
+continuam disponíveis. Para preservar o progresso, exporte a jornada na versão
+anterior e importe o JSON no novo HTML.
 
-Versões anteriores: [0.6](prototypes/offline/v0.6/README.md),
-[0.5](prototypes/offline/v0.5/README.md), [0.4](prototypes/offline/v0.4/README.md),
-[0.3](prototypes/offline/v0.3/README.md), [0.2](prototypes/offline/v0.2/README.md)
-e [0.1](prototypes/offline/v0.1/README.md).
+Versões anteriores: [0.7](prototypes/offline/v0.7/README.md),
+[0.6](prototypes/offline/v0.6/README.md), [0.5](prototypes/offline/v0.5/README.md),
+[0.4](prototypes/offline/v0.4/README.md), [0.3](prototypes/offline/v0.3/README.md),
+[0.2](prototypes/offline/v0.2/README.md) e [0.1](prototypes/offline/v0.1/README.md).
 
 ## Documentação de design — GDD v1.0
 
