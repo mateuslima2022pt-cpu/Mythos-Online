@@ -2,29 +2,29 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
-## Protótipo offline v0.3 — Bosque da Aurora
+## Protótipo offline v0.4 — Inventário em slots
 
-Primeira área jogável em JavaScript, com **Guardião**, guia de iniciante, floresta,
-monstros, chefe, atributos, talentos e equipamentos visíveis.
+Bosque da Aurora jogável com Guardião, monstros, missões, chefe, interface clássica,
+cursores contextuais animados e o inventário aprovado.
 
-- **[Baixar o protótipo completo (ZIP)](prototypes/offline/v0.3/Mythos_Online_Offline_v0.3.zip)**
-- [HTML autossuficiente](prototypes/offline/v0.3/Mythos_Online_Offline_v0.3.html)
-- [Instruções, controles e código-fonte](prototypes/offline/v0.3/README.md)
-- [Arquitetura proposta para o MMORPG e banco de dados](prototypes/offline/v0.3/ARQUITETURA.md)
+- **[Novo HTML autossuficiente](prototypes/offline/v0.4/Mythos_Online_Offline_v0.4.html)**
+- **[Baixar pacote completo ZIP](prototypes/offline/v0.4/Mythos_Online_Offline_v0.4.zip)**
+- [Instruções e código-fonte](prototypes/offline/v0.4/README.md)
+- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.4/ARQUITETURA.md)
 
-Baixe o ZIP pelo botão **Download raw file**, extraia e abra
-**Mythos_Online_Offline_v0.3.html** no navegador do seu desktop. Funciona sem internet
-ou instalação. O salvamento desta versão é local e pode ser exportado.
+No GitHub, use **Download raw file**. Para jogar, abra o HTML no navegador do desktop,
+ou extraia o ZIP e abra o HTML. Funciona offline e sem instalação.
 
-A **v0.3** integra os seis cursores enviados, com animações e hotspots preservados.
-O saque de ouro e poções passa a exigir clique; não há coleta automática.
+A v0.4 aplica o inventário vertical com 14 encaixes e 48 espaços de mochila,
+ícones vazios foscos e itens ocupados em destaque. A moeda fica no rodapé.
+**Soltar moedas abre somente ao clicar na moeda**: escolha o valor, confirme em OK,
+feche a mochila e clique na pilha no chão para recolher. Cancelar mantém o saldo.
 
-A interface clássica aprovada foi mantida: preto e bronze, chat local,
-HUD com retrato, minimapa com coordenadas, missões minimizáveis, barras F1–F8 e 1–9,
-atalhos compactos e ouro no inventário. Para migrar o progresso, exporte a jornada
-na versão anterior e importe o JSON no novo HTML.
+Para preservar o progresso, exporte a jornada na versão anterior e importe o JSON
+no novo HTML. Moedas que o jogador solta também são incluídas no save.
 
-As versões anteriores estão preservadas: [0.2](prototypes/offline/v0.2/README.md) e [versão 0.1](prototypes/offline/v0.1/README.md) continuam disponíveis para comparação.
+Versões anteriores: [0.3](prototypes/offline/v0.3/README.md),
+[0.2](prototypes/offline/v0.2/README.md) e [0.1](prototypes/offline/v0.1/README.md).
 
 ## Documentação de design — GDD v1.0
 
