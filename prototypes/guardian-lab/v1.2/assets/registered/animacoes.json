@@ -1,0 +1,79 @@
+{
+  "version": "1.2",
+  "directions": [
+    "south",
+    "west",
+    "east",
+    "north"
+  ],
+  "sheets": {
+    "idle": {
+      "file": "guardian-idle-registrado.png",
+      "columns": 4,
+      "rows": 4,
+      "cellWidth": 256,
+      "cellHeight": 256,
+      "anchorX": 128,
+      "anchorY": 225,
+      "frames": 16,
+      "fps": 3
+    },
+    "walk": {
+      "file": "guardian-walk-registrado.png",
+      "columns": 6,
+      "rows": 4,
+      "cellWidth": 256,
+      "cellHeight": 256,
+      "anchorX": 128,
+      "anchorY": 225,
+      "frames": 24,
+      "fps": 8
+    },
+    "run": {
+      "file": "guardian-run-registrado.png",
+      "columns": 6,
+      "rows": 4,
+      "cellWidth": 256,
+      "cellHeight": 256,
+      "anchorX": 128,
+      "anchorY": 225,
+      "frames": 24,
+      "fps": 12
+    },
+    "attack": {
+      "file": "guardian-attack-registrado.png",
+      "columns": 6,
+      "rows": 4,
+      "cellWidth": 256,
+      "cellHeight": 256,
+      "anchorX": 128,
+      "anchorY": 225,
+      "frames": 24,
+      "fps": 10
+    }
+  },
+  "idle": {
+    "blinkPeriod": 3.8,
+    "blinkSequence": [
+      0,
+      1,
+      2,
+      1,
+      3,
+      0
+    ],
+    "closedDuration": 0.1
+  },
+  "hair": {
+    "type": "Deslocamento suave de faixas da coroa no renderizador",
+    "amplitude": 0.95,
+    "period": 2.03
+  },
+  "notes": [
+    "Quatro orientações e 88 quadros base.",
+    "Repouso não usa quadros uniformes: piscada breve após 3,48 segundos.",
+    "Quatro vistas próprias do novo Guardião, sem espelhamento.",
+    "Vento no cabelo e respiração são efeitos do renderizador, não quadros adicionais.",
+    "WASD e Shift permanecem ativos durante todo o golpe; direção do ataque é mantida até a recuperação."
+  ]
+}

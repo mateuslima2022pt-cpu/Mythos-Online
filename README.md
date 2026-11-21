@@ -2,6 +2,20 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
+## Guardião fantasia medieval — Laboratório offline v1.2
+
+- **[Baixar HTML offline com o novo visual](prototypes/guardian-lab/v1.2/Mythos_Online_Guardiao_Laboratorio_v1.2.html)**
+- **[HTML, folhas PNG finais e fontes (ZIP)](prototypes/guardian-lab/v1.2/Mythos_Online_Guardiao_Laboratorio_v1.2.zip)**
+- [Instruções, arquivos e validação](prototypes/guardian-lab/v1.2/README.md)
+
+88 quadros novos na direção jovem de fantasia medieval aprovada, com regata bege,
+shorts branco/cru, espada de madeira e traços élficos discretos. Quatro direções,
+repouso, piscada, cabelo em movimento, caminhada, corrida e ataque normal.
+Paleta preparada por pose e gravada nos PNGs finais, sem conversão de cores durante
+a execução. WASD e Shift permanecem ativos no ataque. HTML autossuficiente de cerca
+de 1,3 MB. 21 verificações de lógica/renderização passaram; navegador real pendente.
+Laboratório isolado, sem alterar jogo, saves ou versões anteriores.
+
 ## Laboratório offline do Guardião v1.1 — Correções
 
 - **[Baixar novo HTML offline](prototypes/guardian-lab/v1.1/Mythos_Online_Guardiao_Laboratorio_v1.1.html)**
