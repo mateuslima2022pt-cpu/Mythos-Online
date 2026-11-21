@@ -1,0 +1,801 @@
+﻿ID;Título;Afinidade;Tipo;Efeitos;Conexões
+road_0_1;Força;Força & Armas;travel;+2 de força;root, road_0_2
+road_0_2;Força;Força & Armas;travel;+2 de força;road_0_1, road_0_3
+road_0_3;Reservas de vida;Força & Armas;travel;+1% de vida máxima;road_0_2, road_0_4, bridge_0_0_1, bridge_0_7_4
+road_0_4;Força;Força & Armas;travel;+2 de força;road_0_3, road_0_5
+road_0_5;Força;Força & Armas;travel;+2 de força;road_0_4, road_0_6, cluster_0_0_0, cluster_0_1_0
+road_0_6;Reservas de vida;Força & Armas;travel;+1% de vida máxima;road_0_5, road_0_7
+road_0_7;Força;Força & Armas;travel;+2 de força;road_0_6, road_0_8
+road_0_8;Força;Força & Armas;travel;+2 de força;road_0_7, road_0_9, bridge_1_0_1, bridge_1_7_6
+road_0_9;Reservas de vida;Força & Armas;travel;+1% de vida máxima;road_0_8, road_0_10
+road_0_10;Força;Força & Armas;travel;+2 de força;road_0_9, road_0_11, cluster_0_2_0, cluster_0_3_0
+road_0_11;Força;Força & Armas;travel;+2 de força;road_0_10, road_0_12
+road_0_12;Reservas de vida;Força & Armas;travel;+1% de vida máxima;road_0_11, road_0_13
+road_0_13;Força;Força & Armas;travel;+2 de força;road_0_12, road_0_14, bridge_2_0_1, bridge_2_7_8
+road_0_14;Força;Força & Armas;travel;+2 de força;road_0_13, road_0_15
+road_0_15;Reservas de vida;Força & Armas;travel;+1% de vida máxima;road_0_14, cluster_0_4_0, cluster_0_5_0, keystone_0
+cluster_0_0_0;Dano físico I;Força & Armas;small;+3% de dano físico;cluster_0_0_1, cluster_0_0_7, road_0_5
+cluster_0_0_1;Força I;Força & Armas;small;+2 de força;cluster_0_0_0, cluster_0_0_2
+cluster_0_0_2;Combate próximo I;Força & Armas;small;+3% de dano corpo a corpo;cluster_0_0_1, cluster_0_0_3, cluster_0_0_inner0
+cluster_0_0_3;Área de impacto I;Força & Armas;small;+3% de dano em área;cluster_0_0_2, cluster_0_0_4
+cluster_0_0_4;Dano físico II;Força & Armas;small;+3% de dano físico;cluster_0_0_3, cluster_0_0_5
+cluster_0_0_5;Força II;Força & Armas;small;+2 de força;cluster_0_0_4, cluster_0_0_6
+cluster_0_0_6;Combate próximo II;Força & Armas;small;+3% de dano corpo a corpo;cluster_0_0_5, cluster_0_0_7, cluster_0_0_inner1
+cluster_0_0_7;Área de impacto II;Força & Armas;small;+3% de dano em área;cluster_0_0_6, cluster_0_0_0
+cluster_0_0_inner0;Disciplina · Dano físico;Força & Armas;small;+3% de dano físico;cluster_0_0_2, cluster_0_0_notable
+cluster_0_0_inner1;Disciplina · Combate próximo;Força & Armas;small;+3% de dano corpo a corpo;cluster_0_0_6, cluster_0_0_notable
+cluster_0_0_notable;Punho Resoluto;Força & Armas;notable;+10% de dano físico | +5 de força;cluster_0_0_inner0, cluster_0_0_inner1
+cluster_0_1_0;Armas de duas mãos I;Força & Armas;small;+4% de dano com armas de duas mãos;cluster_0_1_1, cluster_0_1_7, road_0_5
+cluster_0_1_1;Força I;Força & Armas;small;+2 de força;cluster_0_1_0, cluster_0_1_2
+cluster_0_1_2;Dano físico I;Força & Armas;small;+3% de dano físico;cluster_0_1_1, cluster_0_1_3, cluster_0_1_inner0
+cluster_0_1_3;Estabilidade I;Força & Armas;small;+4% de resistência a atordoamento;cluster_0_1_2, cluster_0_1_4
+cluster_0_1_4;Armas de duas mãos II;Força & Armas;small;+4% de dano com armas de duas mãos;cluster_0_1_3, cluster_0_1_5
+cluster_0_1_5;Força II;Força & Armas;small;+2 de força;cluster_0_1_4, cluster_0_1_6
+cluster_0_1_6;Dano físico II;Força & Armas;small;+3% de dano físico;cluster_0_1_5, cluster_0_1_7, cluster_0_1_inner1
+cluster_0_1_7;Estabilidade II;Força & Armas;small;+4% de resistência a atordoamento;cluster_0_1_6, cluster_0_1_0
+cluster_0_1_inner0;Disciplina · Armas de duas mãos;Força & Armas;small;+4% de dano com armas de duas mãos;cluster_0_1_2, cluster_0_1_notable
+cluster_0_1_inner1;Disciplina · Dano físico;Força & Armas;small;+3% de dano físico;cluster_0_1_6, cluster_0_1_notable
+cluster_0_1_notable;Peso do Aço;Força & Armas;notable;+12% de dano com armas de duas mãos | +5% de dano físico;cluster_0_1_inner0, cluster_0_1_inner1
+cluster_0_2_0;Duas armas I;Força & Armas;small;+4% de dano ao usar duas armas de uma mão;cluster_0_2_1, cluster_0_2_7, road_0_10
+cluster_0_2_1;Ritmo de ataque I;Força & Armas;small;+1,5% de velocidade de ataque;cluster_0_2_0, cluster_0_2_2
+cluster_0_2_2;Dano físico I;Força & Armas;small;+3% de dano físico;cluster_0_2_1, cluster_0_2_3, cluster_0_2_inner0
+cluster_0_2_3;Destreza I;Força & Armas;small;+2 de destreza;cluster_0_2_2, cluster_0_2_4
+cluster_0_2_4;Duas armas II;Força & Armas;small;+4% de dano ao usar duas armas de uma mão;cluster_0_2_3, cluster_0_2_5
+cluster_0_2_5;Ritmo de ataque II;Força & Armas;small;+1,5% de velocidade de ataque;cluster_0_2_4, cluster_0_2_6
+cluster_0_2_6;Dano físico II;Força & Armas;small;+3% de dano físico;cluster_0_2_5, cluster_0_2_7, cluster_0_2_inner1
+cluster_0_2_7;Destreza II;Força & Armas;small;+2 de destreza;cluster_0_2_6, cluster_0_2_0
+cluster_0_2_inner0;Disciplina · Duas armas;Força & Armas;small;+4% de dano ao usar duas armas de uma mão;cluster_0_2_2, cluster_0_2_notable
+cluster_0_2_inner1;Disciplina · Dano físico;Força & Armas;small;+3% de dano físico;cluster_0_2_6, cluster_0_2_notable
+cluster_0_2_notable;Duas Lâminas;Força & Armas;notable;+12% de dano ao usar duas armas de uma mão | +3% de velocidade de ataque;cluster_0_2_inner0, cluster_0_2_inner1
+cluster_0_3_0;Armas de uma mão I;Força & Armas;small;+4% de dano com armas de uma mão;cluster_0_3_1, cluster_0_3_7, road_0_10
+cluster_0_3_1;Dano físico I;Força & Armas;small;+3% de dano físico;cluster_0_3_0, cluster_0_3_2
+cluster_0_3_2;Força I;Força & Armas;small;+2 de força;cluster_0_3_1, cluster_0_3_3, cluster_0_3_inner0
+cluster_0_3_3;Precisão I;Força & Armas;small;+3% de precisão dos ataques;cluster_0_3_2, cluster_0_3_4
+cluster_0_3_4;Armas de uma mão II;Força & Armas;small;+4% de dano com armas de uma mão;cluster_0_3_3, cluster_0_3_5
+cluster_0_3_5;Dano físico II;Força & Armas;small;+3% de dano físico;cluster_0_3_4, cluster_0_3_6
+cluster_0_3_6;Força II;Força & Armas;small;+2 de força;cluster_0_3_5, cluster_0_3_7, cluster_0_3_inner1
+cluster_0_3_7;Precisão II;Força & Armas;small;+3% de precisão dos ataques;cluster_0_3_6, cluster_0_3_0
+cluster_0_3_inner0;Disciplina · Armas de uma mão;Força & Armas;small;+4% de dano com armas de uma mão;cluster_0_3_2, cluster_0_3_notable
+cluster_0_3_inner1;Disciplina · Força;Força & Armas;small;+2 de força;cluster_0_3_6, cluster_0_3_notable
+cluster_0_3_notable;Fio de Guerra;Força & Armas;notable;+12% de dano com armas de uma mão | +8% de precisão dos ataques;cluster_0_3_inner0, cluster_0_3_inner1
+cluster_0_4_0;Penetração física I;Força & Armas;small;+1% de penetração de defesa física;cluster_0_4_1, cluster_0_4_7, road_0_15
+cluster_0_4_1;Dano físico I;Força & Armas;small;+3% de dano físico;cluster_0_4_0, cluster_0_4_2
+cluster_0_4_2;Força I;Força & Armas;small;+2 de força;cluster_0_4_1, cluster_0_4_3, cluster_0_4_inner0
+cluster_0_4_3;Combate próximo I;Força & Armas;small;+3% de dano corpo a corpo;cluster_0_4_2, cluster_0_4_4
+cluster_0_4_4;Penetração física II;Força & Armas;small;+1% de penetração de defesa física;cluster_0_4_3, cluster_0_4_5
+cluster_0_4_5;Dano físico II;Força & Armas;small;+3% de dano físico;cluster_0_4_4, cluster_0_4_6
+cluster_0_4_6;Força II;Força & Armas;small;+2 de força;cluster_0_4_5, cluster_0_4_7, cluster_0_4_inner1
+cluster_0_4_7;Combate próximo II;Força & Armas;small;+3% de dano corpo a corpo;cluster_0_4_6, cluster_0_4_0
+cluster_0_4_inner0;Disciplina · Penetração física;Força & Armas;small;+1% de penetração de defesa física;cluster_0_4_2, cluster_0_4_notable
+cluster_0_4_inner1;Disciplina · Força;Força & Armas;small;+2 de força;cluster_0_4_6, cluster_0_4_notable
+cluster_0_4_notable;Impacto Profundo;Força & Armas;notable;+4% de penetração de defesa física | +8% de dano físico;cluster_0_4_inner0, cluster_0_4_inner1
+cluster_0_5_0;Área de impacto I;Força & Armas;small;+3% de dano em área;cluster_0_5_1, cluster_0_5_7, road_0_15
+cluster_0_5_1;Combate próximo I;Força & Armas;small;+3% de dano corpo a corpo;cluster_0_5_0, cluster_0_5_2
+cluster_0_5_2;Vitalidade I;Força & Armas;small;+2 de vitalidade;cluster_0_5_1, cluster_0_5_3, cluster_0_5_inner0
+cluster_0_5_3;Dano físico I;Força & Armas;small;+3% de dano físico;cluster_0_5_2, cluster_0_5_4
+cluster_0_5_4;Área de impacto II;Força & Armas;small;+3% de dano em área;cluster_0_5_3, cluster_0_5_5
+cluster_0_5_5;Combate próximo II;Força & Armas;small;+3% de dano corpo a corpo;cluster_0_5_4, cluster_0_5_6
+cluster_0_5_6;Vitalidade II;Força & Armas;small;+2 de vitalidade;cluster_0_5_5, cluster_0_5_7, cluster_0_5_inner1
+cluster_0_5_7;Dano físico II;Força & Armas;small;+3% de dano físico;cluster_0_5_6, cluster_0_5_0
+cluster_0_5_inner0;Disciplina · Área de impacto;Força & Armas;small;+3% de dano em área;cluster_0_5_2, cluster_0_5_notable
+cluster_0_5_inner1;Disciplina · Vitalidade;Força & Armas;small;+2 de vitalidade;cluster_0_5_6, cluster_0_5_notable
+cluster_0_5_notable;Fôlego Marcial;Força & Armas;notable;+10% de dano em área | +8% de dano corpo a corpo;cluster_0_5_inner0, cluster_0_5_inner1
+keystone_0;Corpo de Aço;Força & Armas;keystone;+30% de defesa física | −10% de velocidade de movimento;road_0_15
+road_1_1;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;root, road_1_2
+road_1_2;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_1, road_1_3
+road_1_3;Reservas de vida;Vida & Regeneração;travel;+1% de vida máxima;road_1_2, road_1_4, bridge_0_0_4, bridge_0_1_1
+road_1_4;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_3, road_1_5
+road_1_5;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_4, road_1_6, cluster_1_0_0, cluster_1_1_0
+road_1_6;Reservas de vida;Vida & Regeneração;travel;+1% de vida máxima;road_1_5, road_1_7
+road_1_7;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_6, road_1_8
+road_1_8;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_7, road_1_9, bridge_1_0_6, bridge_1_1_1
+road_1_9;Reservas de vida;Vida & Regeneração;travel;+1% de vida máxima;road_1_8, road_1_10
+road_1_10;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_9, road_1_11, cluster_1_2_0, cluster_1_3_0
+road_1_11;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_10, road_1_12
+road_1_12;Reservas de vida;Vida & Regeneração;travel;+1% de vida máxima;road_1_11, road_1_13
+road_1_13;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_12, road_1_14, bridge_2_0_8, bridge_2_1_1
+road_1_14;Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_13, road_1_15
+road_1_15;Reservas de vida;Vida & Regeneração;travel;+1% de vida máxima;road_1_14, cluster_1_4_0, cluster_1_5_0, keystone_1
+cluster_1_0_0;Reservas de vida I;Vida & Regeneração;small;+2% de vida máxima;cluster_1_0_1, cluster_1_0_7, road_1_5
+cluster_1_0_1;Vitalidade I;Vida & Regeneração;small;+2 de vitalidade;cluster_1_0_0, cluster_1_0_2
+cluster_1_0_2;Vigor I;Vida & Regeneração;small;+10 de vida máxima;cluster_1_0_1, cluster_1_0_3, cluster_1_0_inner0
+cluster_1_0_3;Regeneração vital I;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_0_2, cluster_1_0_4
+cluster_1_0_4;Reservas de vida II;Vida & Regeneração;small;+2% de vida máxima;cluster_1_0_3, cluster_1_0_5
+cluster_1_0_5;Vitalidade II;Vida & Regeneração;small;+2 de vitalidade;cluster_1_0_4, cluster_1_0_6
+cluster_1_0_6;Vigor II;Vida & Regeneração;small;+10 de vida máxima;cluster_1_0_5, cluster_1_0_7, cluster_1_0_inner1
+cluster_1_0_7;Regeneração vital II;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_0_6, cluster_1_0_0
+cluster_1_0_inner0;Disciplina · Reservas de vida;Vida & Regeneração;small;+2% de vida máxima;cluster_1_0_2, cluster_1_0_notable
+cluster_1_0_inner1;Disciplina · Vigor;Vida & Regeneração;small;+10 de vida máxima;cluster_1_0_6, cluster_1_0_notable
+cluster_1_0_notable;Coração do Bosque;Vida & Regeneração;notable;+8% de vida máxima | +5 de vitalidade;cluster_1_0_inner0, cluster_1_0_inner1
+cluster_1_1_0;Regeneração vital I;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_1_1, cluster_1_1_7, road_1_5
+cluster_1_1_1;Vigor I;Vida & Regeneração;small;+10 de vida máxima;cluster_1_1_0, cluster_1_1_2
+cluster_1_1_2;Recuperação vital I;Vida & Regeneração;small;+3% de recuperação de vida recebida;cluster_1_1_1, cluster_1_1_3, cluster_1_1_inner0
+cluster_1_1_3;Vitalidade I;Vida & Regeneração;small;+2 de vitalidade;cluster_1_1_2, cluster_1_1_4
+cluster_1_1_4;Regeneração vital II;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_1_3, cluster_1_1_5
+cluster_1_1_5;Vigor II;Vida & Regeneração;small;+10 de vida máxima;cluster_1_1_4, cluster_1_1_6
+cluster_1_1_6;Recuperação vital II;Vida & Regeneração;small;+3% de recuperação de vida recebida;cluster_1_1_5, cluster_1_1_7, cluster_1_1_inner1
+cluster_1_1_7;Vitalidade II;Vida & Regeneração;small;+2 de vitalidade;cluster_1_1_6, cluster_1_1_0
+cluster_1_1_inner0;Disciplina · Regeneração vital;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_1_2, cluster_1_1_notable
+cluster_1_1_inner1;Disciplina · Recuperação vital;Vida & Regeneração;small;+3% de recuperação de vida recebida;cluster_1_1_6, cluster_1_1_notable
+cluster_1_1_notable;Sangue Renovado;Vida & Regeneração;notable;+20% de regeneração de vida | +8% de recuperação de vida recebida;cluster_1_1_inner0, cluster_1_1_inner1
+cluster_1_2_0;Vigor I;Vida & Regeneração;small;+10 de vida máxima;cluster_1_2_1, cluster_1_2_7, road_1_10
+cluster_1_2_1;Reservas de vida I;Vida & Regeneração;small;+2% de vida máxima;cluster_1_2_0, cluster_1_2_2
+cluster_1_2_2;Força I;Vida & Regeneração;small;+2 de força;cluster_1_2_1, cluster_1_2_3, cluster_1_2_inner0
+cluster_1_2_3;Vitalidade I;Vida & Regeneração;small;+2 de vitalidade;cluster_1_2_2, cluster_1_2_4
+cluster_1_2_4;Vigor II;Vida & Regeneração;small;+10 de vida máxima;cluster_1_2_3, cluster_1_2_5
+cluster_1_2_5;Reservas de vida II;Vida & Regeneração;small;+2% de vida máxima;cluster_1_2_4, cluster_1_2_6
+cluster_1_2_6;Força II;Vida & Regeneração;small;+2 de força;cluster_1_2_5, cluster_1_2_7, cluster_1_2_inner1
+cluster_1_2_7;Vitalidade II;Vida & Regeneração;small;+2 de vitalidade;cluster_1_2_6, cluster_1_2_0
+cluster_1_2_inner0;Disciplina · Vigor;Vida & Regeneração;small;+10 de vida máxima;cluster_1_2_2, cluster_1_2_notable
+cluster_1_2_inner1;Disciplina · Força;Vida & Regeneração;small;+2 de força;cluster_1_2_6, cluster_1_2_notable
+cluster_1_2_notable;Vigor Ancestral;Vida & Regeneração;notable;+40 de vida máxima | +5% de vida máxima;cluster_1_2_inner0, cluster_1_2_inner1
+cluster_1_3_0;Recuperação vital I;Vida & Regeneração;small;+3% de recuperação de vida recebida;cluster_1_3_1, cluster_1_3_7, road_1_10
+cluster_1_3_1;Poções de vida I;Vida & Regeneração;small;+4% de recuperação das poções de vida;cluster_1_3_0, cluster_1_3_2
+cluster_1_3_2;Reservas de vida I;Vida & Regeneração;small;+2% de vida máxima;cluster_1_3_1, cluster_1_3_3, cluster_1_3_inner0
+cluster_1_3_3;Regeneração vital I;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_3_2, cluster_1_3_4
+cluster_1_3_4;Recuperação vital II;Vida & Regeneração;small;+3% de recuperação de vida recebida;cluster_1_3_3, cluster_1_3_5
+cluster_1_3_5;Poções de vida II;Vida & Regeneração;small;+4% de recuperação das poções de vida;cluster_1_3_4, cluster_1_3_6
+cluster_1_3_6;Reservas de vida II;Vida & Regeneração;small;+2% de vida máxima;cluster_1_3_5, cluster_1_3_7, cluster_1_3_inner1
+cluster_1_3_7;Regeneração vital II;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_3_6, cluster_1_3_0
+cluster_1_3_inner0;Disciplina · Recuperação vital;Vida & Regeneração;small;+3% de recuperação de vida recebida;cluster_1_3_2, cluster_1_3_notable
+cluster_1_3_inner1;Disciplina · Reservas de vida;Vida & Regeneração;small;+2% de vida máxima;cluster_1_3_6, cluster_1_3_notable
+cluster_1_3_notable;Mãos Restauradoras;Vida & Regeneração;notable;+12% de recuperação de vida recebida | +10% de recuperação das poções de vida;cluster_1_3_inner0, cluster_1_3_inner1
+cluster_1_4_0;Poções de vida I;Vida & Regeneração;small;+4% de recuperação das poções de vida;cluster_1_4_1, cluster_1_4_7, road_1_15
+cluster_1_4_1;Reservas de vida I;Vida & Regeneração;small;+2% de vida máxima;cluster_1_4_0, cluster_1_4_2
+cluster_1_4_2;Estabilidade I;Vida & Regeneração;small;+4% de resistência a atordoamento;cluster_1_4_1, cluster_1_4_3, cluster_1_4_inner0
+cluster_1_4_3;Vitalidade I;Vida & Regeneração;small;+2 de vitalidade;cluster_1_4_2, cluster_1_4_4
+cluster_1_4_4;Poções de vida II;Vida & Regeneração;small;+4% de recuperação das poções de vida;cluster_1_4_3, cluster_1_4_5
+cluster_1_4_5;Reservas de vida II;Vida & Regeneração;small;+2% de vida máxima;cluster_1_4_4, cluster_1_4_6
+cluster_1_4_6;Estabilidade II;Vida & Regeneração;small;+4% de resistência a atordoamento;cluster_1_4_5, cluster_1_4_7, cluster_1_4_inner1
+cluster_1_4_7;Vitalidade II;Vida & Regeneração;small;+2 de vitalidade;cluster_1_4_6, cluster_1_4_0
+cluster_1_4_inner0;Disciplina · Poções de vida;Vida & Regeneração;small;+4% de recuperação das poções de vida;cluster_1_4_2, cluster_1_4_notable
+cluster_1_4_inner1;Disciplina · Estabilidade;Vida & Regeneração;small;+4% de resistência a atordoamento;cluster_1_4_6, cluster_1_4_notable
+cluster_1_4_notable;Último Fôlego;Vida & Regeneração;notable;+15% de recuperação das poções de vida | +5% de vida máxima;cluster_1_4_inner0, cluster_1_4_inner1
+cluster_1_5_0;Reservas de vida I;Vida & Regeneração;small;+2% de vida máxima;cluster_1_5_1, cluster_1_5_7, road_1_15
+cluster_1_5_1;Regeneração vital I;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_5_0, cluster_1_5_2
+cluster_1_5_2;Passos firmes I;Vida & Regeneração;small;+4% de resistência à lentidão;cluster_1_5_1, cluster_1_5_3, cluster_1_5_inner0
+cluster_1_5_3;Vitalidade I;Vida & Regeneração;small;+2 de vitalidade;cluster_1_5_2, cluster_1_5_4
+cluster_1_5_4;Reservas de vida II;Vida & Regeneração;small;+2% de vida máxima;cluster_1_5_3, cluster_1_5_5
+cluster_1_5_5;Regeneração vital II;Vida & Regeneração;small;+5% de regeneração de vida;cluster_1_5_4, cluster_1_5_6
+cluster_1_5_6;Passos firmes II;Vida & Regeneração;small;+4% de resistência à lentidão;cluster_1_5_5, cluster_1_5_7, cluster_1_5_inner1
+cluster_1_5_7;Vitalidade II;Vida & Regeneração;small;+2 de vitalidade;cluster_1_5_6, cluster_1_5_0
+cluster_1_5_inner0;Disciplina · Reservas de vida;Vida & Regeneração;small;+2% de vida máxima;cluster_1_5_2, cluster_1_5_notable
+cluster_1_5_inner1;Disciplina · Passos firmes;Vida & Regeneração;small;+4% de resistência à lentidão;cluster_1_5_6, cluster_1_5_notable
+cluster_1_5_notable;Raízes Profundas;Vida & Regeneração;notable;+8% de vida máxima | +10% de resistência à lentidão;cluster_1_5_inner0, cluster_1_5_inner1
+keystone_1;Pulso Imortal;Vida & Regeneração;keystone;+20% de vida máxima | −15% de mana máxima;road_1_15
+road_2_1;Magia;Magia & Mana;travel;+2 de magia;root, road_2_2
+road_2_2;Magia;Magia & Mana;travel;+2 de magia;road_2_1, road_2_3
+road_2_3;Reservas de vida;Magia & Mana;travel;+1% de vida máxima;road_2_2, road_2_4, bridge_0_1_4, bridge_0_2_1
+road_2_4;Magia;Magia & Mana;travel;+2 de magia;road_2_3, road_2_5
+road_2_5;Magia;Magia & Mana;travel;+2 de magia;road_2_4, road_2_6, cluster_2_0_0, cluster_2_1_0
+road_2_6;Reservas de vida;Magia & Mana;travel;+1% de vida máxima;road_2_5, road_2_7
+road_2_7;Magia;Magia & Mana;travel;+2 de magia;road_2_6, road_2_8
+road_2_8;Magia;Magia & Mana;travel;+2 de magia;road_2_7, road_2_9, bridge_1_1_6, bridge_1_2_1
+road_2_9;Reservas de vida;Magia & Mana;travel;+1% de vida máxima;road_2_8, road_2_10
+road_2_10;Magia;Magia & Mana;travel;+2 de magia;road_2_9, road_2_11, cluster_2_2_0, cluster_2_3_0
+road_2_11;Magia;Magia & Mana;travel;+2 de magia;road_2_10, road_2_12
+road_2_12;Reservas de vida;Magia & Mana;travel;+1% de vida máxima;road_2_11, road_2_13
+road_2_13;Magia;Magia & Mana;travel;+2 de magia;road_2_12, road_2_14, bridge_2_1_8, bridge_2_2_1
+road_2_14;Magia;Magia & Mana;travel;+2 de magia;road_2_13, road_2_15
+road_2_15;Reservas de vida;Magia & Mana;travel;+1% de vida máxima;road_2_14, cluster_2_4_0, cluster_2_5_0, keystone_2
+cluster_2_0_0;Fluxo de mana I;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_0_1, cluster_2_0_7, road_2_5
+cluster_2_0_1;Magia I;Magia & Mana;small;+2 de magia;cluster_2_0_0, cluster_2_0_2
+cluster_2_0_2;Reservas de mana I;Magia & Mana;small;+3% de mana máxima;cluster_2_0_1, cluster_2_0_3, cluster_2_0_inner0
+cluster_2_0_3;Reserva arcana I;Magia & Mana;small;+8 de mana máxima;cluster_2_0_2, cluster_2_0_4
+cluster_2_0_4;Fluxo de mana II;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_0_3, cluster_2_0_5
+cluster_2_0_5;Magia II;Magia & Mana;small;+2 de magia;cluster_2_0_4, cluster_2_0_6
+cluster_2_0_6;Reservas de mana II;Magia & Mana;small;+3% de mana máxima;cluster_2_0_5, cluster_2_0_7, cluster_2_0_inner1
+cluster_2_0_7;Reserva arcana II;Magia & Mana;small;+8 de mana máxima;cluster_2_0_6, cluster_2_0_0
+cluster_2_0_inner0;Disciplina · Fluxo de mana;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_0_2, cluster_2_0_notable
+cluster_2_0_inner1;Disciplina · Reservas de mana;Magia & Mana;small;+3% de mana máxima;cluster_2_0_6, cluster_2_0_notable
+cluster_2_0_notable;Mente Aberta;Magia & Mana;notable;Regeneração de mana aumentada em 25%;cluster_2_0_inner0, cluster_2_0_inner1
+cluster_2_1_0;Reservas de mana I;Magia & Mana;small;+3% de mana máxima;cluster_2_1_1, cluster_2_1_7, road_2_5
+cluster_2_1_1;Reserva arcana I;Magia & Mana;small;+8 de mana máxima;cluster_2_1_0, cluster_2_1_2
+cluster_2_1_2;Magia I;Magia & Mana;small;+2 de magia;cluster_2_1_1, cluster_2_1_3, cluster_2_1_inner0
+cluster_2_1_3;Fluxo de mana I;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_1_2, cluster_2_1_4
+cluster_2_1_4;Reservas de mana II;Magia & Mana;small;+3% de mana máxima;cluster_2_1_3, cluster_2_1_5
+cluster_2_1_5;Reserva arcana II;Magia & Mana;small;+8 de mana máxima;cluster_2_1_4, cluster_2_1_6
+cluster_2_1_6;Magia II;Magia & Mana;small;+2 de magia;cluster_2_1_5, cluster_2_1_7, cluster_2_1_inner1
+cluster_2_1_7;Fluxo de mana II;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_1_6, cluster_2_1_0
+cluster_2_1_inner0;Disciplina · Reservas de mana;Magia & Mana;small;+3% de mana máxima;cluster_2_1_2, cluster_2_1_notable
+cluster_2_1_inner1;Disciplina · Magia;Magia & Mana;small;+2 de magia;cluster_2_1_6, cluster_2_1_notable
+cluster_2_1_notable;Oceano Interior;Magia & Mana;notable;+12% de mana máxima | +20 de mana máxima;cluster_2_1_inner0, cluster_2_1_inner1
+cluster_2_2_0;Poder mágico I;Magia & Mana;small;+3% de dano mágico;cluster_2_2_1, cluster_2_2_7, road_2_10
+cluster_2_2_1;Magia I;Magia & Mana;small;+2 de magia;cluster_2_2_0, cluster_2_2_2
+cluster_2_2_2;Fluxo de mana I;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_2_1, cluster_2_2_3, cluster_2_2_inner0
+cluster_2_2_3;Proteção arcana I;Magia & Mana;small;+3% de defesa mágica;cluster_2_2_2, cluster_2_2_4
+cluster_2_2_4;Poder mágico II;Magia & Mana;small;+3% de dano mágico;cluster_2_2_3, cluster_2_2_5
+cluster_2_2_5;Magia II;Magia & Mana;small;+2 de magia;cluster_2_2_4, cluster_2_2_6
+cluster_2_2_6;Fluxo de mana II;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_2_5, cluster_2_2_7, cluster_2_2_inner1
+cluster_2_2_7;Proteção arcana II;Magia & Mana;small;+3% de defesa mágica;cluster_2_2_6, cluster_2_2_0
+cluster_2_2_inner0;Disciplina · Poder mágico;Magia & Mana;small;+3% de dano mágico;cluster_2_2_2, cluster_2_2_notable
+cluster_2_2_inner1;Disciplina · Fluxo de mana;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_2_6, cluster_2_2_notable
+cluster_2_2_notable;Domínio Arcano;Magia & Mana;notable;+12% de dano mágico | +5 de magia;cluster_2_2_inner0, cluster_2_2_inner1
+cluster_2_3_0;Eficiência arcana I;Magia & Mana;small;Custo de mana das técnicas reduzido em 1%;cluster_2_3_1, cluster_2_3_7, road_2_10
+cluster_2_3_1;Reservas de mana I;Magia & Mana;small;+3% de mana máxima;cluster_2_3_0, cluster_2_3_2
+cluster_2_3_2;Fluxo de mana I;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_3_1, cluster_2_3_3, cluster_2_3_inner0
+cluster_2_3_3;Magia I;Magia & Mana;small;+2 de magia;cluster_2_3_2, cluster_2_3_4
+cluster_2_3_4;Eficiência arcana II;Magia & Mana;small;Custo de mana das técnicas reduzido em 1%;cluster_2_3_3, cluster_2_3_5
+cluster_2_3_5;Reservas de mana II;Magia & Mana;small;+3% de mana máxima;cluster_2_3_4, cluster_2_3_6
+cluster_2_3_6;Fluxo de mana II;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_3_5, cluster_2_3_7, cluster_2_3_inner1
+cluster_2_3_7;Magia II;Magia & Mana;small;+2 de magia;cluster_2_3_6, cluster_2_3_0
+cluster_2_3_inner0;Disciplina · Eficiência arcana;Magia & Mana;small;Custo de mana das técnicas reduzido em 1%;cluster_2_3_2, cluster_2_3_notable
+cluster_2_3_inner1;Disciplina · Fluxo de mana;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_3_6, cluster_2_3_notable
+cluster_2_3_notable;Canalização Serena;Magia & Mana;notable;Custo de mana das técnicas reduzido em 4% | Regeneração de mana aumentada em 10%;cluster_2_3_inner0, cluster_2_3_inner1
+cluster_2_4_0;Proteção arcana I;Magia & Mana;small;+3% de defesa mágica;cluster_2_4_1, cluster_2_4_7, road_2_15
+cluster_2_4_1;Magia I;Magia & Mana;small;+2 de magia;cluster_2_4_0, cluster_2_4_2
+cluster_2_4_2;Reservas de mana I;Magia & Mana;small;+3% de mana máxima;cluster_2_4_1, cluster_2_4_3, cluster_2_4_inner0
+cluster_2_4_3;Poder mágico I;Magia & Mana;small;+3% de dano mágico;cluster_2_4_2, cluster_2_4_4
+cluster_2_4_4;Proteção arcana II;Magia & Mana;small;+3% de defesa mágica;cluster_2_4_3, cluster_2_4_5
+cluster_2_4_5;Magia II;Magia & Mana;small;+2 de magia;cluster_2_4_4, cluster_2_4_6
+cluster_2_4_6;Reservas de mana II;Magia & Mana;small;+3% de mana máxima;cluster_2_4_5, cluster_2_4_7, cluster_2_4_inner1
+cluster_2_4_7;Poder mágico II;Magia & Mana;small;+3% de dano mágico;cluster_2_4_6, cluster_2_4_0
+cluster_2_4_inner0;Disciplina · Proteção arcana;Magia & Mana;small;+3% de defesa mágica;cluster_2_4_2, cluster_2_4_notable
+cluster_2_4_inner1;Disciplina · Reservas de mana;Magia & Mana;small;+3% de mana máxima;cluster_2_4_6, cluster_2_4_notable
+cluster_2_4_notable;Véu da Aurora;Magia & Mana;notable;+12% de defesa mágica | +5% de mana máxima;cluster_2_4_inner0, cluster_2_4_inner1
+cluster_2_5_0;Reserva arcana I;Magia & Mana;small;+8 de mana máxima;cluster_2_5_1, cluster_2_5_7, road_2_15
+cluster_2_5_1;Poder mágico I;Magia & Mana;small;+3% de dano mágico;cluster_2_5_0, cluster_2_5_2
+cluster_2_5_2;Fluxo de mana I;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_5_1, cluster_2_5_3, cluster_2_5_inner0
+cluster_2_5_3;Magia I;Magia & Mana;small;+2 de magia;cluster_2_5_2, cluster_2_5_4
+cluster_2_5_4;Reserva arcana II;Magia & Mana;small;+8 de mana máxima;cluster_2_5_3, cluster_2_5_5
+cluster_2_5_5;Poder mágico II;Magia & Mana;small;+3% de dano mágico;cluster_2_5_4, cluster_2_5_6
+cluster_2_5_6;Fluxo de mana II;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_5_5, cluster_2_5_7, cluster_2_5_inner1
+cluster_2_5_7;Magia II;Magia & Mana;small;+2 de magia;cluster_2_5_6, cluster_2_5_0
+cluster_2_5_inner0;Disciplina · Reserva arcana;Magia & Mana;small;+8 de mana máxima;cluster_2_5_2, cluster_2_5_notable
+cluster_2_5_inner1;Disciplina · Fluxo de mana;Magia & Mana;small;Regeneração de mana aumentada em 5%;cluster_2_5_6, cluster_2_5_notable
+cluster_2_5_notable;Fonte Etérea;Magia & Mana;notable;+30 de mana máxima | +8% de dano mágico;cluster_2_5_inner0, cluster_2_5_inner1
+keystone_2;Mar de Éter;Magia & Mana;keystone;+30% de mana máxima | −10% de vida máxima;road_2_15
+road_3_1;Magia;Elementos;travel;+2 de magia;root, road_3_2
+road_3_2;Magia;Elementos;travel;+2 de magia;road_3_1, road_3_3
+road_3_3;Reservas de vida;Elementos;travel;+1% de vida máxima;road_3_2, road_3_4, bridge_0_2_4, bridge_0_3_1
+road_3_4;Magia;Elementos;travel;+2 de magia;road_3_3, road_3_5
+road_3_5;Magia;Elementos;travel;+2 de magia;road_3_4, road_3_6, cluster_3_0_0, cluster_3_1_0
+road_3_6;Reservas de vida;Elementos;travel;+1% de vida máxima;road_3_5, road_3_7
+road_3_7;Magia;Elementos;travel;+2 de magia;road_3_6, road_3_8
+road_3_8;Magia;Elementos;travel;+2 de magia;road_3_7, road_3_9, bridge_1_2_6, bridge_1_3_1
+road_3_9;Reservas de vida;Elementos;travel;+1% de vida máxima;road_3_8, road_3_10
+road_3_10;Magia;Elementos;travel;+2 de magia;road_3_9, road_3_11, cluster_3_2_0, cluster_3_3_0
+road_3_11;Magia;Elementos;travel;+2 de magia;road_3_10, road_3_12
+road_3_12;Reservas de vida;Elementos;travel;+1% de vida máxima;road_3_11, road_3_13
+road_3_13;Magia;Elementos;travel;+2 de magia;road_3_12, road_3_14, bridge_2_2_8, bridge_2_3_1
+road_3_14;Magia;Elementos;travel;+2 de magia;road_3_13, road_3_15
+road_3_15;Reservas de vida;Elementos;travel;+1% de vida máxima;road_3_14, cluster_3_4_0, cluster_3_5_0, keystone_3
+cluster_3_0_0;Afinidade com fogo I;Elementos;small;+4% de dano de fogo;cluster_3_0_1, cluster_3_0_7, road_3_5
+cluster_3_0_1;Magia I;Elementos;small;+2 de magia;cluster_3_0_0, cluster_3_0_2
+cluster_3_0_2;Poder elemental I;Elementos;small;+3% de dano elemental;cluster_3_0_1, cluster_3_0_3, cluster_3_0_inner0
+cluster_3_0_3;Resistência ao fogo I;Elementos;small;Resistência ao fogo: +1 pontos percentuais;cluster_3_0_2, cluster_3_0_4
+cluster_3_0_4;Afinidade com fogo II;Elementos;small;+4% de dano de fogo;cluster_3_0_3, cluster_3_0_5
+cluster_3_0_5;Magia II;Elementos;small;+2 de magia;cluster_3_0_4, cluster_3_0_6
+cluster_3_0_6;Poder elemental II;Elementos;small;+3% de dano elemental;cluster_3_0_5, cluster_3_0_7, cluster_3_0_inner1
+cluster_3_0_7;Resistência ao fogo II;Elementos;small;Resistência ao fogo: +1 pontos percentuais;cluster_3_0_6, cluster_3_0_0
+cluster_3_0_inner0;Disciplina · Afinidade com fogo;Elementos;small;+4% de dano de fogo;cluster_3_0_2, cluster_3_0_notable
+cluster_3_0_inner1;Disciplina · Poder elemental;Elementos;small;+3% de dano elemental;cluster_3_0_6, cluster_3_0_notable
+cluster_3_0_notable;Chama Interior;Elementos;notable;+15% de dano de fogo | Resistência ao fogo: +3 pontos percentuais;cluster_3_0_inner0, cluster_3_0_inner1
+cluster_3_1_0;Afinidade com gelo I;Elementos;small;+4% de dano de gelo;cluster_3_1_1, cluster_3_1_7, road_3_5
+cluster_3_1_1;Magia I;Elementos;small;+2 de magia;cluster_3_1_0, cluster_3_1_2
+cluster_3_1_2;Poder elemental I;Elementos;small;+3% de dano elemental;cluster_3_1_1, cluster_3_1_3, cluster_3_1_inner0
+cluster_3_1_3;Resistência ao gelo I;Elementos;small;Resistência ao gelo: +1 pontos percentuais;cluster_3_1_2, cluster_3_1_4
+cluster_3_1_4;Afinidade com gelo II;Elementos;small;+4% de dano de gelo;cluster_3_1_3, cluster_3_1_5
+cluster_3_1_5;Magia II;Elementos;small;+2 de magia;cluster_3_1_4, cluster_3_1_6
+cluster_3_1_6;Poder elemental II;Elementos;small;+3% de dano elemental;cluster_3_1_5, cluster_3_1_7, cluster_3_1_inner1
+cluster_3_1_7;Resistência ao gelo II;Elementos;small;Resistência ao gelo: +1 pontos percentuais;cluster_3_1_6, cluster_3_1_0
+cluster_3_1_inner0;Disciplina · Afinidade com gelo;Elementos;small;+4% de dano de gelo;cluster_3_1_2, cluster_3_1_notable
+cluster_3_1_inner1;Disciplina · Poder elemental;Elementos;small;+3% de dano elemental;cluster_3_1_6, cluster_3_1_notable
+cluster_3_1_notable;Coração Glacial;Elementos;notable;+15% de dano de gelo | Resistência ao gelo: +3 pontos percentuais;cluster_3_1_inner0, cluster_3_1_inner1
+cluster_3_2_0;Afinidade com raio I;Elementos;small;+4% de dano de raio;cluster_3_2_1, cluster_3_2_7, road_3_10
+cluster_3_2_1;Magia I;Elementos;small;+2 de magia;cluster_3_2_0, cluster_3_2_2
+cluster_3_2_2;Poder elemental I;Elementos;small;+3% de dano elemental;cluster_3_2_1, cluster_3_2_3, cluster_3_2_inner0
+cluster_3_2_3;Resistência ao raio I;Elementos;small;Resistência ao raio: +1 pontos percentuais;cluster_3_2_2, cluster_3_2_4
+cluster_3_2_4;Afinidade com raio II;Elementos;small;+4% de dano de raio;cluster_3_2_3, cluster_3_2_5
+cluster_3_2_5;Magia II;Elementos;small;+2 de magia;cluster_3_2_4, cluster_3_2_6
+cluster_3_2_6;Poder elemental II;Elementos;small;+3% de dano elemental;cluster_3_2_5, cluster_3_2_7, cluster_3_2_inner1
+cluster_3_2_7;Resistência ao raio II;Elementos;small;Resistência ao raio: +1 pontos percentuais;cluster_3_2_6, cluster_3_2_0
+cluster_3_2_inner0;Disciplina · Afinidade com raio;Elementos;small;+4% de dano de raio;cluster_3_2_2, cluster_3_2_notable
+cluster_3_2_inner1;Disciplina · Poder elemental;Elementos;small;+3% de dano elemental;cluster_3_2_6, cluster_3_2_notable
+cluster_3_2_notable;Voz da Tempestade;Elementos;notable;+15% de dano de raio | Resistência ao raio: +3 pontos percentuais;cluster_3_2_inner0, cluster_3_2_inner1
+cluster_3_3_0;Poder elemental I;Elementos;small;+3% de dano elemental;cluster_3_3_1, cluster_3_3_7, road_3_10
+cluster_3_3_1;Afinidade com fogo I;Elementos;small;+4% de dano de fogo;cluster_3_3_0, cluster_3_3_2
+cluster_3_3_2;Afinidade com gelo I;Elementos;small;+4% de dano de gelo;cluster_3_3_1, cluster_3_3_3, cluster_3_3_inner0
+cluster_3_3_3;Afinidade com raio I;Elementos;small;+4% de dano de raio;cluster_3_3_2, cluster_3_3_4
+cluster_3_3_4;Poder elemental II;Elementos;small;+3% de dano elemental;cluster_3_3_3, cluster_3_3_5
+cluster_3_3_5;Afinidade com fogo II;Elementos;small;+4% de dano de fogo;cluster_3_3_4, cluster_3_3_6
+cluster_3_3_6;Afinidade com gelo II;Elementos;small;+4% de dano de gelo;cluster_3_3_5, cluster_3_3_7, cluster_3_3_inner1
+cluster_3_3_7;Afinidade com raio II;Elementos;small;+4% de dano de raio;cluster_3_3_6, cluster_3_3_0
+cluster_3_3_inner0;Disciplina · Poder elemental;Elementos;small;+3% de dano elemental;cluster_3_3_2, cluster_3_3_notable
+cluster_3_3_inner1;Disciplina · Afinidade com gelo;Elementos;small;+4% de dano de gelo;cluster_3_3_6, cluster_3_3_notable
+cluster_3_3_notable;Três Horizontes;Elementos;notable;+12% de dano elemental;cluster_3_3_inner0, cluster_3_3_inner1
+cluster_3_4_0;Resistência ao fogo I;Elementos;small;Resistência ao fogo: +1 pontos percentuais;cluster_3_4_1, cluster_3_4_7, road_3_15
+cluster_3_4_1;Resistência ao gelo I;Elementos;small;Resistência ao gelo: +1 pontos percentuais;cluster_3_4_0, cluster_3_4_2
+cluster_3_4_2;Resistência ao raio I;Elementos;small;Resistência ao raio: +1 pontos percentuais;cluster_3_4_1, cluster_3_4_3, cluster_3_4_inner0
+cluster_3_4_3;Proteção arcana I;Elementos;small;+3% de defesa mágica;cluster_3_4_2, cluster_3_4_4
+cluster_3_4_4;Resistência ao fogo II;Elementos;small;Resistência ao fogo: +1 pontos percentuais;cluster_3_4_3, cluster_3_4_5
+cluster_3_4_5;Resistência ao gelo II;Elementos;small;Resistência ao gelo: +1 pontos percentuais;cluster_3_4_4, cluster_3_4_6
+cluster_3_4_6;Resistência ao raio II;Elementos;small;Resistência ao raio: +1 pontos percentuais;cluster_3_4_5, cluster_3_4_7, cluster_3_4_inner1
+cluster_3_4_7;Proteção arcana II;Elementos;small;+3% de defesa mágica;cluster_3_4_6, cluster_3_4_0
+cluster_3_4_inner0;Disciplina · Resistência ao fogo;Elementos;small;Resistência ao fogo: +1 pontos percentuais;cluster_3_4_2, cluster_3_4_notable
+cluster_3_4_inner1;Disciplina · Resistência ao raio;Elementos;small;Resistência ao raio: +1 pontos percentuais;cluster_3_4_6, cluster_3_4_notable
+cluster_3_4_notable;Pele dos Elementos;Elementos;notable;Resistência ao fogo: +3 pontos percentuais | Resistência ao gelo: +3 pontos percentuais | Resistência ao raio: +3 pontos percentuais;cluster_3_4_inner0, cluster_3_4_inner1
+cluster_3_5_0;Poder elemental I;Elementos;small;+3% de dano elemental;cluster_3_5_1, cluster_3_5_7, road_3_15
+cluster_3_5_1;Poder mágico I;Elementos;small;+3% de dano mágico;cluster_3_5_0, cluster_3_5_2
+cluster_3_5_2;Magia I;Elementos;small;+2 de magia;cluster_3_5_1, cluster_3_5_3, cluster_3_5_inner0
+cluster_3_5_3;Reservas de mana I;Elementos;small;+3% de mana máxima;cluster_3_5_2, cluster_3_5_4
+cluster_3_5_4;Poder elemental II;Elementos;small;+3% de dano elemental;cluster_3_5_3, cluster_3_5_5
+cluster_3_5_5;Poder mágico II;Elementos;small;+3% de dano mágico;cluster_3_5_4, cluster_3_5_6
+cluster_3_5_6;Magia II;Elementos;small;+2 de magia;cluster_3_5_5, cluster_3_5_7, cluster_3_5_inner1
+cluster_3_5_7;Reservas de mana II;Elementos;small;+3% de mana máxima;cluster_3_5_6, cluster_3_5_0
+cluster_3_5_inner0;Disciplina · Poder elemental;Elementos;small;+3% de dano elemental;cluster_3_5_2, cluster_3_5_notable
+cluster_3_5_inner1;Disciplina · Magia;Elementos;small;+2 de magia;cluster_3_5_6, cluster_3_5_notable
+cluster_3_5_notable;Ressonância Primeva;Elementos;notable;+10% de dano elemental | +5 de magia;cluster_3_5_inner0, cluster_3_5_inner1
+keystone_3;Convergência Arcana;Elementos;keystone;+25% de dano elemental | −10% de dano físico;road_3_15
+road_4_1;Destreza;Destreza & Crítico;travel;+2 de destreza;root, road_4_2
+road_4_2;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_1, road_4_3
+road_4_3;Reservas de vida;Destreza & Crítico;travel;+1% de vida máxima;road_4_2, road_4_4, bridge_0_3_4, bridge_0_4_1
+road_4_4;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_3, road_4_5
+road_4_5;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_4, road_4_6, cluster_4_0_0, cluster_4_1_0
+road_4_6;Reservas de vida;Destreza & Crítico;travel;+1% de vida máxima;road_4_5, road_4_7
+road_4_7;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_6, road_4_8
+road_4_8;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_7, road_4_9, bridge_1_3_6, bridge_1_4_1
+road_4_9;Reservas de vida;Destreza & Crítico;travel;+1% de vida máxima;road_4_8, road_4_10
+road_4_10;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_9, road_4_11, cluster_4_2_0, cluster_4_3_0
+road_4_11;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_10, road_4_12
+road_4_12;Reservas de vida;Destreza & Crítico;travel;+1% de vida máxima;road_4_11, road_4_13
+road_4_13;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_12, road_4_14, bridge_2_3_8, bridge_2_4_1
+road_4_14;Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_13, road_4_15
+road_4_15;Reservas de vida;Destreza & Crítico;travel;+1% de vida máxima;road_4_14, cluster_4_4_0, cluster_4_5_0, keystone_4
+cluster_4_0_0;Chance crítica I;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_0_1, cluster_4_0_7, road_4_5
+cluster_4_0_1;Precisão I;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_0_0, cluster_4_0_2
+cluster_4_0_2;Destreza I;Destreza & Crítico;small;+2 de destreza;cluster_4_0_1, cluster_4_0_3, cluster_4_0_inner0
+cluster_4_0_3;Impacto crítico I;Destreza & Crítico;small;Multiplicador de dano crítico: +3 pontos percentuais;cluster_4_0_2, cluster_4_0_4
+cluster_4_0_4;Chance crítica II;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_0_3, cluster_4_0_5
+cluster_4_0_5;Precisão II;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_0_4, cluster_4_0_6
+cluster_4_0_6;Destreza II;Destreza & Crítico;small;+2 de destreza;cluster_4_0_5, cluster_4_0_7, cluster_4_0_inner1
+cluster_4_0_7;Impacto crítico II;Destreza & Crítico;small;Multiplicador de dano crítico: +3 pontos percentuais;cluster_4_0_6, cluster_4_0_0
+cluster_4_0_inner0;Disciplina · Chance crítica;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_0_2, cluster_4_0_notable
+cluster_4_0_inner1;Disciplina · Destreza;Destreza & Crítico;small;+2 de destreza;cluster_4_0_6, cluster_4_0_notable
+cluster_4_0_notable;Olho do Falcão;Destreza & Crítico;notable;Chance de acerto crítico: +2 pontos percentuais | +10% de precisão dos ataques;cluster_4_0_inner0, cluster_4_0_inner1
+cluster_4_1_0;Impacto crítico I;Destreza & Crítico;small;Multiplicador de dano crítico: +3 pontos percentuais;cluster_4_1_1, cluster_4_1_7, road_4_5
+cluster_4_1_1;Chance crítica I;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_1_0, cluster_4_1_2
+cluster_4_1_2;Dano físico I;Destreza & Crítico;small;+3% de dano físico;cluster_4_1_1, cluster_4_1_3, cluster_4_1_inner0
+cluster_4_1_3;Destreza I;Destreza & Crítico;small;+2 de destreza;cluster_4_1_2, cluster_4_1_4
+cluster_4_1_4;Impacto crítico II;Destreza & Crítico;small;Multiplicador de dano crítico: +3 pontos percentuais;cluster_4_1_3, cluster_4_1_5
+cluster_4_1_5;Chance crítica II;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_1_4, cluster_4_1_6
+cluster_4_1_6;Dano físico II;Destreza & Crítico;small;+3% de dano físico;cluster_4_1_5, cluster_4_1_7, cluster_4_1_inner1
+cluster_4_1_7;Destreza II;Destreza & Crítico;small;+2 de destreza;cluster_4_1_6, cluster_4_1_0
+cluster_4_1_inner0;Disciplina · Impacto crítico;Destreza & Crítico;small;Multiplicador de dano crítico: +3 pontos percentuais;cluster_4_1_2, cluster_4_1_notable
+cluster_4_1_inner1;Disciplina · Dano físico;Destreza & Crítico;small;+3% de dano físico;cluster_4_1_6, cluster_4_1_notable
+cluster_4_1_notable;Fio Impecável;Destreza & Crítico;notable;Multiplicador de dano crítico: +12 pontos percentuais | Chance de acerto crítico: +1 pontos percentuais;cluster_4_1_inner0, cluster_4_1_inner1
+cluster_4_2_0;Ritmo de ataque I;Destreza & Crítico;small;+1,5% de velocidade de ataque;cluster_4_2_1, cluster_4_2_7, road_4_10
+cluster_4_2_1;Destreza I;Destreza & Crítico;small;+2 de destreza;cluster_4_2_0, cluster_4_2_2
+cluster_4_2_2;Precisão I;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_2_1, cluster_4_2_3, cluster_4_2_inner0
+cluster_4_2_3;Armas de uma mão I;Destreza & Crítico;small;+4% de dano com armas de uma mão;cluster_4_2_2, cluster_4_2_4
+cluster_4_2_4;Ritmo de ataque II;Destreza & Crítico;small;+1,5% de velocidade de ataque;cluster_4_2_3, cluster_4_2_5
+cluster_4_2_5;Destreza II;Destreza & Crítico;small;+2 de destreza;cluster_4_2_4, cluster_4_2_6
+cluster_4_2_6;Precisão II;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_2_5, cluster_4_2_7, cluster_4_2_inner1
+cluster_4_2_7;Armas de uma mão II;Destreza & Crítico;small;+4% de dano com armas de uma mão;cluster_4_2_6, cluster_4_2_0
+cluster_4_2_inner0;Disciplina · Ritmo de ataque;Destreza & Crítico;small;+1,5% de velocidade de ataque;cluster_4_2_2, cluster_4_2_notable
+cluster_4_2_inner1;Disciplina · Precisão;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_2_6, cluster_4_2_notable
+cluster_4_2_notable;Mãos Velozes;Destreza & Crítico;notable;+5% de velocidade de ataque | +5 de destreza;cluster_4_2_inner0, cluster_4_2_inner1
+cluster_4_3_0;Projéteis I;Destreza & Crítico;small;+4% de dano de projéteis;cluster_4_3_1, cluster_4_3_7, road_4_10
+cluster_4_3_1;Precisão I;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_3_0, cluster_4_3_2
+cluster_4_3_2;Chance crítica I;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_3_1, cluster_4_3_3, cluster_4_3_inner0
+cluster_4_3_3;Destreza I;Destreza & Crítico;small;+2 de destreza;cluster_4_3_2, cluster_4_3_4
+cluster_4_3_4;Projéteis II;Destreza & Crítico;small;+4% de dano de projéteis;cluster_4_3_3, cluster_4_3_5
+cluster_4_3_5;Precisão II;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_3_4, cluster_4_3_6
+cluster_4_3_6;Chance crítica II;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_3_5, cluster_4_3_7, cluster_4_3_inner1
+cluster_4_3_7;Destreza II;Destreza & Crítico;small;+2 de destreza;cluster_4_3_6, cluster_4_3_0
+cluster_4_3_inner0;Disciplina · Projéteis;Destreza & Crítico;small;+4% de dano de projéteis;cluster_4_3_2, cluster_4_3_notable
+cluster_4_3_inner1;Disciplina · Chance crítica;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_3_6, cluster_4_3_notable
+cluster_4_3_notable;Mira Silenciosa;Destreza & Crítico;notable;+14% de dano de projéteis | +10% de precisão dos ataques;cluster_4_3_inner0, cluster_4_3_inner1
+cluster_4_4_0;Duas armas I;Destreza & Crítico;small;+4% de dano ao usar duas armas de uma mão;cluster_4_4_1, cluster_4_4_7, road_4_15
+cluster_4_4_1;Destreza I;Destreza & Crítico;small;+2 de destreza;cluster_4_4_0, cluster_4_4_2
+cluster_4_4_2;Ritmo de ataque I;Destreza & Crítico;small;+1,5% de velocidade de ataque;cluster_4_4_1, cluster_4_4_3, cluster_4_4_inner0
+cluster_4_4_3;Impacto crítico I;Destreza & Crítico;small;Multiplicador de dano crítico: +3 pontos percentuais;cluster_4_4_2, cluster_4_4_4
+cluster_4_4_4;Duas armas II;Destreza & Crítico;small;+4% de dano ao usar duas armas de uma mão;cluster_4_4_3, cluster_4_4_5
+cluster_4_4_5;Destreza II;Destreza & Crítico;small;+2 de destreza;cluster_4_4_4, cluster_4_4_6
+cluster_4_4_6;Ritmo de ataque II;Destreza & Crítico;small;+1,5% de velocidade de ataque;cluster_4_4_5, cluster_4_4_7, cluster_4_4_inner1
+cluster_4_4_7;Impacto crítico II;Destreza & Crítico;small;Multiplicador de dano crítico: +3 pontos percentuais;cluster_4_4_6, cluster_4_4_0
+cluster_4_4_inner0;Disciplina · Duas armas;Destreza & Crítico;small;+4% de dano ao usar duas armas de uma mão;cluster_4_4_2, cluster_4_4_notable
+cluster_4_4_inner1;Disciplina · Ritmo de ataque;Destreza & Crítico;small;+1,5% de velocidade de ataque;cluster_4_4_6, cluster_4_4_notable
+cluster_4_4_notable;Dança das Lâminas;Destreza & Crítico;notable;+12% de dano ao usar duas armas de uma mão | Multiplicador de dano crítico: +8 pontos percentuais;cluster_4_4_inner0, cluster_4_4_inner1
+cluster_4_5_0;Precisão I;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_5_1, cluster_4_5_7, road_4_15
+cluster_4_5_1;Destreza I;Destreza & Crítico;small;+2 de destreza;cluster_4_5_0, cluster_4_5_2
+cluster_4_5_2;Chance crítica I;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_5_1, cluster_4_5_3, cluster_4_5_inner0
+cluster_4_5_3;Projéteis I;Destreza & Crítico;small;+4% de dano de projéteis;cluster_4_5_2, cluster_4_5_4
+cluster_4_5_4;Precisão II;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_5_3, cluster_4_5_5
+cluster_4_5_5;Destreza II;Destreza & Crítico;small;+2 de destreza;cluster_4_5_4, cluster_4_5_6
+cluster_4_5_6;Chance crítica II;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_5_5, cluster_4_5_7, cluster_4_5_inner1
+cluster_4_5_7;Projéteis II;Destreza & Crítico;small;+4% de dano de projéteis;cluster_4_5_6, cluster_4_5_0
+cluster_4_5_inner0;Disciplina · Precisão;Destreza & Crítico;small;+4% de precisão dos ataques;cluster_4_5_2, cluster_4_5_notable
+cluster_4_5_inner1;Disciplina · Chance crítica;Destreza & Crítico;small;Chance de acerto crítico: +0,5 pontos percentuais;cluster_4_5_6, cluster_4_5_notable
+cluster_4_5_notable;Instinto Preciso;Destreza & Crítico;notable;+15% de precisão dos ataques | Chance de acerto crítico: +1 pontos percentuais;cluster_4_5_inner0, cluster_4_5_inner1
+keystone_4;Precisão Implacável;Destreza & Crítico;keystone;Chance de acerto crítico: +8 pontos percentuais | −15% de dano físico;road_4_15
+road_5_1;Destreza;Veneno & Sangramento;travel;+2 de destreza;root, road_5_2
+road_5_2;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_1, road_5_3
+road_5_3;Reservas de vida;Veneno & Sangramento;travel;+1% de vida máxima;road_5_2, road_5_4, bridge_0_4_4, bridge_0_5_1
+road_5_4;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_3, road_5_5
+road_5_5;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_4, road_5_6, cluster_5_0_0, cluster_5_1_0
+road_5_6;Reservas de vida;Veneno & Sangramento;travel;+1% de vida máxima;road_5_5, road_5_7
+road_5_7;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_6, road_5_8
+road_5_8;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_7, road_5_9, bridge_1_4_6, bridge_1_5_1
+road_5_9;Reservas de vida;Veneno & Sangramento;travel;+1% de vida máxima;road_5_8, road_5_10
+road_5_10;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_9, road_5_11, cluster_5_2_0, cluster_5_3_0
+road_5_11;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_10, road_5_12
+road_5_12;Reservas de vida;Veneno & Sangramento;travel;+1% de vida máxima;road_5_11, road_5_13
+road_5_13;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_12, road_5_14, bridge_2_4_8, bridge_2_5_1
+road_5_14;Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_13, road_5_15
+road_5_15;Reservas de vida;Veneno & Sangramento;travel;+1% de vida máxima;road_5_14, cluster_5_4_0, cluster_5_5_0, keystone_5
+cluster_5_0_0;Aplicação de veneno I;Veneno & Sangramento;small;Chance de aplicar veneno: +1 pontos percentuais;cluster_5_0_1, cluster_5_0_7, road_5_5
+cluster_5_0_1;Potência do veneno I;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_0_0, cluster_5_0_2
+cluster_5_0_2;Destreza I;Veneno & Sangramento;small;+2 de destreza;cluster_5_0_1, cluster_5_0_3, cluster_5_0_inner0
+cluster_5_0_3;Veneno persistente I;Veneno & Sangramento;small;+3% de duração do veneno;cluster_5_0_2, cluster_5_0_4
+cluster_5_0_4;Aplicação de veneno II;Veneno & Sangramento;small;Chance de aplicar veneno: +1 pontos percentuais;cluster_5_0_3, cluster_5_0_5
+cluster_5_0_5;Potência do veneno II;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_0_4, cluster_5_0_6
+cluster_5_0_6;Destreza II;Veneno & Sangramento;small;+2 de destreza;cluster_5_0_5, cluster_5_0_7, cluster_5_0_inner1
+cluster_5_0_7;Veneno persistente II;Veneno & Sangramento;small;+3% de duração do veneno;cluster_5_0_6, cluster_5_0_0
+cluster_5_0_inner0;Disciplina · Aplicação de veneno;Veneno & Sangramento;small;Chance de aplicar veneno: +1 pontos percentuais;cluster_5_0_2, cluster_5_0_notable
+cluster_5_0_inner1;Disciplina · Destreza;Veneno & Sangramento;small;+2 de destreza;cluster_5_0_6, cluster_5_0_notable
+cluster_5_0_notable;Toque da Serpente;Veneno & Sangramento;notable;Chance de aplicar veneno: +4 pontos percentuais | +10% de dano de veneno;cluster_5_0_inner0, cluster_5_0_inner1
+cluster_5_1_0;Potência do veneno I;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_1_1, cluster_5_1_7, road_5_5
+cluster_5_1_1;Dano contínuo I;Veneno & Sangramento;small;+3% de dano ao longo do tempo;cluster_5_1_0, cluster_5_1_2
+cluster_5_1_2;Magia I;Veneno & Sangramento;small;+2 de magia;cluster_5_1_1, cluster_5_1_3, cluster_5_1_inner0
+cluster_5_1_3;Veneno persistente I;Veneno & Sangramento;small;+3% de duração do veneno;cluster_5_1_2, cluster_5_1_4
+cluster_5_1_4;Potência do veneno II;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_1_3, cluster_5_1_5
+cluster_5_1_5;Dano contínuo II;Veneno & Sangramento;small;+3% de dano ao longo do tempo;cluster_5_1_4, cluster_5_1_6
+cluster_5_1_6;Magia II;Veneno & Sangramento;small;+2 de magia;cluster_5_1_5, cluster_5_1_7, cluster_5_1_inner1
+cluster_5_1_7;Veneno persistente II;Veneno & Sangramento;small;+3% de duração do veneno;cluster_5_1_6, cluster_5_1_0
+cluster_5_1_inner0;Disciplina · Potência do veneno;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_1_2, cluster_5_1_notable
+cluster_5_1_inner1;Disciplina · Magia;Veneno & Sangramento;small;+2 de magia;cluster_5_1_6, cluster_5_1_notable
+cluster_5_1_notable;Peçonha Antiga;Veneno & Sangramento;notable;+15% de dano de veneno | +8% de duração do veneno;cluster_5_1_inner0, cluster_5_1_inner1
+cluster_5_2_0;Aplicação de sangramento I;Veneno & Sangramento;small;Chance de aplicar sangramento: +1 pontos percentuais;cluster_5_2_1, cluster_5_2_7, road_5_10
+cluster_5_2_1;Feridas profundas I;Veneno & Sangramento;small;+4% de dano de sangramento;cluster_5_2_0, cluster_5_2_2
+cluster_5_2_2;Dano físico I;Veneno & Sangramento;small;+3% de dano físico;cluster_5_2_1, cluster_5_2_3, cluster_5_2_inner0
+cluster_5_2_3;Força I;Veneno & Sangramento;small;+2 de força;cluster_5_2_2, cluster_5_2_4
+cluster_5_2_4;Aplicação de sangramento II;Veneno & Sangramento;small;Chance de aplicar sangramento: +1 pontos percentuais;cluster_5_2_3, cluster_5_2_5
+cluster_5_2_5;Feridas profundas II;Veneno & Sangramento;small;+4% de dano de sangramento;cluster_5_2_4, cluster_5_2_6
+cluster_5_2_6;Dano físico II;Veneno & Sangramento;small;+3% de dano físico;cluster_5_2_5, cluster_5_2_7, cluster_5_2_inner1
+cluster_5_2_7;Força II;Veneno & Sangramento;small;+2 de força;cluster_5_2_6, cluster_5_2_0
+cluster_5_2_inner0;Disciplina · Aplicação de sangramento;Veneno & Sangramento;small;Chance de aplicar sangramento: +1 pontos percentuais;cluster_5_2_2, cluster_5_2_notable
+cluster_5_2_inner1;Disciplina · Dano físico;Veneno & Sangramento;small;+3% de dano físico;cluster_5_2_6, cluster_5_2_notable
+cluster_5_2_notable;Marca Carmesim;Veneno & Sangramento;notable;Chance de aplicar sangramento: +4 pontos percentuais | +10% de dano de sangramento;cluster_5_2_inner0, cluster_5_2_inner1
+cluster_5_3_0;Feridas profundas I;Veneno & Sangramento;small;+4% de dano de sangramento;cluster_5_3_1, cluster_5_3_7, road_5_10
+cluster_5_3_1;Dano contínuo I;Veneno & Sangramento;small;+3% de dano ao longo do tempo;cluster_5_3_0, cluster_5_3_2
+cluster_5_3_2;Vitalidade I;Veneno & Sangramento;small;+2 de vitalidade;cluster_5_3_1, cluster_5_3_3, cluster_5_3_inner0
+cluster_5_3_3;Dano físico I;Veneno & Sangramento;small;+3% de dano físico;cluster_5_3_2, cluster_5_3_4
+cluster_5_3_4;Feridas profundas II;Veneno & Sangramento;small;+4% de dano de sangramento;cluster_5_3_3, cluster_5_3_5
+cluster_5_3_5;Dano contínuo II;Veneno & Sangramento;small;+3% de dano ao longo do tempo;cluster_5_3_4, cluster_5_3_6
+cluster_5_3_6;Vitalidade II;Veneno & Sangramento;small;+2 de vitalidade;cluster_5_3_5, cluster_5_3_7, cluster_5_3_inner1
+cluster_5_3_7;Dano físico II;Veneno & Sangramento;small;+3% de dano físico;cluster_5_3_6, cluster_5_3_0
+cluster_5_3_inner0;Disciplina · Feridas profundas;Veneno & Sangramento;small;+4% de dano de sangramento;cluster_5_3_2, cluster_5_3_notable
+cluster_5_3_inner1;Disciplina · Vitalidade;Veneno & Sangramento;small;+2 de vitalidade;cluster_5_3_6, cluster_5_3_notable
+cluster_5_3_notable;Ferida Persistente;Veneno & Sangramento;notable;+15% de dano de sangramento | +8% de dano ao longo do tempo;cluster_5_3_inner0, cluster_5_3_inner1
+cluster_5_4_0;Dano contínuo I;Veneno & Sangramento;small;+3% de dano ao longo do tempo;cluster_5_4_1, cluster_5_4_7, road_5_15
+cluster_5_4_1;Veneno persistente I;Veneno & Sangramento;small;+3% de duração do veneno;cluster_5_4_0, cluster_5_4_2
+cluster_5_4_2;Potência do veneno I;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_4_1, cluster_5_4_3, cluster_5_4_inner0
+cluster_5_4_3;Feridas profundas I;Veneno & Sangramento;small;+4% de dano de sangramento;cluster_5_4_2, cluster_5_4_4
+cluster_5_4_4;Dano contínuo II;Veneno & Sangramento;small;+3% de dano ao longo do tempo;cluster_5_4_3, cluster_5_4_5
+cluster_5_4_5;Veneno persistente II;Veneno & Sangramento;small;+3% de duração do veneno;cluster_5_4_4, cluster_5_4_6
+cluster_5_4_6;Potência do veneno II;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_4_5, cluster_5_4_7, cluster_5_4_inner1
+cluster_5_4_7;Feridas profundas II;Veneno & Sangramento;small;+4% de dano de sangramento;cluster_5_4_6, cluster_5_4_0
+cluster_5_4_inner0;Disciplina · Dano contínuo;Veneno & Sangramento;small;+3% de dano ao longo do tempo;cluster_5_4_2, cluster_5_4_notable
+cluster_5_4_inner1;Disciplina · Potência do veneno;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_4_6, cluster_5_4_notable
+cluster_5_4_notable;Sombra Persistente;Veneno & Sangramento;notable;+12% de dano ao longo do tempo;cluster_5_4_inner0, cluster_5_4_inner1
+cluster_5_5_0;Resistência ao veneno I;Veneno & Sangramento;small;Resistência ao veneno: +1 pontos percentuais;cluster_5_5_1, cluster_5_5_7, road_5_15
+cluster_5_5_1;Regeneração vital I;Veneno & Sangramento;small;+5% de regeneração de vida;cluster_5_5_0, cluster_5_5_2
+cluster_5_5_2;Vitalidade I;Veneno & Sangramento;small;+2 de vitalidade;cluster_5_5_1, cluster_5_5_3, cluster_5_5_inner0
+cluster_5_5_3;Potência do veneno I;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_5_2, cluster_5_5_4
+cluster_5_5_4;Resistência ao veneno II;Veneno & Sangramento;small;Resistência ao veneno: +1 pontos percentuais;cluster_5_5_3, cluster_5_5_5
+cluster_5_5_5;Regeneração vital II;Veneno & Sangramento;small;+5% de regeneração de vida;cluster_5_5_4, cluster_5_5_6
+cluster_5_5_6;Vitalidade II;Veneno & Sangramento;small;+2 de vitalidade;cluster_5_5_5, cluster_5_5_7, cluster_5_5_inner1
+cluster_5_5_7;Potência do veneno II;Veneno & Sangramento;small;+4% de dano de veneno;cluster_5_5_6, cluster_5_5_0
+cluster_5_5_inner0;Disciplina · Resistência ao veneno;Veneno & Sangramento;small;Resistência ao veneno: +1 pontos percentuais;cluster_5_5_2, cluster_5_5_notable
+cluster_5_5_inner1;Disciplina · Vitalidade;Veneno & Sangramento;small;+2 de vitalidade;cluster_5_5_6, cluster_5_5_notable
+cluster_5_5_notable;Sangue Purificado;Veneno & Sangramento;notable;Resistência ao veneno: +4 pontos percentuais | +10% de regeneração de vida;cluster_5_5_inner0, cluster_5_5_inner1
+keystone_5;Sangue Alquímico;Veneno & Sangramento;keystone;+35% de dano ao longo do tempo | −12% de dano direto;road_5_15
+road_6_1;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;root, road_6_2
+road_6_2;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_1, road_6_3
+road_6_3;Reservas de vida;Defesa & Escudos;travel;+1% de vida máxima;road_6_2, road_6_4, bridge_0_5_4, bridge_0_6_1
+road_6_4;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_3, road_6_5
+road_6_5;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_4, road_6_6, cluster_6_0_0, cluster_6_1_0
+road_6_6;Reservas de vida;Defesa & Escudos;travel;+1% de vida máxima;road_6_5, road_6_7
+road_6_7;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_6, road_6_8
+road_6_8;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_7, road_6_9, bridge_1_5_6, bridge_1_6_1
+road_6_9;Reservas de vida;Defesa & Escudos;travel;+1% de vida máxima;road_6_8, road_6_10
+road_6_10;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_9, road_6_11, cluster_6_2_0, cluster_6_3_0
+road_6_11;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_10, road_6_12
+road_6_12;Reservas de vida;Defesa & Escudos;travel;+1% de vida máxima;road_6_11, road_6_13
+road_6_13;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_12, road_6_14, bridge_2_5_8, bridge_2_6_1
+road_6_14;Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_13, road_6_15
+road_6_15;Reservas de vida;Defesa & Escudos;travel;+1% de vida máxima;road_6_14, cluster_6_4_0, cluster_6_5_0, keystone_6
+cluster_6_0_0;Placas de aço I;Defesa & Escudos;small;+3% de defesa física;cluster_6_0_1, cluster_6_0_7, road_6_5
+cluster_6_0_1;Força I;Defesa & Escudos;small;+2 de força;cluster_6_0_0, cluster_6_0_2
+cluster_6_0_2;Vitalidade I;Defesa & Escudos;small;+2 de vitalidade;cluster_6_0_1, cluster_6_0_3, cluster_6_0_inner0
+cluster_6_0_3;Estabilidade I;Defesa & Escudos;small;+4% de resistência a atordoamento;cluster_6_0_2, cluster_6_0_4
+cluster_6_0_4;Placas de aço II;Defesa & Escudos;small;+3% de defesa física;cluster_6_0_3, cluster_6_0_5
+cluster_6_0_5;Força II;Defesa & Escudos;small;+2 de força;cluster_6_0_4, cluster_6_0_6
+cluster_6_0_6;Vitalidade II;Defesa & Escudos;small;+2 de vitalidade;cluster_6_0_5, cluster_6_0_7, cluster_6_0_inner1
+cluster_6_0_7;Estabilidade II;Defesa & Escudos;small;+4% de resistência a atordoamento;cluster_6_0_6, cluster_6_0_0
+cluster_6_0_inner0;Disciplina · Placas de aço;Defesa & Escudos;small;+3% de defesa física;cluster_6_0_2, cluster_6_0_notable
+cluster_6_0_inner1;Disciplina · Vitalidade;Defesa & Escudos;small;+2 de vitalidade;cluster_6_0_6, cluster_6_0_notable
+cluster_6_0_notable;Bastião de Ferro;Defesa & Escudos;notable;+10% de defesa física | +5 de força;cluster_6_0_inner0, cluster_6_0_inner1
+cluster_6_1_0;Bloqueio I;Defesa & Escudos;small;Chance de bloqueio com escudo: +0,5 pontos percentuais;cluster_6_1_1, cluster_6_1_7, road_6_5
+cluster_6_1_1;Maestria do escudo I;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_1_0, cluster_6_1_2
+cluster_6_1_2;Placas de aço I;Defesa & Escudos;small;+3% de defesa física;cluster_6_1_1, cluster_6_1_3, cluster_6_1_inner0
+cluster_6_1_3;Recuperação do bloqueio I;Defesa & Escudos;small;+4% de recuperação após bloquear;cluster_6_1_2, cluster_6_1_4
+cluster_6_1_4;Bloqueio II;Defesa & Escudos;small;Chance de bloqueio com escudo: +0,5 pontos percentuais;cluster_6_1_3, cluster_6_1_5
+cluster_6_1_5;Maestria do escudo II;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_1_4, cluster_6_1_6
+cluster_6_1_6;Placas de aço II;Defesa & Escudos;small;+3% de defesa física;cluster_6_1_5, cluster_6_1_7, cluster_6_1_inner1
+cluster_6_1_7;Recuperação do bloqueio II;Defesa & Escudos;small;+4% de recuperação após bloquear;cluster_6_1_6, cluster_6_1_0
+cluster_6_1_inner0;Disciplina · Bloqueio;Defesa & Escudos;small;Chance de bloqueio com escudo: +0,5 pontos percentuais;cluster_6_1_2, cluster_6_1_notable
+cluster_6_1_inner1;Disciplina · Placas de aço;Defesa & Escudos;small;+3% de defesa física;cluster_6_1_6, cluster_6_1_notable
+cluster_6_1_notable;Égide do Juramento;Defesa & Escudos;notable;Chance de bloqueio com escudo: +2 pontos percentuais | +10% de defesas concedidas pelo escudo;cluster_6_1_inner0, cluster_6_1_inner1
+cluster_6_2_0;Placas de aço I;Defesa & Escudos;small;+3% de defesa física;cluster_6_2_1, cluster_6_2_7, road_6_10
+cluster_6_2_1;Vitalidade I;Defesa & Escudos;small;+2 de vitalidade;cluster_6_2_0, cluster_6_2_2
+cluster_6_2_2;Reservas de vida I;Defesa & Escudos;small;+2% de vida máxima;cluster_6_2_1, cluster_6_2_3, cluster_6_2_inner0
+cluster_6_2_3;Estabilidade I;Defesa & Escudos;small;+4% de resistência a atordoamento;cluster_6_2_2, cluster_6_2_4
+cluster_6_2_4;Placas de aço II;Defesa & Escudos;small;+3% de defesa física;cluster_6_2_3, cluster_6_2_5
+cluster_6_2_5;Vitalidade II;Defesa & Escudos;small;+2 de vitalidade;cluster_6_2_4, cluster_6_2_6
+cluster_6_2_6;Reservas de vida II;Defesa & Escudos;small;+2% de vida máxima;cluster_6_2_5, cluster_6_2_7, cluster_6_2_inner1
+cluster_6_2_7;Estabilidade II;Defesa & Escudos;small;+4% de resistência a atordoamento;cluster_6_2_6, cluster_6_2_0
+cluster_6_2_inner0;Disciplina · Placas de aço;Defesa & Escudos;small;+3% de defesa física;cluster_6_2_2, cluster_6_2_notable
+cluster_6_2_inner1;Disciplina · Reservas de vida;Defesa & Escudos;small;+2% de vida máxima;cluster_6_2_6, cluster_6_2_notable
+cluster_6_2_notable;Placas Ancestrais;Defesa & Escudos;notable;+12% de defesa física | +5% de vida máxima;cluster_6_2_inner0, cluster_6_2_inner1
+cluster_6_3_0;Proteção arcana I;Defesa & Escudos;small;+3% de defesa mágica;cluster_6_3_1, cluster_6_3_7, road_6_10
+cluster_6_3_1;Magia I;Defesa & Escudos;small;+2 de magia;cluster_6_3_0, cluster_6_3_2
+cluster_6_3_2;Reservas de mana I;Defesa & Escudos;small;+3% de mana máxima;cluster_6_3_1, cluster_6_3_3, cluster_6_3_inner0
+cluster_6_3_3;Vitalidade I;Defesa & Escudos;small;+2 de vitalidade;cluster_6_3_2, cluster_6_3_4
+cluster_6_3_4;Proteção arcana II;Defesa & Escudos;small;+3% de defesa mágica;cluster_6_3_3, cluster_6_3_5
+cluster_6_3_5;Magia II;Defesa & Escudos;small;+2 de magia;cluster_6_3_4, cluster_6_3_6
+cluster_6_3_6;Reservas de mana II;Defesa & Escudos;small;+3% de mana máxima;cluster_6_3_5, cluster_6_3_7, cluster_6_3_inner1
+cluster_6_3_7;Vitalidade II;Defesa & Escudos;small;+2 de vitalidade;cluster_6_3_6, cluster_6_3_0
+cluster_6_3_inner0;Disciplina · Proteção arcana;Defesa & Escudos;small;+3% de defesa mágica;cluster_6_3_2, cluster_6_3_notable
+cluster_6_3_inner1;Disciplina · Reservas de mana;Defesa & Escudos;small;+3% de mana máxima;cluster_6_3_6, cluster_6_3_notable
+cluster_6_3_notable;Muralha Espiritual;Defesa & Escudos;notable;+12% de defesa mágica | +5 de magia;cluster_6_3_inner0, cluster_6_3_inner1
+cluster_6_4_0;Estabilidade I;Defesa & Escudos;small;+4% de resistência a atordoamento;cluster_6_4_1, cluster_6_4_7, road_6_15
+cluster_6_4_1;Recuperação do bloqueio I;Defesa & Escudos;small;+4% de recuperação após bloquear;cluster_6_4_0, cluster_6_4_2
+cluster_6_4_2;Maestria do escudo I;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_4_1, cluster_6_4_3, cluster_6_4_inner0
+cluster_6_4_3;Força I;Defesa & Escudos;small;+2 de força;cluster_6_4_2, cluster_6_4_4
+cluster_6_4_4;Estabilidade II;Defesa & Escudos;small;+4% de resistência a atordoamento;cluster_6_4_3, cluster_6_4_5
+cluster_6_4_5;Recuperação do bloqueio II;Defesa & Escudos;small;+4% de recuperação após bloquear;cluster_6_4_4, cluster_6_4_6
+cluster_6_4_6;Maestria do escudo II;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_4_5, cluster_6_4_7, cluster_6_4_inner1
+cluster_6_4_7;Força II;Defesa & Escudos;small;+2 de força;cluster_6_4_6, cluster_6_4_0
+cluster_6_4_inner0;Disciplina · Estabilidade;Defesa & Escudos;small;+4% de resistência a atordoamento;cluster_6_4_2, cluster_6_4_notable
+cluster_6_4_inner1;Disciplina · Maestria do escudo;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_4_6, cluster_6_4_notable
+cluster_6_4_notable;Vigília Inabalável;Defesa & Escudos;notable;+15% de resistência a atordoamento | +10% de recuperação após bloquear;cluster_6_4_inner0, cluster_6_4_inner1
+cluster_6_5_0;Maestria do escudo I;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_5_1, cluster_6_5_7, road_6_15
+cluster_6_5_1;Bloqueio I;Defesa & Escudos;small;Chance de bloqueio com escudo: +0,5 pontos percentuais;cluster_6_5_0, cluster_6_5_2
+cluster_6_5_2;Regeneração vital I;Defesa & Escudos;small;+5% de regeneração de vida;cluster_6_5_1, cluster_6_5_3, cluster_6_5_inner0
+cluster_6_5_3;Placas de aço I;Defesa & Escudos;small;+3% de defesa física;cluster_6_5_2, cluster_6_5_4
+cluster_6_5_4;Maestria do escudo II;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_5_3, cluster_6_5_5
+cluster_6_5_5;Bloqueio II;Defesa & Escudos;small;Chance de bloqueio com escudo: +0,5 pontos percentuais;cluster_6_5_4, cluster_6_5_6
+cluster_6_5_6;Regeneração vital II;Defesa & Escudos;small;+5% de regeneração de vida;cluster_6_5_5, cluster_6_5_7, cluster_6_5_inner1
+cluster_6_5_7;Placas de aço II;Defesa & Escudos;small;+3% de defesa física;cluster_6_5_6, cluster_6_5_0
+cluster_6_5_inner0;Disciplina · Maestria do escudo;Defesa & Escudos;small;+4% de defesas concedidas pelo escudo;cluster_6_5_2, cluster_6_5_notable
+cluster_6_5_inner1;Disciplina · Regeneração vital;Defesa & Escudos;small;+5% de regeneração de vida;cluster_6_5_6, cluster_6_5_notable
+cluster_6_5_notable;Escudo Vivo;Defesa & Escudos;notable;+14% de defesas concedidas pelo escudo | +10% de regeneração de vida;cluster_6_5_inner0, cluster_6_5_inner1
+keystone_6;Fortaleza Viva;Defesa & Escudos;keystone;+20% de defesa física | +20% de defesa mágica | −10% de velocidade de ataque;road_6_15
+road_7_1;Destreza;Mobilidade & Recursos;travel;+2 de destreza;root, road_7_2
+road_7_2;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_1, road_7_3
+road_7_3;Reservas de vida;Mobilidade & Recursos;travel;+1% de vida máxima;road_7_2, road_7_4, bridge_0_6_4, bridge_0_7_1
+road_7_4;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_3, road_7_5
+road_7_5;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_4, road_7_6, cluster_7_0_0, cluster_7_1_0
+road_7_6;Reservas de vida;Mobilidade & Recursos;travel;+1% de vida máxima;road_7_5, road_7_7
+road_7_7;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_6, road_7_8
+road_7_8;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_7, road_7_9, bridge_1_6_6, bridge_1_7_1
+road_7_9;Reservas de vida;Mobilidade & Recursos;travel;+1% de vida máxima;road_7_8, road_7_10
+road_7_10;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_9, road_7_11, cluster_7_2_0, cluster_7_3_0
+road_7_11;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_10, road_7_12
+road_7_12;Reservas de vida;Mobilidade & Recursos;travel;+1% de vida máxima;road_7_11, road_7_13
+road_7_13;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_12, road_7_14, bridge_2_6_8, bridge_2_7_1
+road_7_14;Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_13, road_7_15
+road_7_15;Reservas de vida;Mobilidade & Recursos;travel;+1% de vida máxima;road_7_14, cluster_7_4_0, cluster_7_5_0, keystone_7
+cluster_7_0_0;Passos leves I;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_0_1, cluster_7_0_7, road_7_5
+cluster_7_0_1;Destreza I;Mobilidade & Recursos;small;+2 de destreza;cluster_7_0_0, cluster_7_0_2
+cluster_7_0_2;Passos firmes I;Mobilidade & Recursos;small;+4% de resistência à lentidão;cluster_7_0_1, cluster_7_0_3, cluster_7_0_inner0
+cluster_7_0_3;Vitalidade I;Mobilidade & Recursos;small;+2 de vitalidade;cluster_7_0_2, cluster_7_0_4
+cluster_7_0_4;Passos leves II;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_0_3, cluster_7_0_5
+cluster_7_0_5;Destreza II;Mobilidade & Recursos;small;+2 de destreza;cluster_7_0_4, cluster_7_0_6
+cluster_7_0_6;Passos firmes II;Mobilidade & Recursos;small;+4% de resistência à lentidão;cluster_7_0_5, cluster_7_0_7, cluster_7_0_inner1
+cluster_7_0_7;Vitalidade II;Mobilidade & Recursos;small;+2 de vitalidade;cluster_7_0_6, cluster_7_0_0
+cluster_7_0_inner0;Disciplina · Passos leves;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_0_2, cluster_7_0_notable
+cluster_7_0_inner1;Disciplina · Passos firmes;Mobilidade & Recursos;small;+4% de resistência à lentidão;cluster_7_0_6, cluster_7_0_notable
+cluster_7_0_notable;Passos da Aurora;Mobilidade & Recursos;notable;+3% de velocidade de movimento | +10% de resistência à lentidão;cluster_7_0_inner0, cluster_7_0_inner1
+cluster_7_1_0;Passos firmes I;Mobilidade & Recursos;small;+4% de resistência à lentidão;cluster_7_1_1, cluster_7_1_7, road_7_5
+cluster_7_1_1;Estabilidade I;Mobilidade & Recursos;small;+4% de resistência a atordoamento;cluster_7_1_0, cluster_7_1_2
+cluster_7_1_2;Passos leves I;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_1_1, cluster_7_1_3, cluster_7_1_inner0
+cluster_7_1_3;Vitalidade I;Mobilidade & Recursos;small;+2 de vitalidade;cluster_7_1_2, cluster_7_1_4
+cluster_7_1_4;Passos firmes II;Mobilidade & Recursos;small;+4% de resistência à lentidão;cluster_7_1_3, cluster_7_1_5
+cluster_7_1_5;Estabilidade II;Mobilidade & Recursos;small;+4% de resistência a atordoamento;cluster_7_1_4, cluster_7_1_6
+cluster_7_1_6;Passos leves II;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_1_5, cluster_7_1_7, cluster_7_1_inner1
+cluster_7_1_7;Vitalidade II;Mobilidade & Recursos;small;+2 de vitalidade;cluster_7_1_6, cluster_7_1_0
+cluster_7_1_inner0;Disciplina · Passos firmes;Mobilidade & Recursos;small;+4% de resistência à lentidão;cluster_7_1_2, cluster_7_1_notable
+cluster_7_1_inner1;Disciplina · Passos leves;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_1_6, cluster_7_1_notable
+cluster_7_1_notable;Peregrino Tenaz;Mobilidade & Recursos;notable;+15% de resistência à lentidão | +10% de resistência a atordoamento;cluster_7_1_inner0, cluster_7_1_inner1
+cluster_7_2_0;Recuperação de recursos I;Mobilidade & Recursos;small;+3% de recuperação de vida e mana;cluster_7_2_1, cluster_7_2_7, road_7_10
+cluster_7_2_1;Reservas de vida I;Mobilidade & Recursos;small;+2% de vida máxima;cluster_7_2_0, cluster_7_2_2
+cluster_7_2_2;Reservas de mana I;Mobilidade & Recursos;small;+3% de mana máxima;cluster_7_2_1, cluster_7_2_3, cluster_7_2_inner0
+cluster_7_2_3;Regeneração vital I;Mobilidade & Recursos;small;+5% de regeneração de vida;cluster_7_2_2, cluster_7_2_4
+cluster_7_2_4;Recuperação de recursos II;Mobilidade & Recursos;small;+3% de recuperação de vida e mana;cluster_7_2_3, cluster_7_2_5
+cluster_7_2_5;Reservas de vida II;Mobilidade & Recursos;small;+2% de vida máxima;cluster_7_2_4, cluster_7_2_6
+cluster_7_2_6;Reservas de mana II;Mobilidade & Recursos;small;+3% de mana máxima;cluster_7_2_5, cluster_7_2_7, cluster_7_2_inner1
+cluster_7_2_7;Regeneração vital II;Mobilidade & Recursos;small;+5% de regeneração de vida;cluster_7_2_6, cluster_7_2_0
+cluster_7_2_inner0;Disciplina · Recuperação de recursos;Mobilidade & Recursos;small;+3% de recuperação de vida e mana;cluster_7_2_2, cluster_7_2_notable
+cluster_7_2_inner1;Disciplina · Reservas de mana;Mobilidade & Recursos;small;+3% de mana máxima;cluster_7_2_6, cluster_7_2_notable
+cluster_7_2_notable;Fôlego Renovado;Mobilidade & Recursos;notable;+10% de recuperação de vida e mana;cluster_7_2_inner0, cluster_7_2_inner1
+cluster_7_3_0;Poções de vida I;Mobilidade & Recursos;small;+4% de recuperação das poções de vida;cluster_7_3_1, cluster_7_3_7, road_7_10
+cluster_7_3_1;Recuperação vital I;Mobilidade & Recursos;small;+3% de recuperação de vida recebida;cluster_7_3_0, cluster_7_3_2
+cluster_7_3_2;Vitalidade I;Mobilidade & Recursos;small;+2 de vitalidade;cluster_7_3_1, cluster_7_3_3, cluster_7_3_inner0
+cluster_7_3_3;Recuperação de recursos I;Mobilidade & Recursos;small;+3% de recuperação de vida e mana;cluster_7_3_2, cluster_7_3_4
+cluster_7_3_4;Poções de vida II;Mobilidade & Recursos;small;+4% de recuperação das poções de vida;cluster_7_3_3, cluster_7_3_5
+cluster_7_3_5;Recuperação vital II;Mobilidade & Recursos;small;+3% de recuperação de vida recebida;cluster_7_3_4, cluster_7_3_6
+cluster_7_3_6;Vitalidade II;Mobilidade & Recursos;small;+2 de vitalidade;cluster_7_3_5, cluster_7_3_7, cluster_7_3_inner1
+cluster_7_3_7;Recuperação de recursos II;Mobilidade & Recursos;small;+3% de recuperação de vida e mana;cluster_7_3_6, cluster_7_3_0
+cluster_7_3_inner0;Disciplina · Poções de vida;Mobilidade & Recursos;small;+4% de recuperação das poções de vida;cluster_7_3_2, cluster_7_3_notable
+cluster_7_3_inner1;Disciplina · Vitalidade;Mobilidade & Recursos;small;+2 de vitalidade;cluster_7_3_6, cluster_7_3_notable
+cluster_7_3_notable;Alquimia Vital;Mobilidade & Recursos;notable;+15% de recuperação das poções de vida | +8% de recuperação de vida recebida;cluster_7_3_inner0, cluster_7_3_inner1
+cluster_7_4_0;Poções de mana I;Mobilidade & Recursos;small;+4% de recuperação das poções de mana;cluster_7_4_1, cluster_7_4_7, road_7_15
+cluster_7_4_1;Fluxo de mana I;Mobilidade & Recursos;small;Regeneração de mana aumentada em 5%;cluster_7_4_0, cluster_7_4_2
+cluster_7_4_2;Magia I;Mobilidade & Recursos;small;+2 de magia;cluster_7_4_1, cluster_7_4_3, cluster_7_4_inner0
+cluster_7_4_3;Reservas de mana I;Mobilidade & Recursos;small;+3% de mana máxima;cluster_7_4_2, cluster_7_4_4
+cluster_7_4_4;Poções de mana II;Mobilidade & Recursos;small;+4% de recuperação das poções de mana;cluster_7_4_3, cluster_7_4_5
+cluster_7_4_5;Fluxo de mana II;Mobilidade & Recursos;small;Regeneração de mana aumentada em 5%;cluster_7_4_4, cluster_7_4_6
+cluster_7_4_6;Magia II;Mobilidade & Recursos;small;+2 de magia;cluster_7_4_5, cluster_7_4_7, cluster_7_4_inner1
+cluster_7_4_7;Reservas de mana II;Mobilidade & Recursos;small;+3% de mana máxima;cluster_7_4_6, cluster_7_4_0
+cluster_7_4_inner0;Disciplina · Poções de mana;Mobilidade & Recursos;small;+4% de recuperação das poções de mana;cluster_7_4_2, cluster_7_4_notable
+cluster_7_4_inner1;Disciplina · Magia;Mobilidade & Recursos;small;+2 de magia;cluster_7_4_6, cluster_7_4_notable
+cluster_7_4_notable;Reserva do Viajante;Mobilidade & Recursos;notable;+15% de recuperação das poções de mana | Regeneração de mana aumentada em 10%;cluster_7_4_inner0, cluster_7_4_inner1
+cluster_7_5_0;Passos leves I;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_5_1, cluster_7_5_7, road_7_15
+cluster_7_5_1;Ritmo de ataque I;Mobilidade & Recursos;small;+1,5% de velocidade de ataque;cluster_7_5_0, cluster_7_5_2
+cluster_7_5_2;Destreza I;Mobilidade & Recursos;small;+2 de destreza;cluster_7_5_1, cluster_7_5_3, cluster_7_5_inner0
+cluster_7_5_3;Recuperação de recursos I;Mobilidade & Recursos;small;+3% de recuperação de vida e mana;cluster_7_5_2, cluster_7_5_4
+cluster_7_5_4;Passos leves II;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_5_3, cluster_7_5_5
+cluster_7_5_5;Ritmo de ataque II;Mobilidade & Recursos;small;+1,5% de velocidade de ataque;cluster_7_5_4, cluster_7_5_6
+cluster_7_5_6;Destreza II;Mobilidade & Recursos;small;+2 de destreza;cluster_7_5_5, cluster_7_5_7, cluster_7_5_inner1
+cluster_7_5_7;Recuperação de recursos II;Mobilidade & Recursos;small;+3% de recuperação de vida e mana;cluster_7_5_6, cluster_7_5_0
+cluster_7_5_inner0;Disciplina · Passos leves;Mobilidade & Recursos;small;+1% de velocidade de movimento;cluster_7_5_2, cluster_7_5_notable
+cluster_7_5_inner1;Disciplina · Destreza;Mobilidade & Recursos;small;+2 de destreza;cluster_7_5_6, cluster_7_5_notable
+cluster_7_5_notable;Ritmo da Jornada;Mobilidade & Recursos;notable;+3% de velocidade de movimento | +3% de velocidade de ataque;cluster_7_5_inner0, cluster_7_5_inner1
+keystone_7;Passo do Vento;Mobilidade & Recursos;keystone;+15% de velocidade de movimento | −10% de defesa física;road_7_15
+bridge_0_0_1;Travessia · Força;Força & Armas;travel;+2 de força;road_0_3, bridge_0_0_2
+bridge_0_0_2;Travessia · Força;Força & Armas;travel;+2 de força;bridge_0_0_1, bridge_0_0_3
+bridge_0_0_3;Travessia · Força;Força & Armas;travel;+2 de força;bridge_0_0_2, bridge_0_0_4
+bridge_0_0_4;Travessia · Força;Força & Armas;travel;+2 de força;bridge_0_0_3, road_1_3
+bridge_0_1_1;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_3, bridge_0_1_2
+bridge_0_1_2;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_0_1_1, bridge_0_1_3
+bridge_0_1_3;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_0_1_2, bridge_0_1_4
+bridge_0_1_4;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_0_1_3, road_2_3
+bridge_0_2_1;Travessia · Magia;Magia & Mana;travel;+2 de magia;road_2_3, bridge_0_2_2
+bridge_0_2_2;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_0_2_1, bridge_0_2_3
+bridge_0_2_3;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_0_2_2, bridge_0_2_4
+bridge_0_2_4;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_0_2_3, road_3_3
+bridge_0_3_1;Travessia · Magia;Elementos;travel;+2 de magia;road_3_3, bridge_0_3_2
+bridge_0_3_2;Travessia · Magia;Elementos;travel;+2 de magia;bridge_0_3_1, bridge_0_3_3
+bridge_0_3_3;Travessia · Magia;Elementos;travel;+2 de magia;bridge_0_3_2, bridge_0_3_4
+bridge_0_3_4;Travessia · Magia;Elementos;travel;+2 de magia;bridge_0_3_3, road_4_3
+bridge_0_4_1;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_3, bridge_0_4_2
+bridge_0_4_2;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_0_4_1, bridge_0_4_3
+bridge_0_4_3;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_0_4_2, bridge_0_4_4
+bridge_0_4_4;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_0_4_3, road_5_3
+bridge_0_5_1;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_3, bridge_0_5_2
+bridge_0_5_2;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_0_5_1, bridge_0_5_3
+bridge_0_5_3;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_0_5_2, bridge_0_5_4
+bridge_0_5_4;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_0_5_3, road_6_3
+bridge_0_6_1;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_3, bridge_0_6_2
+bridge_0_6_2;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_0_6_1, bridge_0_6_3
+bridge_0_6_3;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_0_6_2, bridge_0_6_4
+bridge_0_6_4;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_0_6_3, road_7_3
+bridge_0_7_1;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_3, bridge_0_7_2
+bridge_0_7_2;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_0_7_1, bridge_0_7_3
+bridge_0_7_3;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_0_7_2, bridge_0_7_4
+bridge_0_7_4;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_0_7_3, road_0_3
+bridge_1_0_1;Travessia · Força;Força & Armas;travel;+2 de força;road_0_8, bridge_1_0_2
+bridge_1_0_2;Travessia · Força;Força & Armas;travel;+2 de força;bridge_1_0_1, bridge_1_0_3
+bridge_1_0_3;Travessia · Força;Força & Armas;travel;+2 de força;bridge_1_0_2, bridge_1_0_4
+bridge_1_0_4;Travessia · Força;Força & Armas;travel;+2 de força;bridge_1_0_3, bridge_1_0_5
+bridge_1_0_5;Travessia · Força;Força & Armas;travel;+2 de força;bridge_1_0_4, bridge_1_0_6
+bridge_1_0_6;Travessia · Força;Força & Armas;travel;+2 de força;bridge_1_0_5, road_1_8
+bridge_1_1_1;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_8, bridge_1_1_2
+bridge_1_1_2;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_1_1_1, bridge_1_1_3
+bridge_1_1_3;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_1_1_2, bridge_1_1_4
+bridge_1_1_4;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_1_1_3, bridge_1_1_5
+bridge_1_1_5;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_1_1_4, bridge_1_1_6
+bridge_1_1_6;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_1_1_5, road_2_8
+bridge_1_2_1;Travessia · Magia;Magia & Mana;travel;+2 de magia;road_2_8, bridge_1_2_2
+bridge_1_2_2;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_1_2_1, bridge_1_2_3
+bridge_1_2_3;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_1_2_2, bridge_1_2_4
+bridge_1_2_4;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_1_2_3, bridge_1_2_5
+bridge_1_2_5;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_1_2_4, bridge_1_2_6
+bridge_1_2_6;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_1_2_5, road_3_8
+bridge_1_3_1;Travessia · Magia;Elementos;travel;+2 de magia;road_3_8, bridge_1_3_2
+bridge_1_3_2;Travessia · Magia;Elementos;travel;+2 de magia;bridge_1_3_1, bridge_1_3_3
+bridge_1_3_3;Travessia · Magia;Elementos;travel;+2 de magia;bridge_1_3_2, bridge_1_3_4
+bridge_1_3_4;Travessia · Magia;Elementos;travel;+2 de magia;bridge_1_3_3, bridge_1_3_5
+bridge_1_3_5;Travessia · Magia;Elementos;travel;+2 de magia;bridge_1_3_4, bridge_1_3_6
+bridge_1_3_6;Travessia · Magia;Elementos;travel;+2 de magia;bridge_1_3_5, road_4_8
+bridge_1_4_1;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_8, bridge_1_4_2
+bridge_1_4_2;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_1_4_1, bridge_1_4_3
+bridge_1_4_3;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_1_4_2, bridge_1_4_4
+bridge_1_4_4;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_1_4_3, bridge_1_4_5
+bridge_1_4_5;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_1_4_4, bridge_1_4_6
+bridge_1_4_6;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_1_4_5, road_5_8
+bridge_1_5_1;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_8, bridge_1_5_2
+bridge_1_5_2;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_1_5_1, bridge_1_5_3
+bridge_1_5_3;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_1_5_2, bridge_1_5_4
+bridge_1_5_4;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_1_5_3, bridge_1_5_5
+bridge_1_5_5;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_1_5_4, bridge_1_5_6
+bridge_1_5_6;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_1_5_5, road_6_8
+bridge_1_6_1;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_8, bridge_1_6_2
+bridge_1_6_2;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_1_6_1, bridge_1_6_3
+bridge_1_6_3;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_1_6_2, bridge_1_6_4
+bridge_1_6_4;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_1_6_3, bridge_1_6_5
+bridge_1_6_5;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_1_6_4, bridge_1_6_6
+bridge_1_6_6;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_1_6_5, road_7_8
+bridge_1_7_1;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_8, bridge_1_7_2
+bridge_1_7_2;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_1_7_1, bridge_1_7_3
+bridge_1_7_3;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_1_7_2, bridge_1_7_4
+bridge_1_7_4;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_1_7_3, bridge_1_7_5
+bridge_1_7_5;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_1_7_4, bridge_1_7_6
+bridge_1_7_6;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_1_7_5, road_0_8
+bridge_2_0_1;Travessia · Força;Força & Armas;travel;+2 de força;road_0_13, bridge_2_0_2
+bridge_2_0_2;Travessia · Força;Força & Armas;travel;+2 de força;bridge_2_0_1, bridge_2_0_3
+bridge_2_0_3;Travessia · Força;Força & Armas;travel;+2 de força;bridge_2_0_2, bridge_2_0_4
+bridge_2_0_4;Travessia · Força;Força & Armas;travel;+2 de força;bridge_2_0_3, bridge_2_0_5
+bridge_2_0_5;Travessia · Força;Força & Armas;travel;+2 de força;bridge_2_0_4, bridge_2_0_6
+bridge_2_0_6;Travessia · Força;Força & Armas;travel;+2 de força;bridge_2_0_5, bridge_2_0_7
+bridge_2_0_7;Travessia · Força;Força & Armas;travel;+2 de força;bridge_2_0_6, bridge_2_0_8
+bridge_2_0_8;Travessia · Força;Força & Armas;travel;+2 de força;bridge_2_0_7, road_1_13
+bridge_2_1_1;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;road_1_13, bridge_2_1_2
+bridge_2_1_2;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_2_1_1, bridge_2_1_3
+bridge_2_1_3;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_2_1_2, bridge_2_1_4
+bridge_2_1_4;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_2_1_3, bridge_2_1_5
+bridge_2_1_5;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_2_1_4, bridge_2_1_6
+bridge_2_1_6;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_2_1_5, bridge_2_1_7
+bridge_2_1_7;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_2_1_6, bridge_2_1_8
+bridge_2_1_8;Travessia · Vitalidade;Vida & Regeneração;travel;+2 de vitalidade;bridge_2_1_7, road_2_13
+bridge_2_2_1;Travessia · Magia;Magia & Mana;travel;+2 de magia;road_2_13, bridge_2_2_2
+bridge_2_2_2;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_2_2_1, bridge_2_2_3
+bridge_2_2_3;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_2_2_2, bridge_2_2_4
+bridge_2_2_4;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_2_2_3, bridge_2_2_5
+bridge_2_2_5;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_2_2_4, bridge_2_2_6
+bridge_2_2_6;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_2_2_5, bridge_2_2_7
+bridge_2_2_7;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_2_2_6, bridge_2_2_8
+bridge_2_2_8;Travessia · Magia;Magia & Mana;travel;+2 de magia;bridge_2_2_7, road_3_13
+bridge_2_3_1;Travessia · Magia;Elementos;travel;+2 de magia;road_3_13, bridge_2_3_2
+bridge_2_3_2;Travessia · Magia;Elementos;travel;+2 de magia;bridge_2_3_1, bridge_2_3_3
+bridge_2_3_3;Travessia · Magia;Elementos;travel;+2 de magia;bridge_2_3_2, bridge_2_3_4
+bridge_2_3_4;Travessia · Magia;Elementos;travel;+2 de magia;bridge_2_3_3, bridge_2_3_5
+bridge_2_3_5;Travessia · Magia;Elementos;travel;+2 de magia;bridge_2_3_4, bridge_2_3_6
+bridge_2_3_6;Travessia · Magia;Elementos;travel;+2 de magia;bridge_2_3_5, bridge_2_3_7
+bridge_2_3_7;Travessia · Magia;Elementos;travel;+2 de magia;bridge_2_3_6, bridge_2_3_8
+bridge_2_3_8;Travessia · Magia;Elementos;travel;+2 de magia;bridge_2_3_7, road_4_13
+bridge_2_4_1;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;road_4_13, bridge_2_4_2
+bridge_2_4_2;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_2_4_1, bridge_2_4_3
+bridge_2_4_3;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_2_4_2, bridge_2_4_4
+bridge_2_4_4;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_2_4_3, bridge_2_4_5
+bridge_2_4_5;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_2_4_4, bridge_2_4_6
+bridge_2_4_6;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_2_4_5, bridge_2_4_7
+bridge_2_4_7;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_2_4_6, bridge_2_4_8
+bridge_2_4_8;Travessia · Destreza;Destreza & Crítico;travel;+2 de destreza;bridge_2_4_7, road_5_13
+bridge_2_5_1;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;road_5_13, bridge_2_5_2
+bridge_2_5_2;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_2_5_1, bridge_2_5_3
+bridge_2_5_3;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_2_5_2, bridge_2_5_4
+bridge_2_5_4;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_2_5_3, bridge_2_5_5
+bridge_2_5_5;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_2_5_4, bridge_2_5_6
+bridge_2_5_6;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_2_5_5, bridge_2_5_7
+bridge_2_5_7;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_2_5_6, bridge_2_5_8
+bridge_2_5_8;Travessia · Destreza;Veneno & Sangramento;travel;+2 de destreza;bridge_2_5_7, road_6_13
+bridge_2_6_1;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;road_6_13, bridge_2_6_2
+bridge_2_6_2;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_2_6_1, bridge_2_6_3
+bridge_2_6_3;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_2_6_2, bridge_2_6_4
+bridge_2_6_4;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_2_6_3, bridge_2_6_5
+bridge_2_6_5;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_2_6_4, bridge_2_6_6
+bridge_2_6_6;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_2_6_5, bridge_2_6_7
+bridge_2_6_7;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_2_6_6, bridge_2_6_8
+bridge_2_6_8;Travessia · Vitalidade;Defesa & Escudos;travel;+2 de vitalidade;bridge_2_6_7, road_7_13
+bridge_2_7_1;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;road_7_13, bridge_2_7_2
+bridge_2_7_2;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_2_7_1, bridge_2_7_3
+bridge_2_7_3;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_2_7_2, bridge_2_7_4
+bridge_2_7_4;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_2_7_3, bridge_2_7_5
+bridge_2_7_5;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_2_7_4, bridge_2_7_6
+bridge_2_7_6;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_2_7_5, bridge_2_7_7
+bridge_2_7_7;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_2_7_6, bridge_2_7_8
+bridge_2_7_8;Travessia · Destreza;Mobilidade & Recursos;travel;+2 de destreza;bridge_2_7_7, road_0_13

@@ -2,6 +2,21 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
+## Estudo independente da árvore de passivas v1.0
+
+- **[HTML offline somente da árvore](prototypes/passive-tree/v1.0/Mythos_Online_Arvore_Passivas_v1.0.html)**
+- [Pacote ZIP e fontes](prototypes/passive-tree/v1.0/Mythos_Online_Arvore_Passivas_v1.0.zip)
+- [Todas as passivas em CSV](prototypes/passive-tree/v1.0/CATALOGO_PASSIVAS.csv)
+- [Definições dos atributos](prototypes/passive-tree/v1.0/ATRIBUTOS_PASSIVOS.md)
+- [Como testar](prototypes/passive-tree/v1.0/README.md)
+
+Um único Guardião no centro; **800 passivas** conectadas, 48 grupos e 51 modificadores.
+Passe o mouse para ver título e bônus. Busca, zoom, catálogo completo, nível de teste,
+prévia, Aplicar/Cancelar e exportação/importação. Um ponto por nível a partir do 2,
+até 98 no nível 99. O estudo usa save próprio e não altera o personagem do jogo.
+Os valores são uma proposta para balanceamento. Use **Download raw file** para baixar
+o HTML e abri-lo no navegador, offline.
+
 ## Protótipo offline v0.8 — Personagem e atributos
 
 Bosque da Aurora jogável com Guardião, monstros, missões, chefe, interface clássica,

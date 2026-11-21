@@ -1,0 +1,34 @@
+MYTHOS ONLINE — ARVORE DE PASSIVAS · ESTUDO v1.0
+
+Abra Mythos_Online_Arvore_Passivas_v1.0.html no navegador do desktop.
+Funciona offline, sem instalação. No GitHub, use Download raw file para baixar.
+Este arquivo contém somente a árvore: não altera o save ou o combate do jogo.
+
+O Guardião aparece sozinho no centro. São 800 passivas conectadas e 48 grupos.
+Passe o mouse sobre um ponto para ler o título e todos os bônus numéricos.
+Clique para examinar na lateral. Adicionar 1 ponto ou Adicionar caminho monta uma
+prévia. A rota exige conexão e pontos suficientes. Duplo clique também adiciona.
+Clique direito remove da prévia se não desconectar outros pontos.
+Aplicar confirma e salva o estudo. Cancelar descarta somente a prévia.
+
+Nível de teste: 1 a 99. O orçamento é nível menos um, até 98 pontos.
+Você pode ler todos os pontos independentemente do nível ou caminho atual.
+Buscar encontra nomes e status, inclusive sem acentos. Afinidade realça uma família.
+Catálogo lista todos os pontos; clicar em um deles centraliza sua posição.
+Resumo soma os modificadores da prévia, com benefícios e penalidades.
+
+Arraste o fundo para mover, role o mouse para ampliar. + e - também dão zoom.
+Ver tudo mostra a árvore inteira. Minha origem retorna ao Guardião.
+No mapa, use setas para mover, + / - para zoom, Home para centralizar.
+Enter/Espaço em um ponto focado abre detalhes. Esc esconde o tooltip.
+
+Exportar guarda somente a distribuição aplicada. Importar valida o JSON do estudo.
+O armazenamento local tem chave própria e não acessa os personagens do jogo.
+Guarde uma exportação antes de trocar de navegador ou mover o HTML.
+Limpar estudo pede confirmação e zera somente este estudo.
+
+Os valores são uma proposta para leitura e balanceamento. A árvore ainda não foi
+integrada ao jogo. Aumentos percentuais não geram uma fonte de dano/recuperação
+que o personagem não possua. Condições de arma, escudo e técnicas continuam válidas.
+ATRIBUTOS_PASSIVOS.md define a interpretação de cada modificador.
+O CSV e catalogo.json contêm todas as passivas e seus efeitos.
