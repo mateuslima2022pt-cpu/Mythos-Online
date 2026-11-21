@@ -2,6 +2,18 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
+## Laboratório offline do Guardião v1.0
+
+- **[Baixar HTML autossuficiente](prototypes/guardian-lab/v1.0/Mythos_Online_Guardiao_Laboratorio_v1.0.html)**
+- **[Pacote completo: HTML, sprites PNG e fontes (ZIP)](prototypes/guardian-lab/v1.0/Mythos_Online_Guardiao_Laboratorio_v1.0.zip)**
+- [Instruções, controles e limites do estudo](prototypes/guardian-lab/v1.0/README.md)
+
+Guardião estilizado, regata bege, shorts branco e espada de madeira. 88 quadros
+base, quatro direções, repouso com piscada e cabelo, caminhada, corrida e ataque.
+WASD move, Shift corre, clique ou Espaço ataca. Pausa, passo a passo e exportação
+PNG/ZIP no próprio HTML. Baixe e abra o arquivo no navegador. Laboratório isolado,
+sem acesso aos saves; não substitui nem altera o jogo v0.9.
+
 ## Atlas de Elyndra — Mapa e habitats v1.0
 
 - [Mapa PNG: regiões, capitais, vilas e entradas de dungeons](docs/world-map/v1.0/Mythos_Online_Mapa_Elyndra_v1.0.png)

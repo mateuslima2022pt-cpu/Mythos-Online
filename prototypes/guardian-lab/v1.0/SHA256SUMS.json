@@ -1,0 +1,22 @@
+{
+  "Mythos_Online_Guardiao_Laboratorio_v1.0.html": "70c93350089d47354e0952f11011107ece42234cf97bd7a955a323ffbbed17cd",
+  "README.md": "e7ae9f4bb481da40583c6536b6b58f8f4208dcee8e8eca11facf433fefe70202",
+  "build.py": "ffd247e19e9fdabd08faaf04d8112ffe9efe8b6cf68d8412fab53fd9a2c6549d",
+  "build-atlas.cjs": "9878533c86c452fb2a288779d04786da0f903f85cd569d5687c13c9757e6964e",
+  "qa.cjs": "a21fbb84fe6b0b17c6465c1201f2426cc5224a1cd75b5427e0a33abe9903c14f",
+  "QA.json": "2079e72a3360dcef3a5e67d1fa006449c9259a69f04fb96d1f5cd06c5ea40bf4",
+  "src/app.js": "21576f0793fbac7924bb32dd92bfbdf28519da122a180daf18fbf0d2c78f63eb",
+  "src/engine.js": "34ecb0a435251ea4b27553d3f12a3b171060059cffe3be8598e52fddd017cee3",
+  "src/index.template.html": "92eb6d930db69fafe1ade9e9a94e790471ef25011123bf7fcf9f0be97f922cb9",
+  "src/renderer.js": "624c663726a5ae62c5dd1492014fcc76d13b1a6ce189716483e27f59b5084c5d",
+  "assets/sprites/atlas.json": "a562a11a7530175b01705f1cf1e086e914f775d8068850bce6d2a7449058f8b1",
+  "assets/sprites/guardian-attack.png": "bfe23a81ab75001c82f00fc6feb5166890f6094c3c0c747edb3c7b5fe38d7d65",
+  "assets/sprites/guardian-idle.png": "e7aae36ee8374519e829339b3ce4ddede5f072053eeaa1a56c008d43f3d50ea2",
+  "assets/sprites/guardian-run.png": "988f77765400364dbac97685107ab24d859d8e3a1c04c7b957eddf4d3732ec18",
+  "assets/sprites/guardian-walk.png": "7f57aab395bb6e957e417f91f48e0e7fbd0ecf158b14da02fc6cf8d13299efec",
+  "assets/registered/animacoes.json": "164dd078374bab6d9d46480b90bff622b3c7fe9ae7a0aa0f72da44c8b85bc349",
+  "assets/registered/guardian-attack-registrado.png": "bbd9766bb4d846e74b5b7a07addfd3feb4e647fa09fc732d13263996ee20fbac",
+  "assets/registered/guardian-idle-registrado.png": "183964bafaa6dd233bc5eb6673078b248450b02aac36b86bf1705717b508589b",
+  "assets/registered/guardian-run-registrado.png": "550ebc2cf547124bc67c25f33c6bacd09ab4c92949c703b94d30b19d4a5b1c0f",
+  "assets/registered/guardian-walk-registrado.png": "e16d153b0be6d99fd790768b01a33c1fa55d50b23b1e8a0f3e7cd515dad7ab31"
+}
