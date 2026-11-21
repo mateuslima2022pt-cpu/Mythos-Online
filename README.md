@@ -2,26 +2,29 @@
 
 MMORPG 2D de fantasia medieval com construção de builds, evolução de classes, equipamentos visíveis, refinamento e guerras territoriais.
 
-## Protótipo offline v0.2 — Bosque da Aurora
+## Protótipo offline v0.3 — Bosque da Aurora
 
 Primeira área jogável em JavaScript, com **Guardião**, guia de iniciante, floresta,
 monstros, chefe, atributos, talentos e equipamentos visíveis.
 
-- **[Baixar o protótipo completo (ZIP)](prototypes/offline/v0.2/Mythos_Online_Offline_v0.2.zip)**
-- [HTML autossuficiente](prototypes/offline/v0.2/Mythos_Online_Offline_v0.2.html)
-- [Instruções, controles e código-fonte](prototypes/offline/v0.2/README.md)
-- [Arquitetura proposta para o MMORPG e banco de dados](prototypes/offline/v0.2/ARQUITETURA.md)
+- **[Baixar o protótipo completo (ZIP)](prototypes/offline/v0.3/Mythos_Online_Offline_v0.3.zip)**
+- [HTML autossuficiente](prototypes/offline/v0.3/Mythos_Online_Offline_v0.3.html)
+- [Instruções, controles e código-fonte](prototypes/offline/v0.3/README.md)
+- [Arquitetura proposta para o MMORPG e banco de dados](prototypes/offline/v0.3/ARQUITETURA.md)
 
 Baixe o ZIP pelo botão **Download raw file**, extraia e abra
-**Mythos_Online_Offline_v0.2.html** no navegador do seu desktop. Funciona sem internet
+**Mythos_Online_Offline_v0.3.html** no navegador do seu desktop. Funciona sem internet
 ou instalação. O salvamento desta versão é local e pode ser exportado.
 
-A **v0.2** aplica a interface clássica aprovada: preto e bronze, chat local,
+A **v0.3** integra os seis cursores enviados, com animações e hotspots preservados.
+O saque de ouro e poções passa a exigir clique; não há coleta automática.
+
+A interface clássica aprovada foi mantida: preto e bronze, chat local,
 HUD com retrato, minimapa com coordenadas, missões minimizáveis, barras F1–F8 e 1–9,
 atalhos compactos e ouro no inventário. Para migrar o progresso, exporte a jornada
 na versão anterior e importe o JSON no novo HTML.
 
-A [versão 0.1](prototypes/offline/v0.1/README.md) permanece disponível para comparação.
+As versões anteriores estão preservadas: [0.2](prototypes/offline/v0.2/README.md) e [versão 0.1](prototypes/offline/v0.1/README.md) continuam disponíveis para comparação.
 
 ## Documentação de design — GDD v1.0
 
