@@ -1,0 +1,1273 @@
+// Integration of simulation + DOM wiring. Not a browser/layout test.
+const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
+(async()=>{
+const root=require('node:path').resolve(__dirname,'..');
+const native=require('@napi-rs/canvas');
+const cursorImages=Object.fromEntries(await Promise.all(Object.entries(JSON.parse(fs.readFileSync(root+'/assets/cursors/cursors.json'))).map(async([k,v])=>[k,await Promise.all(v.frames.map(f=>native.loadImage(Buffer.from(f.src.split(',')[1],'base64'))))])));
+const registry=new Map(),voids=new Set(['input','meta','br','img','hr','link']);
+function matches(el,s){if(s.startsWith('#'))return el.id===s.slice(1);if(s.startsWith('.'))return (el.className||'').split(' ').includes(s.slice(1));if(s.startsWith('[')){const a=s.slice(1,-1).split('=');return a[0] in el.attributes&&(!a[1]||el.attributes[a[0]]===a[1].replace(/["']/g,''));}return el.tagName.toLowerCase()===s.toLowerCase();}
+class El{
+ constructor(tag='div'){this.tagName=tag;this.children=[];this.attributes={};this.dataset={};this.style={};this.hidden=false;this._html='';this._text='';this.className='';this.value='';this.disabled=false;this.classList={add:(...ss)=>{this.className=[...new Set(this.className.split(' ').concat(ss))].join(' ')},remove:(...ss)=>this.className=this.className.split(' ').filter(x=>!ss.includes(x)).join(' '),toggle:(s,on)=>{if(on===undefined)on=!this.className.split(' ').includes(s);on?this.classList.add(s):this.classList.remove(s);}};}
+ set id(v){this.attributes.id=v;registry.set(v,this);}get id(){return this.attributes.id;}
+ set innerHTML(v){this._html=v;for(const old of this.children)old.parent=null;this.children=[];parse(v,this);}get innerHTML(){return this._html;}
+ set textContent(v){this._text=String(v);}get textContent(){return this._text;}
+ append(el){this.children.push(el);el.parent=this;}
+ get firstChild(){return this.children[0];} get parentElement(){return this.parent;}
+ remove(){if(this.parent)this.parent.children=this.parent.children.filter(x=>x!==this);}
+ setAttribute(k,v){this.attributes[k]=String(v);} getAttribute(k){return this.attributes[k];} addEventListener(){} focus(){doc.activeElement=this;this.onfocus?.({target:this});} blur(){doc.activeElement=doc;} click(){if(this.onclick)this.onclick({target:this});}
+ querySelectorAll(s){const parts=s.split(/\s+/),last=parts.pop(),out=[];const visit=e=>{for(const ch of e.children){if(matches(ch,last)){let ok=true,parent=ch.parent;for(let j=parts.length-1;j>=0;j--){while(parent&&!matches(parent,parts[j]))parent=parent.parent;if(!parent){ok=false;break;}parent=parent.parent;}if(ok)out.push(ch);}visit(ch);}};visit(this);return out;}
+ querySelector(s){return this.querySelectorAll(s)[0]||null;}
+}
+function el(tag){if(tag!=='canvas')return new El(tag);const obj=native.createCanvas(300,150),base=new El(tag);for(const k of Object.keys(base))obj[k]=base[k];for(const k of Object.getOwnPropertyNames(El.prototype)){if(k==='constructor')continue;Object.defineProperty(obj,k,Object.getOwnPropertyDescriptor(El.prototype,k));}return obj;}
+function parse(html,parent){const stack=[parent];for(const tok of html.matchAll(/<\/?[a-zA-Z][^>]*>/g)){const str=tok[0],tag=str.match(/^<\/?([\w-]+)/)[1];if(str.startsWith('</')){if(stack.length>1)stack.pop();continue;}const node=el(tag.toLowerCase());for(const attr of str.slice(1+tag.length,-1).matchAll(/([\w-]+)(?:="([^"]*)"|='([^']*)'|=([^\s>]+))?/g)){const k=attr[1],v=attr[2]??attr[3]??attr[4]??'';node.attributes[k]=v;if(k==='id')node.id=v;else if(k==='class')node.className=v;else if(k.startsWith('data-'))node.dataset[k.slice(5).replace(/-([a-z])/g,(_,c)=>c.toUpperCase())]=v;else if(['hidden','disabled','checked'].includes(k))node[k]=true;else if(['value','width','height'].includes(k))node[k]=['width','height'].includes(k)?+v:v;}stack.at(-1).append(node);if(!voids.has(tag)&&!str.endsWith('/>'))stack.push(node);}}
+const doc=new El('document');parse(fs.readFileSync(root+'/src/index.template.html','utf8'),doc);doc.getElementById=id=>{const el=registry.get(id);let at=el;while(at&&at!==doc)at=at.parent;return at===doc?el:undefined;};doc.createElement=el;
+const anim=JSON.parse(fs.readFileSync(root+'/assets/guardian/atlas.json'));const imageFiles=['trees.png','guardian.png','monsters.png','inventory-items.png','inventory-reference.png',...Object.values(anim.sheets).map(v=>'guardian/'+v.file)];const loaded=await Promise.all(imageFiles.map(n=>native.loadImage(root+'/assets/'+n)));for(const im of loaded){im.naturalWidth=im.width;im.naturalHeight=im.height;Object.defineProperty(im,'src',{configurable:true,get(){return 'native-image';},set(v){}});}let imageIndex=0;function Img(){return loaded[imageIndex++];}
+const saves=new Map(),context={console,document:doc,Image:Img,innerWidth:1440,innerHeight:900,devicePixelRatio:1,performance:{now:()=>0},requestAnimationFrame:()=>{},setTimeout:()=>1,clearTimeout:()=>{},localStorage:{getItem:k=>saves.get(k)||null,setItem:(k,v)=>saves.set(k,v)},confirm:()=>true,HTMLInputElement:El,HTMLSelectElement:El,Blob,URL,addEventListener:()=>{}};
+context.window=context;context.MythosGuardianAssets={atlas:{
+  "directions": [
+    "south",
+    "west",
+    "east",
+    "north"
+  ],
+  "sheets": {
+    "idle": {
+      "file": "guardian-idle-game.png",
+      "columns": 4,
+      "rows": [
+        {
+          "direction": "south",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 80,
+              "sy": 96,
+              "sw": 97,
+              "sh": 132,
+              "anchorX": 48,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 337,
+              "sy": 96,
+              "sw": 96,
+              "sh": 132,
+              "anchorX": 47,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 593,
+              "sy": 95,
+              "sw": 97,
+              "sh": 133,
+              "anchorX": 47,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 849,
+              "sy": 96,
+              "sw": 96,
+              "sh": 132,
+              "anchorX": 47,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "west",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 86,
+              "sy": 352,
+              "sw": 82,
+              "sh": 132,
+              "anchorX": 42,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 342,
+              "sy": 351,
+              "sw": 82,
+              "sh": 133,
+              "anchorX": 42,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 598,
+              "sy": 352,
+              "sw": 82,
+              "sh": 132,
+              "anchorX": 42,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 854,
+              "sy": 352,
+              "sw": 82,
+              "sh": 132,
+              "anchorX": 42,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "east",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 87,
+              "sy": 608,
+              "sw": 83,
+              "sh": 132,
+              "anchorX": 41,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 343,
+              "sy": 608,
+              "sw": 83,
+              "sh": 132,
+              "anchorX": 41,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 599,
+              "sy": 608,
+              "sw": 83,
+              "sh": 132,
+              "anchorX": 41,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 855,
+              "sy": 608,
+              "sw": 83,
+              "sh": 132,
+              "anchorX": 41,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "north",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 82,
+              "sy": 865,
+              "sw": 94,
+              "sh": 131,
+              "anchorX": 46,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 338,
+              "sy": 864,
+              "sw": 94,
+              "sh": 132,
+              "anchorX": 46,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 594,
+              "sy": 863,
+              "sw": 93,
+              "sh": 133,
+              "anchorX": 46,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 850,
+              "sy": 865,
+              "sw": 94,
+              "sh": 131,
+              "anchorX": 46,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            }
+          ]
+        }
+      ],
+      "width": 1024,
+      "height": 1024
+    },
+    "walk": {
+      "file": "guardian-walk-game.png",
+      "columns": 6,
+      "rows": [
+        {
+          "direction": "south",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 82,
+              "sy": 93,
+              "sw": 96,
+              "sh": 135,
+              "anchorX": 46,
+              "anchorY": 132.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 346,
+              "sy": 97,
+              "sw": 95,
+              "sh": 131,
+              "anchorX": 38,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 595,
+              "sy": 99,
+              "sw": 96,
+              "sh": 129,
+              "anchorX": 45,
+              "anchorY": 126.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 847,
+              "sy": 96,
+              "sw": 95,
+              "sh": 132,
+              "anchorX": 49,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1107,
+              "sy": 103,
+              "sw": 94,
+              "sh": 125,
+              "anchorX": 45,
+              "anchorY": 122.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1361,
+              "sy": 95,
+              "sw": 97,
+              "sh": 133,
+              "anchorX": 47,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "west",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 85,
+              "sy": 351,
+              "sw": 94,
+              "sh": 133,
+              "anchorX": 43,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 333,
+              "sy": 352,
+              "sw": 89,
+              "sh": 132,
+              "anchorX": 51,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 602,
+              "sy": 353,
+              "sw": 85,
+              "sh": 131,
+              "anchorX": 38,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 857,
+              "sy": 352,
+              "sw": 85,
+              "sh": 132,
+              "anchorX": 39,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1113,
+              "sy": 354,
+              "sw": 81,
+              "sh": 130,
+              "anchorX": 39,
+              "anchorY": 127.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1363,
+              "sy": 353,
+              "sw": 89,
+              "sh": 131,
+              "anchorX": 45,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "east",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 75,
+              "sy": 605,
+              "sw": 91,
+              "sh": 135,
+              "anchorX": 53,
+              "anchorY": 132.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 345,
+              "sy": 608,
+              "sw": 76,
+              "sh": 132,
+              "anchorX": 39,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 594,
+              "sy": 608,
+              "sw": 75,
+              "sh": 132,
+              "anchorX": 46,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 844,
+              "sy": 607,
+              "sw": 77,
+              "sh": 133,
+              "anchorX": 52,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1112,
+              "sy": 610,
+              "sw": 77,
+              "sh": 130,
+              "anchorX": 40,
+              "anchorY": 127.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1366,
+              "sy": 609,
+              "sw": 75,
+              "sh": 131,
+              "anchorX": 42,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "north",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 74,
+              "sy": 863,
+              "sw": 92,
+              "sh": 133,
+              "anchorX": 54,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 341,
+              "sy": 863,
+              "sw": 92,
+              "sh": 133,
+              "anchorX": 43,
+              "anchorY": 130.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 600,
+              "sy": 865,
+              "sw": 91,
+              "sh": 131,
+              "anchorX": 40,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 851,
+              "sy": 867,
+              "sw": 93,
+              "sh": 129,
+              "anchorX": 45,
+              "anchorY": 126.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1101,
+              "sy": 870,
+              "sw": 92,
+              "sh": 126,
+              "anchorX": 51,
+              "anchorY": 123.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1353,
+              "sy": 864,
+              "sw": 93,
+              "sh": 132,
+              "anchorX": 55,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        }
+      ],
+      "width": 1536,
+      "height": 1024
+    },
+    "run": {
+      "file": "guardian-run-game.png",
+      "columns": 6,
+      "rows": [
+        {
+          "direction": "south",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 76,
+              "sy": 93,
+              "sw": 101,
+              "sh": 135,
+              "anchorX": 52,
+              "anchorY": 132.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 344,
+              "sy": 96,
+              "sw": 102,
+              "sh": 132,
+              "anchorX": 40,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 603,
+              "sy": 111,
+              "sw": 100,
+              "sh": 117,
+              "anchorX": 37,
+              "anchorY": 114.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 837,
+              "sy": 94,
+              "sw": 104,
+              "sh": 134,
+              "anchorX": 59,
+              "anchorY": 131.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1106,
+              "sy": 101,
+              "sw": 98,
+              "sh": 127,
+              "anchorX": 46,
+              "anchorY": 124.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1372,
+              "sy": 108,
+              "sw": 104,
+              "sh": 120,
+              "anchorX": 36,
+              "anchorY": 117.28,
+              "hairEnd": 14
+            }
+          ]
+        },
+        {
+          "direction": "west",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 91,
+              "sy": 349,
+              "sw": 105,
+              "sh": 135,
+              "anchorX": 37,
+              "anchorY": 132.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 342,
+              "sy": 352,
+              "sw": 87,
+              "sh": 132,
+              "anchorX": 42,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 584,
+              "sy": 368,
+              "sw": 93,
+              "sh": 116,
+              "anchorX": 56,
+              "anchorY": 113.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 866,
+              "sy": 350,
+              "sw": 98,
+              "sh": 134,
+              "anchorX": 30,
+              "anchorY": 131.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1110,
+              "sy": 356,
+              "sw": 82,
+              "sh": 128,
+              "anchorX": 42,
+              "anchorY": 125.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1359,
+              "sy": 365,
+              "sw": 105,
+              "sh": 119,
+              "anchorX": 49,
+              "anchorY": 116.28,
+              "hairEnd": 13
+            }
+          ]
+        },
+        {
+          "direction": "east",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 58,
+              "sy": 605,
+              "sw": 108,
+              "sh": 135,
+              "anchorX": 70,
+              "anchorY": 132.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 340,
+              "sy": 608,
+              "sw": 80,
+              "sh": 132,
+              "anchorX": 44,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 613,
+              "sy": 622,
+              "sw": 84,
+              "sh": 118,
+              "anchorX": 27,
+              "anchorY": 115.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 823,
+              "sy": 604,
+              "sw": 99,
+              "sh": 136,
+              "anchorX": 73,
+              "anchorY": 133.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1117,
+              "sy": 609,
+              "sw": 85,
+              "sh": 131,
+              "anchorX": 35,
+              "anchorY": 128.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1376,
+              "sy": 622,
+              "sw": 82,
+              "sh": 118,
+              "anchorX": 32,
+              "anchorY": 115.28,
+              "hairEnd": 13
+            }
+          ]
+        },
+        {
+          "direction": "north",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 69,
+              "sy": 860,
+              "sw": 99,
+              "sh": 136,
+              "anchorX": 59,
+              "anchorY": 133.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 337,
+              "sy": 864,
+              "sw": 97,
+              "sh": 132,
+              "anchorX": 47,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 590,
+              "sy": 872,
+              "sw": 98,
+              "sh": 124,
+              "anchorX": 50,
+              "anchorY": 121.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 846,
+              "sy": 862,
+              "sw": 103,
+              "sh": 134,
+              "anchorX": 50,
+              "anchorY": 131.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1094,
+              "sy": 866,
+              "sw": 98,
+              "sh": 130,
+              "anchorX": 58,
+              "anchorY": 127.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 1347,
+              "sy": 871,
+              "sw": 100,
+              "sh": 125,
+              "anchorX": 61,
+              "anchorY": 122.28,
+              "hairEnd": 14
+            }
+          ]
+        }
+      ],
+      "width": 1536,
+      "height": 1024
+    },
+    "attack": {
+      "file": "guardian-attack-game.png",
+      "columns": 6,
+      "rows": [
+        {
+          "direction": "south",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 79,
+              "sy": 94,
+              "sw": 103,
+              "sh": 134,
+              "anchorX": 49,
+              "anchorY": 131.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 316,
+              "sy": 106,
+              "sw": 118,
+              "sh": 122,
+              "anchorX": 68,
+              "anchorY": 119.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 589,
+              "sy": 93,
+              "sw": 109,
+              "sh": 135,
+              "anchorX": 51,
+              "anchorY": 132.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 848,
+              "sy": 102,
+              "sw": 102,
+              "sh": 126,
+              "anchorX": 48,
+              "anchorY": 123.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1103,
+              "sy": 104,
+              "sw": 139,
+              "sh": 124,
+              "anchorX": 49,
+              "anchorY": 121.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1362,
+              "sy": 96,
+              "sw": 98,
+              "sh": 132,
+              "anchorX": 46,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "west",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 90,
+              "sy": 349,
+              "sw": 74,
+              "sh": 135,
+              "anchorX": 38,
+              "anchorY": 132.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 325,
+              "sy": 367,
+              "sw": 93,
+              "sh": 117,
+              "anchorX": 59,
+              "anchorY": 114.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 590,
+              "sy": 350,
+              "sw": 89,
+              "sh": 134,
+              "anchorX": 50,
+              "anchorY": 131.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 807,
+              "sy": 362,
+              "sw": 125,
+              "sh": 122,
+              "anchorX": 89,
+              "anchorY": 119.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1057,
+              "sy": 364,
+              "sw": 132,
+              "sh": 120,
+              "anchorX": 95,
+              "anchorY": 117.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1369,
+              "sy": 352,
+              "sw": 73,
+              "sh": 132,
+              "anchorX": 39,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "east",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 93,
+              "sy": 604,
+              "sw": 73,
+              "sh": 136,
+              "anchorX": 35,
+              "anchorY": 133.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 342,
+              "sy": 620,
+              "sw": 93,
+              "sh": 120,
+              "anchorX": 42,
+              "anchorY": 117.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 591,
+              "sy": 602,
+              "sw": 99,
+              "sh": 138,
+              "anchorX": 49,
+              "anchorY": 135.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 860,
+              "sy": 618,
+              "sw": 127,
+              "sh": 122,
+              "anchorX": 36,
+              "anchorY": 119.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 1114,
+              "sy": 624,
+              "sw": 141,
+              "sh": 116,
+              "anchorX": 38,
+              "anchorY": 113.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 1373,
+              "sy": 608,
+              "sw": 76,
+              "sh": 132,
+              "anchorX": 35,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        },
+        {
+          "direction": "north",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 79,
+              "sy": 862,
+              "sw": 98,
+              "sh": 134,
+              "anchorX": 49,
+              "anchorY": 131.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 329,
+              "sy": 877,
+              "sw": 115,
+              "sh": 119,
+              "anchorX": 55,
+              "anchorY": 116.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 584,
+              "sy": 857,
+              "sw": 100,
+              "sh": 139,
+              "anchorX": 56,
+              "anchorY": 136.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 835,
+              "sy": 879,
+              "sw": 124,
+              "sh": 117,
+              "anchorX": 61,
+              "anchorY": 114.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 1095,
+              "sy": 886,
+              "sw": 146,
+              "sh": 110,
+              "anchorX": 57,
+              "anchorY": 107.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 1359,
+              "sy": 864,
+              "sw": 100,
+              "sh": 132,
+              "anchorX": 49,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            }
+          ]
+        }
+      ],
+      "width": 1536,
+      "height": 1024
+    },
+    "death": {
+      "file": "guardian-death-game.png",
+      "columns": 6,
+      "rows": [
+        {
+          "direction": "south",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 81,
+              "sy": 96,
+              "sw": 98,
+              "sh": 133,
+              "anchorX": 47,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 336,
+              "sy": 108,
+              "sw": 97,
+              "sh": 121,
+              "anchorX": 48,
+              "anchorY": 117.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 595,
+              "sy": 120,
+              "sw": 108,
+              "sh": 109,
+              "anchorX": 45,
+              "anchorY": 105.28,
+              "hairEnd": 12
+            },
+            {
+              "sx": 841,
+              "sy": 132,
+              "sw": 120,
+              "sh": 97,
+              "anchorX": 55,
+              "anchorY": 93.28,
+              "hairEnd": 11
+            },
+            {
+              "sx": 1095,
+              "sy": 152,
+              "sw": 129,
+              "sh": 77,
+              "anchorX": 57,
+              "anchorY": 73.28,
+              "hairEnd": 9
+            },
+            {
+              "sx": 1353,
+              "sy": 167,
+              "sw": 128,
+              "sh": 62,
+              "anchorX": 55,
+              "anchorY": 58.28,
+              "hairEnd": 8
+            }
+          ]
+        },
+        {
+          "direction": "west",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 91,
+              "sy": 352,
+              "sw": 73,
+              "sh": 133,
+              "anchorX": 37,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 348,
+              "sy": 366,
+              "sw": 77,
+              "sh": 119,
+              "anchorX": 36,
+              "anchorY": 115.28,
+              "hairEnd": 13
+            },
+            {
+              "sx": 599,
+              "sy": 383,
+              "sw": 78,
+              "sh": 102,
+              "anchorX": 41,
+              "anchorY": 98.28,
+              "hairEnd": 12
+            },
+            {
+              "sx": 834,
+              "sy": 394,
+              "sw": 109,
+              "sh": 91,
+              "anchorX": 62,
+              "anchorY": 87.28,
+              "hairEnd": 11
+            },
+            {
+              "sx": 1088,
+              "sy": 415,
+              "sw": 122,
+              "sh": 70,
+              "anchorX": 64,
+              "anchorY": 66.28,
+              "hairEnd": 9
+            },
+            {
+              "sx": 1349,
+              "sy": 430,
+              "sw": 127,
+              "sh": 55,
+              "anchorX": 59,
+              "anchorY": 51.28,
+              "hairEnd": 7
+            }
+          ]
+        },
+        {
+          "direction": "east",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 90,
+              "sy": 608,
+              "sw": 73,
+              "sh": 133,
+              "anchorX": 38,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 345,
+              "sy": 620,
+              "sw": 75,
+              "sh": 121,
+              "anchorX": 39,
+              "anchorY": 117.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 601,
+              "sy": 636,
+              "sw": 79,
+              "sh": 105,
+              "anchorX": 39,
+              "anchorY": 101.28,
+              "hairEnd": 12
+            },
+            {
+              "sx": 849,
+              "sy": 647,
+              "sw": 113,
+              "sh": 94,
+              "anchorX": 47,
+              "anchorY": 90.28,
+              "hairEnd": 11
+            },
+            {
+              "sx": 1101,
+              "sy": 669,
+              "sw": 120,
+              "sh": 72,
+              "anchorX": 51,
+              "anchorY": 68.28,
+              "hairEnd": 9
+            },
+            {
+              "sx": 1349,
+              "sy": 684,
+              "sw": 125,
+              "sh": 57,
+              "anchorX": 59,
+              "anchorY": 53.28,
+              "hairEnd": 7
+            }
+          ]
+        },
+        {
+          "direction": "north",
+          "flip": false,
+          "scale": 1,
+          "frames": [
+            {
+              "sx": 81,
+              "sy": 864,
+              "sw": 99,
+              "sh": 133,
+              "anchorX": 47,
+              "anchorY": 129.28,
+              "hairEnd": 15
+            },
+            {
+              "sx": 332,
+              "sy": 875,
+              "sw": 99,
+              "sh": 122,
+              "anchorX": 52,
+              "anchorY": 118.28,
+              "hairEnd": 14
+            },
+            {
+              "sx": 580,
+              "sy": 896,
+              "sw": 113,
+              "sh": 101,
+              "anchorX": 60,
+              "anchorY": 97.28,
+              "hairEnd": 12
+            },
+            {
+              "sx": 844,
+              "sy": 909,
+              "sw": 119,
+              "sh": 88,
+              "anchorX": 52,
+              "anchorY": 84.28,
+              "hairEnd": 10
+            },
+            {
+              "sx": 1075,
+              "sy": 930,
+              "sw": 134,
+              "sh": 67,
+              "anchorX": 77,
+              "anchorY": 63.28,
+              "hairEnd": 8
+            },
+            {
+              "sx": 1336,
+              "sy": 949,
+              "sw": 138,
+              "sh": 48,
+              "anchorX": 72,
+              "anchorY": 44.28,
+              "hairEnd": 6
+            }
+          ]
+        }
+      ],
+      "width": 1536,
+      "height": 1024
+    }
+  },
+  "frameCount": 112
+},images:{idle:'test',walk:'test',run:'test',attack:'test',death:'test'},portrait:'test'};vm.createContext(context);for(const name of ['passive-catalog','passive-model','passive-effects','core','world','guardian-renderer','guardian','render','ui','cursor-rules','cursor','inventory-model','inventory','character-model','character','passive-window','game'])vm.runInContext(fs.readFileSync(root+'/src/'+name+'.js','utf8'),context,{filename:name+'.js'});
+const g=context.mythos,C=context.MythosCore;g.random=()=>.5;let checks=0;const check=(name,fn)=>{fn();checks++;console.log('PASS',name);};
+check('constructor/title/start/HUD',()=>{g.start(false);assert.equal(g.state,'play');assert.equal(g.p.level,1);assert.equal(g.p.unspent,5);assert.equal(doc.getElementById('hud').hidden,false);assert.ok(saves.size);});
+check('all panels render and bind without runtime errors',()=>{for(const panel of ['character','inventory','tree','map','settings','stone','death','guide']){g.open(panel);assert.equal(g.panel,panel);assert.ok(doc.getElementById('modalBody').innerHTML.length>100);g.close();}});
+check('attribute buttons preview all four attributes, enforce limits and cancel',()=>{g.p=C.fresh('Atributos');g.resetRuntime([]);g.open('character');const before=JSON.stringify(g.p);for(const k of C.ATTRS){assert.equal(doc.getElementById('characterRemove-'+k).disabled,true);doc.getElementById('characterAdd-'+k).click();assert.equal(g.character.draft.added[k],1);}assert.equal(g.p.unspent,5);assert.equal(JSON.stringify(g.p),before);doc.getElementById('characterRemove-magia').click();assert.equal(g.character.draft.added.magia,0);for(let i=0;i<6;i++)doc.getElementById('characterAdd-forca').click();assert.equal(context.AttributeDraft.total(g.character.draft),5);assert.equal(doc.getElementById('characterAdd-forca').disabled,true);doc.getElementById('characterCancel').click();assert.equal(context.AttributeDraft.total(g.character.draft),0);assert.equal(JSON.stringify(g.p),before);assert.equal(doc.getElementById('characterApply').disabled,true);g.close();});
+check('apply commits once, updates resources and saves only committed attributes',()=>{g.p=C.fresh('Salvar');g.p.hp=250;g.p.mp=80;g.resetRuntime([]);g.open('character');for(const k of ['forca','vitalidade','magia'])doc.getElementById('characterAdd-'+k).click();g.save();assert.equal(JSON.parse([...saves.values()].at(-1)).player.attrs.magia,5);const apply=doc.getElementById('characterApply').onclick;apply();assert.equal(g.p.unspent,2);assert.equal(g.p.attrs.magia,6);assert.equal(g.p.hp,270);assert.equal(g.p.mp,90);assert.equal(doc.getElementById('characterApply').disabled,true);const confirmed=JSON.stringify(g.p);apply();assert.equal(JSON.stringify(g.p),confirmed);const loaded=C.validateSave(JSON.parse([...saves.values()].at(-1)).player);assert.equal(loaded.attrs.forca,6);assert.equal(loaded.attrs.vitalidade,6);assert.equal(loaded.attrs.magia,6);assert.equal(loaded.unspent,2);doc.getElementById('characterAdd-forca').click();doc.getElementById('characterCancel').click();assert.equal(JSON.stringify(g.p),confirmed);g.close();});
+check('X, Escape and switching panels discard only pending attribute changes',()=>{g.p=C.fresh('Fechar');g.resetRuntime([]);const before=JSON.stringify(g.p);g.open('character');doc.getElementById('characterAdd-forca').click();doc.getElementById('characterClose').click();assert.equal(g.panel,null);assert.equal(g.character.draft,null);assert.equal(JSON.stringify(g.p),before);g.open('character');doc.getElementById('characterAdd-vitalidade').click();g.keyDown({code:'Escape',preventDefault(){}});assert.equal(g.panel,null);assert.equal(JSON.stringify(g.p),before);g.open('character');doc.getElementById('characterAdd-magia').click();g.open('inventory');assert.equal(g.character.draft,null);assert.equal(JSON.stringify(g.p),before);assert.ok(!doc.getElementById('modal').className.includes('character-modal'));g.open('character');assert.equal(context.AttributeDraft.total(g.character.draft),0);g.close();});
+check('stale attribute preview and a character with zero points cannot spend twice',()=>{g.p=C.fresh('Saldo');g.resetRuntime([]);g.open('character');doc.getElementById('characterAdd-forca').click();C.allocate(g.p,'magia');assert.equal(g.character.apply(),false);assert.equal(g.p.attrs.forca,5);assert.equal(g.p.attrs.magia,6);assert.equal(context.AttributeDraft.total(g.character.draft),0);while(g.p.unspent)C.allocate(g.p,'destreza');g.open('character');assert.equal(doc.getElementById('characterApply').disabled,true);for(const k of C.ATTRS){assert.equal(doc.getElementById('characterAdd-'+k).disabled,true);doc.getElementById('characterAdd-'+k).click();}assert.equal(context.AttributeDraft.total(g.character.draft),0);g.close();});
+
+const P=context.MythosPassives,M=context.MythosStudy;function preparePassives(ids=[]){g.p=C.fresh('Passivas');while(g.p.level<99)C.gainXP(g.p,C.xpFor(g.p.level));g.p.gold=100;g.p.x=715;g.p.y=1610;g.resetRuntime([]);let draft=new Set();for(const id of ids){const path=M.pathTo(draft,id);for(const n of path)draft.add(n);}if(draft.size)assert.ok(C.commitPassives(g.p,Array.from(draft)));g.random=()=>.5;return C.stats(g.p);}
+check('game tree has 800 nodes, hover is read-only and Apply changes real character once',()=>{preparePassives();g.open('tree');assert.equal(g.passive.nodes.size,800);assert.equal(doc.querySelector('#testLevel'),null);const before=C.stats(g.p),node=g.passive.nodes.get('cluster_2_0_notable');node.onmouseenter({clientX:1400,clientY:880});assert.equal(doc.getElementById('tooltipTitle').textContent,'Mente Aberta');assert.ok(doc.getElementById('tooltipStats').innerHTML.includes('25%'));assert.equal(g.p.tree.length,0);g.passive.select('cluster_2_0_notable');doc.getElementById('editPassive').click();assert.equal(C.stats(g.p).passives.manaRegen,undefined);assert.ok(g.passive.draft.size>0);const apply=doc.getElementById('apply').onclick;assert.equal(apply(),true);assert.ok(C.stats(g.p).passives.manaRegen>=25);assert.ok(C.EFFECTS.regen(C.stats(g.p),false).mp>C.EFFECTS.regen(before,false).mp);const confirmed=JSON.stringify(g.p);assert.equal(apply(),false);assert.equal(JSON.stringify(g.p),confirmed);const loaded=C.validateSave(JSON.parse(JSON.stringify(g.snapshot())).player);assert.equal(loaded.passiveVersion,2);assert.equal(C.stats(loaded).passives.manaRegen,C.stats(g.p).passives.manaRegen);g.close();});
+check('tree preview cancel, close and stale handlers never alter applied bonuses',()=>{preparePassives(['road_0_1']);const before=JSON.stringify(g.p);g.open('tree');g.passive.select('cluster_0_0_notable');doc.getElementById('editPassive').click();assert.equal(JSON.stringify(g.p),before);doc.getElementById('cancel').click();assert.equal(g.passive.draft.size,g.p.tree.length);g.passive.select('road_0_5');doc.getElementById('editPassive').click();const old=g.passive;g.keyDown({code:'Escape',preventDefault(){}});assert.equal(g.panel,null);assert.equal(old.apply(),false);assert.equal(JSON.stringify(g.p),before);g.open('character');doc.getElementById('characterAllStats').click();assert.equal(g.panel,'passiveStats');assert.ok(doc.getElementById('modalBody').innerHTML.includes('Mana regenerada fora de combate'));g.close();});
+check('tree respec revalidates cost and location, charging only on successful Apply',()=>{preparePassives(['road_0_5']);g.p.bag.push('lamina');assert.ok(C.equip(g.p,'lamina'));g.open('tree');doc.getElementById('clear').click();const before=JSON.stringify(g.p);g.combat=2;assert.equal(g.passive.apply(),false);assert.equal(JSON.stringify(g.p),before);g.combat=0;g.p.gold=0;assert.equal(g.passive.apply(),false);g.p.gold=100;assert.equal(g.passive.apply(),true);assert.equal(g.p.gold,80);assert.equal(g.p.equipment.weapon,'espada');assert.equal(g.p.tree.length,0);assert.equal(g.p.treePoints,98);assert.equal(g.passive.apply(),false);assert.equal(g.p.gold,80);g.close();});
+check('real regeneration, movement and basic cadence consume applied passive stats',()=>{const s=preparePassives(['cluster_1_1_notable','cluster_2_0_notable','cluster_4_2_notable','cluster_7_0_notable']);g.p.x=715;g.p.y=1690;g.p.hp=s.hp-100;g.p.mp=s.mp-100;g.enemies=[];const hp=g.p.hp,mp=g.p.mp,x=g.p.x;g.keys.add('KeyD');g.update(.05);g.keys.clear();const regen=C.EFFECTS.regen(s,false);assert.ok(Math.abs(g.p.hp-hp-regen.hp*.05)<1e-6);assert.ok(Math.abs(g.p.mp-mp-regen.mp*.05)<1e-6);assert.ok(Math.abs(g.p.x-x-s.moveSpeed*.05)<1e-6);g.basic();assert.ok(Math.abs(g.cooldowns.basic-.58/s.attackSpeed)<1e-8);assert.ok(g.cooldowns.basic<.58);g.action=null;});
+check('mana costs and both potion families use effective passive recovery',()=>{const s=preparePassives(['cluster_2_3_notable','cluster_7_3_notable','cluster_7_4_notable']);g.p.learned=true;g.p.blockLearned=true;const mp=g.p.mp;g.skill(1);assert.ok(Math.abs(mp-g.p.mp-10*s.manaCostMultiplier)<1e-6);assert.equal(g.cooldowns.frontal,5);g.action=null;g.p.hp=1;g.p.potions.hp=2;g.potion('hp');assert.ok(Math.abs(g.p.hp-1-C.EFFECTS.potion(s,'hp'))<1e-6);assert.equal(g.cooldowns.hp,20);g.p.mp=0;g.p.potions.mp=2;g.potion('mp');assert.ok(Math.abs(g.mpHeal-C.EFFECTS.potion(s,'mp'))<1e-6);assert.ok(Math.abs(g.mpHealRate*5-g.mpHeal)<1e-6);});
+check('venom and bleeding proc on actual hits and ticks damage and rewards only once',()=>{preparePassives(['cluster_5_0_notable','cluster_5_2_notable']);g.p.x=1020;g.p.y=1200;g.random=()=>0;const e=g.enemies[0];e.x=g.p.x+30;e.y=g.p.y;e.sx=e.x;e.sy=e.y;e.spec={...e.spec,hp:10000};e.hp=10000;e.state='chase';g.release({id:'basic',hand:'weapon',angle:0});assert.ok(e.dots.poison);assert.ok(e.dots.bleed);const hp=e.hp;g.tickEnemyDots(e,1);assert.ok(e.hp<hp);g.p.x=C.SPAWN.x;g.p.y=C.SPAWN.y;const safeHP=e.hp;g.tickEnemyDots(e,1);assert.equal(e.hp,safeHP);assert.equal(Object.keys(e.dots).length,0);g.p.x=1020;g.p.y=1200;e.hp=.1;g.inflictEnemyDots(e,[{kind:'poison',power:10,duration:4}]);const count=g.p.flags.broto;g.tickEnemyDots(e,1);assert.equal(e.dead,true);assert.equal(g.p.flags.broto,count+1);g.tickEnemyDots(e,1);assert.equal(g.p.flags.broto,count+1);g.random=()=>.5;});
+check('resists, passive block recovery, poison defense and control resistance affect runtime',()=>{const s=preparePassives(['cluster_3_4_notable','cluster_5_5_notable','cluster_6_1_notable','cluster_7_1_notable']);g.p.hp=s.hp;g.aim=0;g.random=()=>0;const initial=g.p.hp;g.takeDamage(100,'physical',g.p.x+50,g.p.y,false);const blocked=initial-g.p.hp;assert.equal(blocked,Math.max(1,Math.round(C.EFFECTS.incoming(s,100,'physical',true))));assert.ok(g.blockRecoveryTime>0);const hp=g.p.hp;g.takeDamage(100,'physical',g.p.x+50,g.p.y,false);assert.equal(hp-g.p.hp,Math.round(C.EFFECTS.incoming(s,100,'physical',false)));for(const kind of ['fire','cold','lightning']){const before=g.p.hp;g.takeDamage(100,kind,g.p.x+50,g.p.y,true);assert.equal(before-g.p.hp,Math.round(C.EFFECTS.incoming(s,100,kind)));}g.applyHarm('poison',8,4);const poisoned=g.p.hp;g.tickHarms(.5,s);assert.ok(Math.abs(poisoned-g.p.hp-C.EFFECTS.incoming(s,8,'poison')*.5)<1e-6);g.applyControl('stun',1);assert.ok(g.stunTime<1);g.action=null;g.cooldowns.basic=0;g.basic();assert.equal(g.action,null);g.stunTime=0;g.applyControl('slow',4,.4);assert.ok(C.EFFECTS.slowAmount(s,g.slowPower)<.4);g.refreshHUD();assert.ok(doc.getElementById('passiveConditions').textContent.includes('Lentidão'));g.slowTime=0;g.slowPower=.8;g.applyControl('slow',2,.2);assert.equal(g.slowPower,.2);g.random=()=>.5;});
+check('analysis tools test compatible attack sources and use actual character level',()=>{preparePassives();g.open('settings');doc.getElementById('testPassives99').click();assert.equal(g.p.level,99);assert.equal(g.panel,'tree');assert.equal(g.passive.level,99);g.close();for(const kind of ['physical','area','projectile','magic','fire','cold','lightning']){g.open('settings');doc.getElementById('labSource').value=kind;doc.getElementById('labAttack').click();assert.equal(g.panel,null);assert.ok(g.floaters.length);}g.open('settings');doc.getElementById('labIncoming').value='poison';doc.getElementById('labHurt').click();assert.ok(g.harms.some(d=>d.kind==='poison'));g.open('settings');doc.getElementById('labControl').value='slow';doc.getElementById('labApplyControl').click();assert.ok(g.slowTime>0);g.resetRuntime([]);});
+check('movement, obstacle and map connectivity',()=>{g.p.x=715;g.p.y=1690;g.keys.add('KeyD');const old=g.p.x;for(let i=0;i<30;i++)g.update(1/60);assert.ok(g.p.x>old+50);g.keys.clear();const step=24,cols=Math.ceil(C.W/step),rows=Math.ceil(C.H/step),start=[Math.round(C.SPAWN.x/step),Math.round(C.SPAWN.y/step)],queue=[start],seen=new Set([start.join(',')]);for(let i=0;i<queue.length;i++){const[x,y]=queue[i];for(const[dx,dy]of[[1,0],[-1,0],[0,1],[0,-1]]){const nx=x+dx,ny=y+dy,key=nx+','+ny;if(nx<0||ny<0||nx>=cols||ny>=rows||seen.has(key)||!C.validPosition(nx*step,ny*step,13,g.world.obstacles))continue;seen.add(key);queue.push([nx,ny]);}}for(const o of [...g.world.npcs,...g.world.crystals,...g.enemies]){let found=false;for(let dx=-2;dx<=2;dx++)for(let dy=-2;dy<=2;dy++)if(seen.has((Math.round(o.x/step)+dx)+','+(Math.round(o.y/step)+dy)))found=true;assert.ok(found,'unreachable '+(o.name||o.type));}console.log('reachable grid cells',seen.size);});
+check('full introductory quest to skill training',()=>{g.p=C.fresh('Teste');g.p.x=795;g.p.y=1600;g.interact();doc.getElementById('guideActions').children[0].click();assert.equal(g.p.quest,1);g.close();g.p.x=1020;g.p.y=1410;g.interact();assert.equal(g.p.flags.stone,true);g.close();g.aim=0;g.dodge();assert.equal(g.p.flags.dodged,true);g.dash=null;g.p.x=795;g.p.y=1600;g.open('guide');doc.getElementById('guideActions').children[0].click();assert.equal(g.p.quest,2);g.close();for(const type of ['broto','broto','broto','gosma','gosma']){const e=g.enemies.find(e=>e.type===type&&!e.dead);g.kill(e);}g.p.x=795;g.p.y=1600;g.open('guide');doc.getElementById('guideActions').children[0].click();assert.equal(g.p.quest,3);g.close();for(const crystal of g.world.crystals){g.p.x=crystal.x;g.p.y=crystal.y+30;g.interact();}g.p.x=795;g.p.y=1600;g.open('guide');doc.getElementById('guideActions').children[0].click();assert.equal(g.p.quest,4);assert.equal(g.p.level,5);doc.getElementById('guideActions').children[0].click();assert.equal(g.p.learned,true);assert.equal(g.p.blockLearned,true);assert.equal(g.p.quest,5);assert.ok(g.p.bag.includes('lamina'));g.close();});
+check('frontal cone, mana, cooldown and cancellation',()=>{g.resetRuntime();g.p.x=1000;g.p.y=1150;g.aim=0;const a=g.enemies[0],b=g.enemies[1];a.x=1048;a.y=1150;b.x=960;b.y=1150;const hpA=a.hp,hpB=b.hp,mp=g.p.mp;g.skill(1);assert.equal(g.p.mp,mp-10);assert.equal(g.cooldowns.frontal,5);g.action.elapsed=.25;g.release(g.action);assert.ok(a.hp<hpA);assert.equal(b.hp,hpB);g.action=null;g.cooldowns.dash=0;g.dodge();assert.equal(g.action,null);assert.ok(g.cooldowns.frontal>0);});
+check('dash immunity, front block, area exception and potion family',()=>{g.resetRuntime();const s=C.stats(g.p);g.p.hp=s.hp;g.p.x=1100;g.p.y=1200;g.aim=0;g.blockTime=2;g.takeDamage(100,'physical',1200,1200,false);const blocked=s.hp-g.p.hp;g.p.hp=s.hp;g.takeDamage(100,'physical',1200,1200,true);assert.ok(s.hp-g.p.hp>blocked*3-2);g.dash={elapsed:.1};const old=g.p.hp;assert.equal(g.takeDamage(100,'physical',1200,1200,true),false);assert.equal(g.p.hp,old);g.dash=null;g.p.potions.hp=5;g.cooldowns.hp=0;g.potion('hp');assert.equal(g.p.potions.hp,4);assert.equal(g.cooldowns.hp,20);assert.equal(g.cooldowns.mp,0);});
+check('boss completion, visible equipment and roundtrip export data',()=>{const e=g.enemies.find(e=>e.type==='boss');g.kill(e);assert.equal(g.p.flags.boss,true);g.p.x=795;g.p.y=1600;g.open('guide');doc.getElementById('guideActions').children[0].click();assert.equal(g.p.quest,6);assert.ok(g.p.bag.includes('aurora'));for(let i=0;i<5;i++)C.allocate(g.p,'forca');assert.ok(C.equip(g.p,'lamina'));assert.ok(C.equip(g.p,'aurora'));const copy=C.validateSave(JSON.parse(JSON.stringify(g.snapshot())).player);assert.equal(copy.equipment.weapon,'lamina');assert.equal(copy.quest,6);g.close();});
+check('settings tool wiring and death recovery',()=>{g.open('settings');doc.getElementById('testTraining').click();assert.equal(g.panel,'guide');g.close();g.p.hp=1;g.takeDamage(10000,'physical',g.p.x+10,g.p.y,true);assert.equal(g.life,'dying');assert.equal(g.p.hp,0);assert.equal(g.panel,null);const deathX=g.p.x;g.keys.add('KeyD');g.update(.04);assert.equal(g.p.x,deathX);for(let i=0;i<20;i++)g.updateDeath(.04);assert.equal(g.panel,'death');assert.equal(g.guardian.frame(),5);assert.equal(g.p.hp,0);assert.equal(g.snapshot().player.hp,C.stats(g.p).hp);g.close();assert.equal(g.life,'alive');assert.equal(g.p.x,C.SPAWN.x);assert.equal(g.p.hp,C.stats(g.p).hp);});
+check('blocked local storage remains playable',()=>{const old=context.localStorage.setItem;context.localStorage.setItem=()=>{throw Error('blocked')};g.save();assert.equal(g.storageOK,false);context.localStorage.setItem=old;g.save();assert.equal(g.storageOK,true);});
+check('long simulation and renderer execute without exceptions',()=>{g.p.x=1120;g.p.y=1100;g.resetRuntime();for(let i=0;i<600;i++){g.time+=1/60;g.update(1/60);}g.renderer.draw();assert.ok(Number.isFinite(g.p.hp)&&g.p.hp>0);});
+check('chat channels keep messages as text and cap history',()=>{const input=doc.getElementById('chatInput');g.ui.selectChannel('Grupo');input.value='<img src=x onerror=alert(1)>';g.ui.send();assert.ok(g.ui.messages.at(-1).text.includes('<img'));const line=doc.getElementById('chatLog').children.at(-1);assert.ok(line.textContent.includes('<img'));assert.equal(line.children.length,0);assert.equal(input.value,'');g.ui.selectChannel('Sistema');input.value='blocked';const count=g.ui.messages.length;g.ui.send();assert.equal(g.ui.messages.length,count);assert.equal(input.disabled,true);g.ui.selectChannel('Geral');for(let i=0;i<105;i++)g.ui.system('Mensagem '+i);assert.equal(g.ui.messages.length,100);});
+check('typing chat cannot trigger movement, techniques or potions',()=>{g.resetRuntime();g.keys.add('KeyW');g.mouse.down=true;g.ui.focusChat();assert.equal(g.keys.size,0);assert.equal(g.mouse.down,false);const target=doc.getElementById('chatInput');g.p.hp=100;const hp=g.p.hp,potions=g.p.potions.hp;for(const code of ['KeyD','Digit1','F1'])g.keyDown({code,target,preventDefault(){},repeat:false});assert.equal(g.keys.size,0);assert.equal(g.action,null);assert.equal(g.p.hp,hp);assert.equal(g.p.potions.hp,potions);target.onkeydown({code:'Escape',preventDefault(){},stopPropagation(){}});assert.notEqual(doc.activeElement,target);});
+check('quest folding persists in save and location reflects movement',()=>{g.settings.questsCollapsed=false;g.ui.applyPreferences();doc.getElementById('questToggle').click();assert.equal(g.settings.questsCollapsed,true);assert.equal(doc.getElementById('questContent').hidden,true);assert.equal(g.snapshot().settings.questsCollapsed,true);assert.equal(doc.getElementById('questToggle').getAttribute('aria-expanded'),'false');doc.getElementById('questToggle').click();assert.equal(doc.getElementById('questContent').hidden,false);g.p.x=888;g.p.y=1234;g.refreshHUD();assert.ok(doc.getElementById('coordinates').textContent.includes('888'));assert.ok(doc.getElementById('coordinates').textContent.includes('1234'));g.open('inventory');assert.ok(doc.getElementById('inventoryGold'));assert.equal(doc.getElementById('goldText'),undefined);g.close();});
+check('cursor changes over NPC, completed mission, resource and enemies',()=>{g.p=C.fresh('Cursor');g.resetRuntime();const aelric=g.world.npcs.find(n=>n.id==='aelric'),point={x:aelric.x,y:aelric.y-25};assert.equal(g.pointerTarget(point).cursor,'talk');g.p.quest=1;g.p.flags.stone=true;g.p.flags.dodged=true;assert.equal(g.pointerTarget(point).cursor,'quest');g.p.quest=6;assert.equal(g.pointerTarget(point).cursor,'talk');g.p.flags.crystals=[];const c=g.world.crystals[0];assert.equal(g.pointerTarget({x:c.x,y:c.y-20}).cursor,'gather');g.p.flags.crystals.push(c.id);assert.equal(g.pointerTarget({x:c.x,y:c.y-20}).cursor,'normal');g.p.x=1000;g.p.y=1150;const enemy=g.enemies[0];assert.equal(g.pointerTarget({x:enemy.x,y:enemy.y-25}).cursor,'attack');g.p.x=715;g.p.y=1690;assert.equal(g.pointerTarget({x:enemy.x,y:enemy.y-25}).cursor,'normal');enemy.dead=true;g.p.x=1000;g.p.y=1150;assert.equal(g.pointerTarget({x:enemy.x,y:enemy.y-25}).cursor,'normal');assert.equal(g.pointerTarget({x:100,y:100}).cursor,'normal');});
+check('loot stays on ground until an explicit click and cannot duplicate',()=>{g.p=C.fresh('Saque');g.resetRuntime();g.p.x=715;g.p.y=1690;g.loot=[{x:725,y:1695,kind:'gold',amount:11,life:120}];const item=g.loot[0];for(let i=0;i<5;i++)g.update(.02);assert.equal(g.p.gold,0);assert.equal(g.loot.length,1);assert.equal(g.pointerTarget({x:item.x,y:item.y-5}).cursor,'pickup');g.camera={x:0,y:0,scale:1};g.worldPointerDown({button:0,clientX:item.x,clientY:item.y-5,shiftKey:false});assert.equal(g.p.gold,11);assert.equal(g.loot.length,0);assert.equal(g.mouse.down,false);assert.equal(g.pickupLoot(item),false);assert.equal(g.p.gold,11);assert.equal(g.pointerTarget({x:item.x,y:item.y-5}).cursor,'normal');const far={x:1200,y:1800,kind:'gold',amount:8,life:120};g.loot.push(far);assert.equal(g.pickupLoot(far),false);assert.equal(g.p.gold,11);g.p.potions.hp=99;const full={x:720,y:1695,kind:'hp',amount:1,life:120};g.loot.push(full);assert.equal(g.pickupLoot(full),false);assert.ok(g.loot.includes(full));});
+check('clicking distant NPC never activates a different nearby object',()=>{g.p=C.fresh('Alvo');g.resetRuntime();g.p.x=650;g.p.y=1130;g.camera={x:0,y:0,scale:1};const n=g.world.npcs.find(n=>n.id==='aelric');g.worldPointerDown({button:0,clientX:n.x,clientY:n.y-25,shiftKey:false});assert.equal(g.p.flags.crystals.length,0);assert.equal(g.panel,null);assert.equal(g.mouse.down,false);});
+check('safe camp prevents hostile damage caused by the player',()=>{g.p=C.fresh('Seguro');g.resetRuntime();const e=g.enemies[0];e.x=g.p.x+30;e.y=g.p.y;const hp=e.hp;g.release({id:'basic',angle:0});assert.equal(e.hp,hp);});
+check('cursor layer uses asset hotspots, animation timing and UI override',()=>{const cursor=g.cursor;cursor.assets=JSON.parse(fs.readFileSync(root+'/assets/cursors/cursors.json'));cursor.images=cursorImages;cursor.canvas=doc.createElement('canvas');cursor.ctx=cursor.canvas.getContext('2d');cursor.ready=true;cursor.visible=true;doc.documentElement=doc.querySelector('html');doc.elementFromPoint=()=>g.renderer.canvas;g.state='play';g.panel=null;g.p=C.fresh('Cursor');g.camera={x:0,y:0,scale:1};const npc=g.world.npcs.find(n=>n.id==='aelric');cursor.x=npc.x;cursor.y=npc.y-25;cursor.tick(1000);assert.equal(cursor.mode,'talk');assert.equal(cursor.canvas.style.transform,'translate3d('+(cursor.x-8)+'px,'+(cursor.y-30)+'px,0)');doc.elementFromPoint=()=>doc.getElementById('profile');cursor.tick(1100);assert.equal(cursor.mode,'normal');assert.equal(cursor.lastFrame,0);cursor.tick(1168);assert.equal(cursor.lastFrame,1);cursor.hide();cursor.tick(1200);assert.equal(cursor.canvas.hidden,true);});
+check('inventory has 16 equipment slots, 48 bag spaces and closed coin popup',()=>{g.p=C.fresh('Inventário');g.resetRuntime([]);g.open('inventory');assert.equal(doc.querySelectorAll('[data-slot]').length,16);assert.equal(doc.querySelectorAll('[data-cell]').length,48);assert.equal(doc.getElementById('coinPopup').hidden,true);assert.equal(g.inventory.dropOpen,false);assert.ok(!doc.getElementById('modalBody').innerHTML.includes('Organizar'));assert.equal(context.InventoryModel.entries(g.p).length,2);g.inventory.unequip('armor');assert.equal(g.p.equipment.armor,null);assert.equal(context.InventoryModel.entries(g.p).length,3);g.inventory.equip('cota','armor');assert.equal(g.p.equipment.armor,'cota');assert.equal(g.inventory.equip('espada','armor'),false);assert.equal(g.p.equipment.armor,'cota');g.inventory.render('Roupas');g.inventory.render('Normal');g.close();});
+check('clothes tabs preserve equipment and coin flow while collection stays empty',()=>{g.p=C.fresh('Roupas');g.p.gold=90;g.resetRuntime([]);g.open('inventory');const before=JSON.stringify(g.p.equipment),tabs=doc.querySelectorAll('[data-inv-tab]');assert.deepEqual(tabs.map(b=>b.dataset.invTab),['Normal','Roupas']);tabs[1].click();assert.equal(g.inventory.tab,'Roupas');assert.equal(doc.querySelectorAll('[data-cosmetic-slot]').length,6);assert.equal(doc.querySelectorAll('[data-slot]').length,0);assert.equal(doc.querySelectorAll('[data-cell]').length,48);assert.equal(doc.querySelector('#clothesSilhouette'),null);assert.ok(doc.getElementById('modalBody').innerHTML.includes('0 / 48'));assert.ok(!doc.getElementById('modalBody').innerHTML.includes('Provador'));assert.equal(JSON.stringify(g.p.equipment),before);assert.equal(doc.getElementById('coinPopup').hidden,true);doc.getElementById('coinDropAmount').value='12';assert.equal(g.inventory.confirmDrop(),false);doc.getElementById('coinDropTrigger').click();doc.getElementById('coinDropAmount').value='12';assert.equal(g.inventory.confirmDrop(),true);assert.equal(g.p.gold,78);assert.equal(g.inventory.tab,'Roupas');assert.equal(doc.getElementById('coinPopup').hidden,true);doc.querySelectorAll('[data-inv-tab]')[0].click();assert.equal(doc.querySelectorAll('[data-slot]').length,16);assert.equal(JSON.stringify(g.p.equipment),before);assert.equal(context.InventoryModel.entries(g.p).length,2);g.inventory.render('Removed');assert.equal(g.inventory.tab,'Normal');g.close();});
+check('coin popup opens only from coin click; cancel and invalid input never spend',()=>{g.p=C.fresh('Moedas');g.p.gold=100;g.resetRuntime([]);g.open('inventory');doc.getElementById('coinDropAmount').value='10';assert.equal(g.inventory.confirmDrop(),false);assert.equal(g.p.gold,100);assert.equal(g.loot.length,0);doc.getElementById('coinDropTrigger').click();assert.equal(g.inventory.dropOpen,true);assert.equal(doc.getElementById('coinPopup').hidden,false);assert.equal(doc.getElementById('inventoryMain').inert,true);doc.getElementById('coinDropAmount').value='40';doc.getElementById('coinDropCancel').click();assert.equal(g.p.gold,100);assert.equal(g.loot.length,0);assert.equal(doc.getElementById('coinPopup').hidden,true);doc.getElementById('coinDropTrigger').click();for(const value of ['0','-1','1.5','1e2','101','Infinity','']){doc.getElementById('coinDropAmount').value=value;assert.equal(g.inventory.confirmDrop(),false);assert.equal(g.p.gold,100);}doc.getElementById('coinDropMax').click();assert.equal(doc.getElementById('coinDropAmount').value,'100');g.p.gold=35;assert.equal(g.inventory.confirmDrop(),false);assert.equal(g.p.gold,35);g.inventory.closeDrop();g.close();});
+check('confirmed coin drop is atomic, saved, restored and picked up once',()=>{g.p=C.fresh('Moedas');g.p.gold=100;g.resetRuntime([]);g.open('inventory');doc.getElementById('coinDropTrigger').click();doc.getElementById('coinDropAmount').value='30';assert.equal(g.inventory.confirmDrop(),true);assert.equal(g.p.gold,70);assert.equal(g.loot.filter(x=>x.playerDropped).length,1);assert.equal(g.inventory.dropOpen,false);assert.equal(g.inventory.confirmDrop(),false);assert.equal(g.p.gold,70);assert.equal(g.loot.length,1);const snapshot=JSON.parse(JSON.stringify(g.snapshot()));assert.equal(snapshot.groundGold.length,1);g.p=C.validateSave(snapshot.player);g.resetRuntime(context.InventoryModel.groundGold(snapshot.groundGold));assert.equal(g.loot.length,1);assert.equal(g.loot[0].amount,30);g.close();const item=g.loot[0];assert.equal(g.pickupLoot(item),true);assert.equal(g.p.gold,100);assert.equal(g.snapshot().groundGold.length,0);assert.equal(g.pickupLoot(item),false);assert.equal(g.p.gold,100);});
+check('hand slots equip a linked two-handed item and remove it only once',()=>{g.p=C.fresh('Mãos');g.resetRuntime([]);g.open('settings');doc.getElementById('testTwoHand').click();assert.equal(g.panel,'inventory');assert.ok(g.p.bag.includes('espadao_treino'));assert.equal(g.inventory.equip('escudo','weapon'),false);assert.equal(g.inventory.equip('espadao_treino','weapon'),true);assert.equal(g.p.equipment.weapon,'espadao_treino');assert.equal(g.p.equipment.offhand,'espadao_treino');g.settings.guardianLook='equipment';const drawn=[],original=g.renderer.drawHeldWeapon;g.renderer.drawHeldWeapon=function(c,x,y,a,item){drawn.push(item.id);return original.call(this,c,x,y,a,item);};g.renderer.human(g.renderer.ctx,0,0,1,0,false);g.renderer.drawHeldWeapon=original;assert.deepEqual(drawn,['espadao_treino']);g.inventory.showItem({id:'espadao_treino',kind:'gear',equipped:'offhand'});assert.ok(doc.getElementById('inventoryItemDetail').innerHTML.includes('>Retirar</button>'));doc.getElementById('itemDetailAction').click();assert.equal(g.p.equipment.weapon,null);assert.equal(g.p.equipment.offhand,null);assert.equal(context.InventoryModel.entries(g.p).filter(i=>i.id==='espadao_treino').length,1);assert.equal(doc.querySelectorAll('[data-slot]').length,16);g.close();});
+check('two one-handed weapons alternate basic attacks without doubling cadence',()=>{g.p=C.fresh('Duas armas');while(g.p.level<5)C.gainXP(g.p,C.xpFor(g.p.level));for(let i=0;i<5;i++)C.allocate(g.p,'forca');g.p.bag.push('lamina');C.equip(g.p,'lamina','offhand');g.resetRuntime([]);g.basic();assert.equal(g.action.hand,'weapon');assert.equal(g.cooldowns.basic,.58);g.action=null;g.cooldowns.basic=0;g.basic();assert.equal(g.action.hand,'offhand');assert.equal(g.cooldowns.basic,.58);g.p.learned=true;g.p.blockLearned=true;g.action=null;g.cooldowns.block=0;const mp=g.p.mp;g.skill(2);assert.equal(g.action,null);assert.equal(g.p.mp,mp);});
+check('approved Guardian walks, runs and follows real attack timing',()=>{g.p=C.fresh('Guardião');g.resetRuntime([]);g.close();g.keys.add('KeyD');g.update(.04);assert.equal(g.guardian.pose.action,'walk');assert.equal(g.guardian.pose.dir,'east');const walkX=g.p.x;g.keys.add('ShiftLeft');g.update(.04);assert.equal(g.guardian.pose.action,'run');assert(g.p.x-walkX>6);g.keys.clear();g.action=null;g.cooldowns.basic=0;g.basic();g.update(.13);assert.equal(g.guardian.pose.action,'attack');assert(g.guardian.frame()>=3);g.action=null;g.update(.04);assert.equal(g.guardian.pose.action,'idle');});
+check('defeat is one-shot, saves a safe spawn and blocks commands',()=>{g.resetRuntime([]);const before=g.deadCount;g.die();g.die();assert.equal(g.deadCount,before+1);const x=g.p.x,y=g.p.y;g.basic();g.potion('hp');g.dodge();g.open('inventory');assert.equal(g.action,null);assert.equal(g.dash,null);assert.equal(g.panel,null);assert.equal(g.p.hp,0);assert.equal(g.p.x,x);assert.equal(g.p.y,y);const snapshot=g.snapshot();assert.equal(snapshot.player.x,C.SPAWN.x);assert(snapshot.player.hp>0);assert.equal(g.p.hp,0);for(let i=0;i<20;i++)g.updateDeath(.04);assert.equal(g.life,'dead');g.close();assert.equal(g.life,'alive');assert.equal(g.guardian.pose.action,'idle');});
+check('appearance setting preserves gear, stats and persistence',()=>{g.open('settings');const before=JSON.stringify(C.stats(g.p)),gear=JSON.stringify(g.p.equipment);doc.getElementById('guardianLook').onchange({target:{value:'equipment'}});assert.equal(g.settings.guardianLook,'equipment');assert.equal(JSON.stringify(C.stats(g.p)),before);assert.equal(JSON.stringify(g.p.equipment),gear);assert.equal(g.snapshot().settings.guardianLook,'equipment');doc.getElementById('guardianLook').onchange({target:{value:'base'}});assert.equal(g.settings.guardianLook,'base');g.close();});
+g.p=C.fresh('Guardião');g.resetRuntime([]);g.close();g.settings.guardianLook='base';g.settings.effects=true;g.floaters=[];g.effects=[];g.loot=[];g.aim=1.57;g.guardian.update(.04);assert(g.guardian.ensure());g.renderer.draw();fs.writeFileSync(root+'/GUARDIAO_NO_BOSQUE.png',g.renderer.canvas.toBuffer('image/png'));
+const grid=native.createCanvas(1200,600),gc=grid.getContext('2d');gc.fillStyle='#24392e';gc.fillRect(0,0,1200,600);const actions=['idle','walk','run','attack','death'];for(let a=0;a<5;a++)for(let d=0;d<4;d++){const pose={action:actions[a],dir:['south','west','east','north'][d],time:0,clock:0,paused:true,frame:()=>actions[a]==='death'?5:actions[a]==='attack'?3:0};g.guardian.renderer.draw(gc,pose,120+a*240,135+d*145,.9,{hair:false});}fs.writeFileSync(root+'/GUARDIAO_ANIMACOES.png',grid.toBuffer('image/png'));
+g.die();for(let i=0;i<20;i++)g.updateDeath(.04);g.renderer.draw();fs.writeFileSync(root+'/GUARDIAO_MORTE_NO_BOSQUE.png',g.renderer.canvas.toBuffer('image/png'));g.close();
+fs.writeFileSync(root+'/GUARDIAO_VALIDACAO.json',JSON.stringify({checks,passed:true,rendering:'Canvas nativo; não navegador',frames:112,source:'HTML v1.0 escolhido + morte',gameIntegrated:true},null,2));
+console.log(JSON.stringify({checks,rendering:'native Canvas; not browser QA',storage:'simulated',passed:true}));
+
+})().catch(e=>{console.error(e);process.exitCode=1;});

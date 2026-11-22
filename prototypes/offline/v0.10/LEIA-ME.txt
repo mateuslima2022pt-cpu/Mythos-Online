@@ -1,0 +1,22 @@
+MYTHOS ONLINE — BOSQUE DA AURORA v0.10
+Guardião escolhido integrado ao jogo completo.
+
+Abra Mythos_Online_Offline_v0.10.html no navegador do desktop.
+O arquivo funciona offline sem instalação ou servidor.
+
+WASD: caminhar. Shift + WASD: correr.
+Mouse esquerdo: mirar/atacar; segure para repetir.
+Q: esquiva. 1/2: técnicas após treinamento. F1/F2: poções.
+F/clique direito: interação. C/I/T/M: personagem/mochila/árvore/mapa.
+Esc: opções. Enter: chat local.
+
+A morte mostra a queda no local e depois oferece retorno ao santuário.
+Esc > Ferramentas de análise > Testar queda do Guardião permite conferir a morte.
+
+O Guardião aprovado aparece por padrão com roupa inicial e espada de madeira.
+Os equipamentos continuam funcionando nos atributos. Para ver o visual equipado
+anterior, use Esc > Aparência do personagem > Equipamentos · visual anterior.
+A arte modular dos itens no novo corpo continua como etapa futura.
+
+Continuar/Importar preservam a jornada. Exporte uma cópia em Opções para backup.
+Consulte README.md e VALIDACAO.md para escopo e verificações.

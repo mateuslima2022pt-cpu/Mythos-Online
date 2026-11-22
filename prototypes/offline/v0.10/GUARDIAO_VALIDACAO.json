@@ -1,0 +1,8 @@
+{
+  "checks": 39,
+  "passed": true,
+  "rendering": "Canvas nativo; não navegador",
+  "frames": 112,
+  "source": "HTML v1.0 escolhido + morte",
+  "gameIntegrated": true
+}

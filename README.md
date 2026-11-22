@@ -111,38 +111,24 @@ até 98 no nível 99. O estudo usa save próprio e não altera o personagem do j
 Os valores são uma proposta para balanceamento. Use **Download raw file** para baixar
 o HTML e abri-lo no navegador, offline.
 
-## Protótipo offline v0.9 — Passivas aplicadas ao personagem
+## Protótipo offline v0.10 — Guardião aprovado em jogo
 
-Bosque da Aurora jogável com Guardião, monstros, missões, chefe, interface clássica,
-cursores contextuais animados, inventário e árvore integrada.
+Bosque da Aurora completo com o Guardião escolhido pelo autor integrado à caminhada,
+corrida, ataque, esquiva e derrota reais. Mantém HUD clássico, monstros, missões,
+inventário, atributos, árvore de passivas aplicada e cursores animados.
 
-- **[Novo HTML autossuficiente](prototypes/offline/v0.9/Mythos_Online_Offline_v0.9.html)**
-- **[Baixar pacote completo ZIP](prototypes/offline/v0.9/Mythos_Online_Offline_v0.9.zip)**
-- [Instruções e código-fonte](prototypes/offline/v0.9/README.md)
-- [Aplicação dos 51 modificadores](prototypes/offline/v0.9/PASSIVAS_APLICACAO.md)
-- [Arquitetura proposta para o MMORPG](prototypes/offline/v0.9/ARQUITETURA.md)
+- **[Baixar o HTML completo do jogo](prototypes/offline/v0.10/Mythos_Online_Offline_v0.10.html)**
+- **[Baixar pacote completo ZIP](prototypes/offline/v0.10/Mythos_Online_Offline_v0.10.zip)**
+- [Controles e escopo da aparência](prototypes/offline/v0.10/README.md)
+- [Validação](prototypes/offline/v0.10/VALIDACAO.md)
+- [Guardião dentro do bosque — Canvas](prototypes/offline/v0.10/GUARDIAO_NO_BOSQUE.png)
 
-No GitHub, use **Download raw file**. Para jogar, abra o HTML no navegador do desktop,
-ou extraia o ZIP e abra o HTML. Funciona offline e sem instalação.
-
-Abra **T**: 800 passivas em 48 grupos, um único Guardião no centro, tooltips, busca,
-zoom, catálogo e prévia. Aplicar confirma os bônus no personagem e salva a distribuição;
-Cancelar/fechar descarta apenas a prévia. O orçamento usa o nível real, até 98 pontos.
-Os 51 modificadores possuem consumidores efetivos no combate, estatísticas, recursos
-e controles. Bônus condicionais exigem arma ou fonte compatível e não concedem
-técnicas ativas novas ao Guardião. **C > Todos os status** exibe os valores efetivos.
-
-Remover passivas aplicadas custa 20 ouro, na clareira e fora de combate. A jornada
-antiga pode ser importada; os pontos gastos na árvore anterior são devolvidos para
-redistribuição. Itens e atributos são preservados. Não importe o arquivo do estudo
-independente como jornada do jogo. O laboratório de passivas nas ferramentas de
-análise permite conferir fontes de dano e controles; preparar nível 99 altera o save.
-
-Versões anteriores: [0.8](prototypes/offline/v0.8/README.md),
-[0.7](prototypes/offline/v0.7/README.md), [0.6](prototypes/offline/v0.6/README.md),
-[0.5](prototypes/offline/v0.5/README.md), [0.4](prototypes/offline/v0.4/README.md),
-[0.3](prototypes/offline/v0.3/README.md), [0.2](prototypes/offline/v0.2/README.md)
-e [0.1](prototypes/offline/v0.1/README.md).
+Baixe e abra o HTML no navegador do desktop. **WASD** caminha, **Shift** corre,
+mouse mira/ataca. Morte executa a queda no local antes do retorno ao santuário.
+O traje inicial aprovado aparece por padrão; itens seguem concedendo atributos.
+Opções permite alternar para o visual equipado anterior; arte modular dos itens
+no novo corpo permanece pendente. Saves anteriores são compatíveis.
+91 testes e 39 verificações com Canvas nativo passaram. Navegador real pendente.
 
 ## Documentação de design — GDD v1.0
 
